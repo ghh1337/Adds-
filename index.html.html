@@ -47,11 +47,12 @@
             font-size: 14px;
             color: #A0A0A0;
             font-weight: bold;
+            width: 30px; /* Фиксированная ширина для выравнивания */
+            text-align: right; /* Выравнивание текста метки */
             margin-right: 8px;
-            flex-shrink: 0;
         }
         input {
-            flex-grow: 1;
+            width: 100%; /* Поля занимают оставшееся место */
             padding: 8px;
             font-size: 14px;
             border: 1px solid #333333;
@@ -59,7 +60,6 @@
             background-color: #2C2C2C;
             color: #FFFFFF;
             box-sizing: border-box;
-            min-width: 0;
         }
         input::placeholder {
             color: #888888;
