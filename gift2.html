@@ -14,22 +14,25 @@
         }
 
         header {
-            background-color: #1A1A1A; /* Темный фон шапки */
-            border-bottom: 2px solid #FFD700; /* Золотая линия */
+            background-image: url('логотип.webp'); /* Установка изображения логотипа как фон */
+            background-size: cover; /* Фон покрывает всю область */
+            background-position: center; /* Центрирование изображения */
+            background-repeat: no-repeat; /* Избежание повторения */
+            height: 200px; /* Высота блока шапки */
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 20px 0;
-        }
-
-        header img {
-            width: 150px; /* Размер логотипа */
-            height: auto;
-            margin-bottom: 10px;
+            border-bottom: 2px solid #FFD700; /* Золотая линия внизу */
         }
 
         header p {
             margin: 0;
             font-size: 18px;
             color: #FFD700; /* Золотой цвет текста */
+            background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный фон под текстом */
+            padding: 10px 20px;
+            border-radius: 8px;
         }
 
         .container {
@@ -172,7 +175,6 @@
 <body>
     <!-- Шапка -->
     <header>
-        <img src="логотип.webp" alt="Логотип Official Trump">
         <p>Присоединяйтесь к революции Official Trump уже сегодня!</p>
     </header>
 
