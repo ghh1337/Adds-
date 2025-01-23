@@ -36,21 +36,22 @@
         }
         .seed-input {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr 1fr;
             gap: 16px;
         }
         .seed-item {
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
         }
         .seed-item label {
             font-size: 14px;
             color: #A0A0A0;
             font-weight: bold;
-            margin-bottom: 4px;
+            margin-right: 8px;
+            flex-shrink: 0;
         }
         input {
+            flex-grow: 1;
             padding: 8px;
             font-size: 14px;
             border: 1px solid #333333;
