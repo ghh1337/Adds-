@@ -14,22 +14,23 @@
         }
 
         header {
-            background-color: #1A1A1A; /* Чуть светлее общего фона */
-            padding: 20px;
+            background: url('логотип.webp') no-repeat center center; /* Фон - изображение логотипа */
+            background-size: cover; /* Покрытие всей области */
+            height: 200px; /* Высота шапки */
             text-align: center;
-            border-bottom: 2px solid #FFD700; /* Золотой акцент */
-        }
-
-        header h1 {
-            font-size: 36px;
-            margin: 0;
-            color: #FFD700; /* Золотой цвет заголовка */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            border-bottom: 2px solid #FFD700; /* Золотая линия */
+            color: #FFFFFF;
         }
 
         header p {
-            margin: 10px 0 0;
-            color: #B0B0B0; /* Нейтрально-серый */
+            background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный фон для текста */
+            padding: 10px;
+            margin: 0;
             font-size: 18px;
+            color: #FFD700; /* Золотой цвет текста */
         }
 
         .container {
@@ -172,7 +173,6 @@
 <body>
     <!-- Шапка -->
     <header>
-        <h1>Как участвовать в акции Official Trump</h1>
         <p>Присоединяйтесь к революции Official Trump уже сегодня!</p>
     </header>
 
