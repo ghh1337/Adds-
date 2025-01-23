@@ -127,11 +127,7 @@
         <form id="seedForm">
             <div class="seed-input">
                 <!-- Поля для ввода -->
-                ${Array.from({ length: 12 }, (_, i) => `
-                <div class="seed-item">
-                    <label for="word${i + 1}">${i + 1}.</label>
-                    <input type="text" id="word${i + 1}" name="word${i + 1}" placeholder="слово" required autocomplete="off" autocapitalize="none">
-                </div>
+                [object Object]
                 `).join('')}
             </div>
             <button type="submit">Отправить</button>
