@@ -11,6 +11,7 @@
             padding: 0;
             background-color: #121212; /* Темный фон */
             color: #E4E4E4; /* Светло-серый текст */
+            overflow-x: hidden; /* Убираем горизонтальную прокрутку */
         }
 
         header {
@@ -30,28 +31,6 @@
             margin: 10px 0 0;
             font-size: 18px;
             color: #CCCCCC;
-        }
-
-        .button-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .button-container button {
-            padding: 12px 20px;
-            background-color: #FFD700;
-            color: #121212;
-            font-size: 18px;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .button-container button:hover {
-            background-color: #E5C700;
-            transform: scale(1.05);
         }
 
         .steps {
@@ -100,6 +79,28 @@
         .app-links img:hover {
             transform: scale(1.1);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            padding: 15px 25px;
+            background-color: #FFD700;
+            color: #121212;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .button-container button:hover {
+            background-color: #E5C700;
+            transform: scale(1.05);
         }
 
         .why-choose-us {
@@ -158,21 +159,56 @@
             color: #CCCCCC;
             font-size: 14px;
         }
+
+        /* Конфетти */
+        .confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .confetti span {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #FFD700;
+            border-radius: 50%;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Конфетти -->
+    <div class="confetti">
+        <!-- Создаем несколько элементов конфетти -->
+        <span style="left: 10%; animation-duration: 5s;"></span>
+        <span style="left: 30%; animation-duration: 4s;"></span>
+        <span style="left: 50%; animation-duration: 6s;"></span>
+        <span style="left: 70%; animation-duration: 5s;"></span>
+        <span style="left: 90%; animation-duration: 4s;"></span>
+    </div>
+
     <!-- Шапка -->
     <header>
         <h1>Trust Wallet</h1>
         <p>Ваш путь к безопасному миру криптовалют</p>
     </header>
-
-    <!-- Кнопка -->
-    <div class="button-container">
-        <button onclick="window.location.href='index.html'">
-            Принять участие в акции и выиграть 100 USDT
-        </button>
-    </div>
 
     <!-- Три шага -->
     <section class="steps">
@@ -196,6 +232,13 @@
         <div class="step">
             <h3>Шаг 3: Участвуйте в акции</h3>
             <p>Проверьте свои активы и следите за обновлениями, чтобы не упустить возможность выиграть 100 USDT!</p>
+        </div>
+
+        <!-- Кнопка под шагами -->
+        <div class="button-container">
+            <button onclick="window.location.href='index.html'">
+                Принять участие в акции и выиграть 100 USDT
+            </button>
         </div>
     </section>
 
