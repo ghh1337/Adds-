@@ -206,28 +206,23 @@
     <script>
         let startX = 0;
         let currentX = 0;
-        let initialPosition = 0; // Начальная позиция
+        let offset = 0; // Начальный сдвиг
         const steps = document.getElementById('steps');
 
         steps.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX; // Начальная позиция
-            initialPosition = steps.getBoundingClientRect().left; // Запоминаем начальное положение контейнера
+            startX = e.touches[0].clientX; // Начальная позиция касания
         });
 
         steps.addEventListener('touchmove', (e) => {
-            currentX = e.touches[0].clientX; // Текущая позиция
-            const diffX = currentX - startX; // Разница в движении пальца
-            const newPosition = initialPosition + diffX;
-
-            // Ограничиваем движение, чтобы не выходить за пределы
-            if (newPosition < 0 && newPosition > -(steps.scrollWidth - steps.offsetWidth)) {
-                steps.style.transform = `translateX(${diffX}px)`; // Применяем движение
-            }
+            currentX = e.touches[0].clientX;
+            const diffX = currentX - startX; // Разница между текущим и начальным положением
+            offset = diffX;
+            steps.style.transform = `translateX(${offset}px)`; // Перемещение блоков
         });
 
         steps.addEventListener('touchend', () => {
             steps.style.transition = 'transform 0.3s ease'; // Плавное возвращение
-            steps.style.transform = 'translateX(0)'; // Возвращаем контейнер на исходную позицию
+            steps.style.transform = 'translateX(0)'; // Возвращаем блоки в исходное положение
         });
     </script>
 </body>
