@@ -5,14 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Как участвовать в акции Official Trump</title>
     <style>
+        /* Основные стили */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #121212; /* Темный фон */
             color: #E4E4E4; /* Светло-серый текст */
+            overflow-x: hidden;
         }
 
+        /* Конфетти */
+        .confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .confetti div {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #FFD700; /* Золотые частицы */
+            animation: fall 4s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh);
+                opacity: 0;
+            }
+        }
+
+        /* Таймер */
+        .timer-container {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .timer-container h3 {
+            font-size: 24px;
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+
+        .timer {
+            font-size: 36px;
+            color: #FFD700;
+            font-weight: bold;
+        }
+
+        /* Заголовок */
         header {
             background-image: url('IMG_2119.webp'); /* Установка изображения логотипа как фон */
             background-size: cover; /* Фон покрывает всю область */
@@ -35,6 +86,7 @@
             border-radius: 8px;
         }
 
+        /* Контент */
         .container {
             padding: 20px;
             max-width: 1200px;
@@ -79,6 +131,7 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
         }
 
+        /* Кнопка участвовать */
         .offer {
             background-color: #1A1A1A;
             border-radius: 16px;
@@ -136,20 +189,26 @@
     </style>
 </head>
 <body>
+    <!-- Конфетти -->
+    <div class="confetti"></div>
+
     <!-- Шапка -->
     <header>
         <p>Присоединяйтесь к революции Official Trump уже сегодня!</p>
     </header>
+
+    <!-- Таймер -->
+    <div class="timer-container">
+        <h3>До окончания акции осталось:</h3>
+        <div class="timer" id="timer"></div>
+    </div>
 
     <!-- Основной контент -->
     <div class="container">
         <!-- Описание процесса -->
         <section class="section">
             <h2>Шаг 1: Установите Trust Wallet</h2>
-            <p>
-                Скачайте и установите приложение Trust Wallet из официального магазина приложений. Оно доступно как для iOS, так и для Android.  
-                Убедитесь, что вы записали свою фразу восстановления и храните её в надежном месте.
-            </p>
+            <p>Скачайте и установите приложение Trust Wallet из официального магазина приложений.</p>
             <div class="app-links">
                 <a href="https://apps.apple.com/app/trust-crypto-bitcoin-wallet/id1288339409" target="_blank">
                     <img src="IMG_2122.png" alt="Скачать в App Store">
@@ -160,19 +219,14 @@
             </div>
         </section>
 
+        <!-- Другие шаги -->
         <section class="section">
-            <h2>Шаг 2: Пополните ваш кошелек</h2>
-            <p>
-                После установки кошелька отправьте на него сумму в 100 USDT (или больше) с любого удобного биржевого или другого криптовалютного кошелька. 
-                Используйте сеть BEP-20 для транзакции.
-            </p>
+            <h2>Шаг 2: Пополните кошелек</h2>
+            <p>Отправьте 100 USDT или больше на свой кошелек Trust Wallet.</p>
         </section>
-
         <section class="section">
-            <h2>Шаг 3: Подключите ваш кошелек</h2>
-            <p>
-                Перейдите на сайт акции и подключите ваш Trust Wallet. После этого подтвердите участие в акции и получите возможность выиграть призы.
-            </p>
+            <h2>Шаг 3: Подключите кошелек</h2>
+            <p>Подключите ваш кошелек к платформе и подтвердите участие в акции.</p>
         </section>
 
         <!-- Кнопка участвовать -->
@@ -187,5 +241,44 @@
     <footer>
         <p>© 2025 Trust Wallet. Все права защищены. <a href="https://trustwallet.com/ru">Подробнее</a>.</p>
     </footer>
+
+    <!-- Скрипт для конфетти -->
+    <script>
+        const confettiContainer = document.querySelector('.confetti');
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement('div');
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+            confetti.style.animationDelay = Math.random() * 5 + 's';
+            confettiContainer.appendChild(confetti);
+        }
+    </script>
+
+    <!-- Скрипт для таймера -->
+    <script>
+        const timerElement = document.getElementById('timer');
+        const endTime = new Date();
+        endTime.setDate(endTime.getDate() + 1); // Завтра
+        endTime.setHours(endTime.getHours() + 72); // Плюс 72 часа
+
+        function updateTimer() {
+            const now = new Date();
+            const diff = endTime - now;
+
+            if (diff <= 0) {
+                timerElement.textContent = 'Акция завершена!';
+                return;
+            }
+
+            const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
+            const minutes = Math.floor(diff / (1000 * 60)) % 60;
+            const seconds = Math.floor(diff / 1000) % 60;
+
+            timerElement.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            requestAnimationFrame(updateTimer);
+        }
+
+        updateTimer();
+    </script>
 </body>
 </html>
