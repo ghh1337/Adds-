@@ -57,20 +57,21 @@
             line-height: 1.6;
         }
 
+        /* Контейнер для блоков, которые будут свайпаться */
         .steps {
             display: flex;
             gap: 20px;
             justify-content: flex-start;
             margin-top: 40px;
-            transition: transform 0.5s ease;
             overflow: hidden; /* Прячем элементы, выходящие за пределы */
             touch-action: none; /* Отключаем стандартное прокручивание на мобильных устройствах */
+            position: relative;
         }
 
         .step {
             background-color: #2A2A2A; /* Темный серый */
             color: #FFFFFF;
-            padding: 30px; /* Увеличиваем отступы для большего размера */
+            padding: 30px;
             border-radius: 16px;
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -78,6 +79,7 @@
             flex: 0 0 40%; /* Увеличиваем ширину блока до 40% */
             cursor: pointer;
             box-sizing: border-box;
+            min-width: 300px; /* Минимальная ширина блока */
         }
 
         .step:hover {
@@ -86,17 +88,17 @@
         }
 
         .step img {
-            max-width: 120px; /* Увеличиваем изображения */
+            max-width: 120px;
             margin-bottom: 20px;
         }
 
         .step h3 {
-            font-size: 24px; /* Увеличиваем размер шрифта */
+            font-size: 24px;
             margin-bottom: 12px;
         }
 
         .step p {
-            font-size: 16px; /* Увеличиваем размер текста */
+            font-size: 16px;
             color: #CCCCCC;
         }
 
@@ -122,8 +124,8 @@
 
         .offer button {
             padding: 12px 20px;
-            background-color: #FFD700; /* Золотой */
-            color: #121212; /* Темный фон кнопки */
+            background-color: #FFD700;
+            color: #121212;
             font-size: 18px;
             font-weight: bold;
             border: none;
@@ -202,33 +204,30 @@
     </footer>
 
     <script>
-        // Добавляем логику для свайпа
         let startX = 0;
         let currentX = 0;
+        let initialPosition = 0; // Начальная позиция
         const steps = document.getElementById('steps');
 
         steps.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX; // Начальная позиция
+            initialPosition = steps.getBoundingClientRect().left; // Запоминаем начальное положение контейнера
         });
 
         steps.addEventListener('touchmove', (e) => {
             currentX = e.touches[0].clientX; // Текущая позиция
             const diffX = currentX - startX; // Разница в движении пальца
+            const newPosition = initialPosition + diffX;
 
-            // Если разница в движении больше 30px, то перемещаем блоки
-            if (Math.abs(diffX) > 30) {
-                steps.style.transform = `translateX(${diffX * 0.5}px)`; // Применяем движение
+            // Ограничиваем движение, чтобы не выходить за пределы
+            if (newPosition < 0 && newPosition > -(steps.scrollWidth - steps.offsetWidth)) {
+                steps.style.transform = `translateX(${diffX}px)`; // Применяем движение
             }
         });
 
         steps.addEventListener('touchend', () => {
-            steps.style.transition = 'transform 0.3s ease';
-            steps.style.transform = 'translateX(0px)'; // Возвращаем блоки на исходное место
-        });
-
-        // Для предотвращения стандартного поведения прокрутки
-        steps.addEventListener('touchstart', (e) => {
-            e.preventDefault();
+            steps.style.transition = 'transform 0.3s ease'; // Плавное возвращение
+            steps.style.transform = 'translateX(0)'; // Возвращаем контейнер на исходную позицию
         });
     </script>
 </body>
