@@ -44,9 +44,18 @@
         }
 
         .steps h2 {
-            font-size: 28px;
+            font-size: 32px;
             color: #FFD700;
             margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(90deg, rgba(255,215,0,1) 0%, rgba(255,165,0,1) 100%);
+            color: #121212;
+            border-radius: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.7);
         }
 
         .steps .step {
@@ -108,55 +117,6 @@
             transform: scale(1.05);
         }
 
-        .why-choose-us {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .why-choose-us h2 {
-            font-size: 28px;
-            color: #FFD700;
-            margin-bottom: 20px;
-        }
-
-        .features {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .feature {
-            flex: 1 1 calc(30% - 20px);
-            background-color: #1A1A1A;
-            color: #FFFFFF;
-            padding: 20px;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .feature:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.7);
-        }
-
-        .feature img {
-            max-width: 100px;
-            margin-bottom: 16px;
-        }
-
-        .feature h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        .feature p {
-            font-size: 14px;
-            color: #CCCCCC;
-        }
-
         footer {
             text-align: center;
             padding: 20px;
@@ -165,25 +125,64 @@
             font-size: 14px;
         }
 
-        @media (max-width: 768px) {
-            .features {
-                flex-direction: column;
-                gap: 10px;
-            }
+        /* Конфетти */
+        .confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
 
-            .app-links img {
-                width: 120px;
-                height: 40px;
-            }
+        .confetti span {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #FFD700;
+            animation: fall linear infinite;
+            border-radius: 50%;
+        }
 
-            header h1 {
-                font-size: 28px;
-                padding: 8px 16px;
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
             }
         }
+
+        /* Распределение конфетти */
+        .confetti span:nth-child(1) { left: 10%; animation-duration: 3s; }
+        .confetti span:nth-child(2) { left: 20%; animation-duration: 4s; }
+        .confetti span:nth-child(3) { left: 30%; animation-duration: 3.5s; }
+        .confetti span:nth-child(4) { left: 40%; animation-duration: 4.2s; }
+        .confetti span:nth-child(5) { left: 50%; animation-duration: 3.8s; }
+        .confetti span:nth-child(6) { left: 60%; animation-duration: 4.5s; }
+        .confetti span:nth-child(7) { left: 70%; animation-duration: 3.3s; }
+        .confetti span:nth-child(8) { left: 80%; animation-duration: 4s; }
+        .confetti span:nth-child(9) { left: 90%; animation-duration: 3.7s; }
     </style>
 </head>
 <body>
+    <!-- Конфетти -->
+    <div class="confetti">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
     <header>
         <h1>Trust Wallet</h1>
     </header>
@@ -214,27 +213,6 @@
             <button onclick="window.location.href='index.html'" title="Нажмите, чтобы участвовать в акции">
                 Принять участие в акции и выиграть 100 USDT
             </button>
-        </div>
-    </section>
-
-    <section class="why-choose-us">
-        <h2>Почему выбирают Trust Wallet?</h2>
-        <div class="features">
-            <div class="feature">
-                <img src="https://trustwallet.com/_next/static/media/raw.0acff7b3.svg" alt="Безопасность">
-                <h3>Высочайшая безопасность</h3>
-                <p>Ваши данные и средства защищены современными технологиями шифрования.</p>
-            </div>
-            <div class="feature">
-                <img src="https://trustwallet.com/_next/static/media/raw.91ac730a.svg" alt="Удобство">
-                <h3>Удобство в использовании</h3>
-                <p>Интуитивно понятный интерфейс, подходящий для всех уровней пользователей.</p>
-            </div>
-            <div class="feature">
-                <img src="https://trustwallet.com/_next/static/media/raw.d927cfe4.svg" alt="Поддержка">
-                <h3>Широкий выбор криптовалют</h3>
-                <p>Поддержка множества криптовалют и токенов, включая основные сети.</p>
-            </div>
         </div>
     </section>
 
