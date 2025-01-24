@@ -211,6 +211,7 @@
 
         steps.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX; // Начальная позиция касания
+            steps.style.transition = 'none'; // Отключаем анимацию на время свайпа
         });
 
         steps.addEventListener('touchmove', (e) => {
