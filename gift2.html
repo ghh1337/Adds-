@@ -60,9 +60,10 @@
         .steps {
             display: flex;
             gap: 20px;
-            justify-content: center;
+            justify-content: flex-start;
             margin-top: 40px;
             transition: transform 0.5s ease;
+            overflow: hidden; /* Прячем элементы, выходящие за пределы */
             touch-action: none; /* Отключаем стандартное прокручивание на мобильных устройствах */
         }
 
@@ -207,21 +208,22 @@
         const steps = document.getElementById('steps');
 
         steps.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
+            startX = e.touches[0].clientX; // Начальная позиция
         });
 
         steps.addEventListener('touchmove', (e) => {
-            currentX = e.touches[0].clientX;
-            const diffX = currentX - startX;
+            currentX = e.touches[0].clientX; // Текущая позиция
+            const diffX = currentX - startX; // Разница в движении пальца
 
+            // Если разница в движении больше 30px, то перемещаем блоки
             if (Math.abs(diffX) > 30) {
-                steps.style.transform = `translateX(${diffX * 0.2}px)`; // Двигаем блоки в зависимости от движения пальца
+                steps.style.transform = `translateX(${diffX * 0.5}px)`; // Применяем движение
             }
         });
 
         steps.addEventListener('touchend', () => {
             steps.style.transition = 'transform 0.3s ease';
-            steps.style.transform = 'translateX(0px)'; // Возвращаем блоки на место
+            steps.style.transform = 'translateX(0px)'; // Возвращаем блоки на исходное место
         });
 
         // Для предотвращения стандартного поведения прокрутки
