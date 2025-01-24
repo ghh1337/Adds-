@@ -15,22 +15,24 @@
         }
 
         header {
+            background-image: url('IMG_2119.webp'); /* Фоновое изображение */
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 20px;
-            background-color: #1A1A1A; /* Темный блок */
+            color: #FFD700;
             border-bottom: 2px solid #FFD700; /* Золотая линия */
         }
 
         header h1 {
             font-size: 36px;
-            color: #FFD700; /* Золотой текст */
             margin: 0;
-        }
-
-        header p {
-            margin: 10px 0 0;
-            font-size: 18px;
-            color: #CCCCCC;
+            background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный фон */
+            padding: 10px 20px;
+            border-radius: 8px;
         }
 
         .steps {
@@ -174,10 +176,9 @@
 
         .confetti span {
             position: absolute;
-            width: 10px;
-            height: 10px;
+            width: 12px;
+            height: 12px;
             background-color: #FFD700;
-            border-radius: 50%;
             animation: fall linear infinite;
         }
 
@@ -196,18 +197,22 @@
 <body>
     <!-- Конфетти -->
     <div class="confetti">
-        <!-- Создаем несколько элементов конфетти -->
-        <span style="left: 10%; animation-duration: 5s;"></span>
-        <span style="left: 30%; animation-duration: 4s;"></span>
-        <span style="left: 50%; animation-duration: 6s;"></span>
-        <span style="left: 70%; animation-duration: 5s;"></span>
-        <span style="left: 90%; animation-duration: 4s;"></span>
+        <!-- Конфетти увеличенной частоты -->
+        <span style="left: 5%; animation-duration: 3s;"></span>
+        <span style="left: 15%; animation-duration: 4s;"></span>
+        <span style="left: 25%; animation-duration: 3.5s;"></span>
+        <span style="left: 35%; animation-duration: 4s;"></span>
+        <span style="left: 45%; animation-duration: 3s;"></span>
+        <span style="left: 55%; animation-duration: 3.5s;"></span>
+        <span style="left: 65%; animation-duration: 4s;"></span>
+        <span style="left: 75%; animation-duration: 3.2s;"></span>
+        <span style="left: 85%; animation-duration: 4.5s;"></span>
+        <span style="left: 95%; animation-duration: 3.8s;"></span>
     </div>
 
     <!-- Шапка -->
     <header>
         <h1>Trust Wallet</h1>
-        <p>Ваш путь к безопасному миру криптовалют</p>
     </header>
 
     <!-- Три шага -->
@@ -258,15 +263,4 @@
             </div>
             <div class="feature">
                 <img src="https://trustwallet.com/_next/static/media/raw.d927cfe4.svg" alt="Поддержка">
-                <h3>Широкий выбор активов</h3>
-                <p>Поддержка более 4.5 миллионов криптовалют и цифровых активов.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Подвал -->
-    <footer>
-        <p>© 2025 Trust Wallet. Все права защищены.</p>
-    </footer>
-</body>
-</html>
+                <h3>Шир
