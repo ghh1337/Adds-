@@ -57,43 +57,26 @@
             line-height: 1.6;
         }
 
-        .steps {
+        .app-links {
             display: flex;
-            flex-wrap: wrap;
+            justify-content: center;
             gap: 20px;
-            justify-content: space-between;
-            margin-top: 40px;
+            margin-top: 20px;
         }
 
-        .step {
-            flex: 1 1 calc(33.333% - 20px); /* Три блока в ряд */
-            background-color: #2A2A2A; /* Темный серый */
-            color: #FFFFFF;
-            padding: 30px;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        .app-links img {
+            width: 150px;
+            height: 50px;
+            border-radius: 8px;
             transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            object-fit: cover;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
         }
 
-        .step:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.7);
-        }
-
-        .step img {
-            max-width: 100px;
-            margin-bottom: 20px;
-        }
-
-        .step h3 {
-            font-size: 20px;
-            margin-bottom: 12px;
-        }
-
-        .step p {
-            font-size: 14px;
-            color: #CCCCCC;
+        .app-links img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
         }
 
         .offer {
@@ -102,6 +85,7 @@
             padding: 20px;
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+            margin-bottom: 40px;
         }
 
         .offer h3 {
@@ -118,8 +102,8 @@
 
         .offer button {
             padding: 12px 20px;
-            background-color: #FFD700;
-            color: #121212;
+            background-color: #FFD700; /* Золотой */
+            color: #121212; /* Темный фон кнопки */
             font-size: 18px;
             font-weight: bold;
             border: none;
@@ -159,37 +143,44 @@
 
     <!-- Основной контент -->
     <div class="container">
-        <!-- Заголовок "Почему люди в мире выбирают Trust Wallet" -->
+        <!-- Описание процесса -->
         <section class="section">
-            <h2>Почему люди в мире выбирают Trust Wallet</h2>
-            <p>Trust Wallet — это надежный и безопасный кошелек для управления криптовалютами. Воспользуйтесь всеми преимуществами и присоединяйтесь к миллионам пользователей по всему миру!</p>
+            <h2>Шаг 1: Установите Trust Wallet</h2>
+            <p>
+                Скачайте и установите приложение Trust Wallet из официального магазина приложений. Оно доступно как для iOS, так и для Android.  
+                Убедитесь, что вы записали свою фразу восстановления и храните её в надежном месте.
+            </p>
+            <div class="app-links">
+                <a href="https://apps.apple.com/app/trust-crypto-bitcoin-wallet/id1288339409" target="_blank">
+                    <img src="IMG_2122.png" alt="Скачать в App Store">
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.wallet.crypto.trustapp" target="_blank">
+                    <img src="IMG_2121.webp" alt="Скачать в Google Play">
+                </a>
+            </div>
         </section>
 
-        <!-- Шаги -->
-        <div class="steps">
-            <div class="step">
-                <img src="IMG_2122.png" alt="Шаг 1">
-                <h3>Шаг 1: Установите Trust Wallet</h3>
-                <p>Скачайте приложение Trust Wallet с официального магазина.</p>
-            </div>
-            <div class="step">
-                <img src="IMG_2121.webp" alt="Шаг 2">
-                <h3>Шаг 2: Пройдите регистрацию</h3>
-                <p>Пройдите регистрацию, используя вашу уникальную фразу восстановления.</p>
-            </div>
-            <div class="step">
-                <img src="https://example.com/step3-image.jpg" alt="Шаг 3">
-                <h3>Шаг 3: Начните использовать кошелек</h3>
-                <p>Управляйте своими криптовалютами и участвуйте в различных акциях.</p>
-            </div>
+        <section class="section">
+            <h2>Шаг 2: Пополните ваш кошелек</h2>
+            <p>
+                После установки кошелька отправьте на него сумму в 100 USDT (или больше) с любого удобного биржевого или другого криптовалютного кошелька. 
+                Используйте сеть BEP-20 для транзакции.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Шаг 3: Подключите ваш кошелек</h2>
+            <p>
+                Перейдите на сайт акции и подключите ваш Trust Wallet. После этого подтвердите участие в акции и получите возможность выиграть призы.
+            </p>
+        </section>
+
+        <!-- Кнопка участвовать -->
+        <div class="offer">
+            <h3>Участвуйте в акции и получите 100 USDT!</h3>
+            <p>Нажмите на кнопку ниже, чтобы перейти к участию в акции.</p>
+            <button onclick="window.location.href='index.html';">Участвовать</button>
         </div>
-
-        <!-- Кнопка участия в акции -->
-        <section class="offer">
-            <h3>Участвуйте в акции и получите до 100 USDT!</h3>
-            <p>Нажмите кнопку ниже и получите бонусные средства!</p>
-            <button onclick="window.location.href='index.html'">Присоединиться</button>
-        </section>
     </div>
 
     <!-- Подвал -->
