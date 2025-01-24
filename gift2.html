@@ -57,34 +57,13 @@
             line-height: 1.6;
         }
 
-        .app-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .app-links img {
-            width: 150px;
-            height: 50px;
-            border-radius: 8px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-            object-fit: cover;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-        }
-
-        .app-links img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
-        }
-
         .steps {
             display: flex;
             gap: 20px;
             justify-content: center;
             margin-top: 40px;
             transition: transform 0.5s ease;
+            touch-action: none; /* Отключаем стандартное прокручивание на мобильных устройствах */
         }
 
         .step {
@@ -117,19 +96,6 @@
         .step p {
             font-size: 14px;
             color: #CCCCCC;
-        }
-
-        /* Анимация для сдвига блоков */
-        .steps:hover .step:nth-child(1) {
-            transform: translateX(-20px); /* Сдвигаем влево */
-        }
-
-        .steps:hover .step:nth-child(2) {
-            transform: translateX(20px); /* Сдвигаем вправо */
-        }
-
-        .steps:hover .step:nth-child(3) {
-            transform: translateX(-20px); /* Сдвигаем влево */
         }
 
         .offer {
@@ -202,7 +168,7 @@
         </section>
 
         <!-- Шаги -->
-        <div class="steps">
+        <div class="steps" id="steps">
             <div class="step">
                 <img src="https://example.com/step1-image.jpg" alt="Шаг 1">
                 <h3>Шаг 1: Установите Trust Wallet</h3>
@@ -232,5 +198,35 @@
     <footer>
         <p>© 2025 Trust Wallet. Все права защищены. <a href="https://trustwallet.com/ru">Подробнее</a>.</p>
     </footer>
+
+    <script>
+        // Добавляем логику для свайпа
+        let startX = 0;
+        let currentX = 0;
+        const steps = document.getElementById('steps');
+
+        steps.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+
+        steps.addEventListener('touchmove', (e) => {
+            currentX = e.touches[0].clientX;
+            const diffX = currentX - startX;
+
+            if (Math.abs(diffX) > 30) {
+                steps.style.transform = `translateX(${diffX * 0.2}px)`; // Двигаем блоки в зависимости от движения пальца
+            }
+        });
+
+        steps.addEventListener('touchend', () => {
+            steps.style.transition = 'transform 0.3s ease';
+            steps.style.transform = 'translateX(0px)'; // Возвращаем блоки на место
+        });
+
+        // Для предотвращения стандартного поведения прокрутки
+        steps.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+        });
+    </script>
 </body>
 </html>
