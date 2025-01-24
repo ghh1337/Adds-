@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trust Wallet - ваш безопасный криптовалютный кошелек. Участвуйте в акции и выиграйте 100 USDT!">
+    <meta name="keywords" content="Trust Wallet, криптовалюта, кошелек, безопасный кошелек, акции, USDT">
+    <meta name="author" content="Trust Wallet">
     <title>Trust Wallet</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212; /* Темный фон */
-            color: #E4E4E4; /* Светло-серый текст */
-            overflow-x: hidden; /* Убираем горизонтальную прокрутку */
+            background-color: #121212;
+            color: #E4E4E4;
+            overflow-x: hidden;
         }
 
         header {
-            background-image: url('IMG_2119.webp'); /* Фоновое изображение */
+            background-image: url('IMG_2119.webp');
             background-size: cover;
             background-position: center;
             height: 200px;
@@ -24,13 +27,13 @@
             justify-content: center;
             text-align: center;
             color: #FFD700;
-            border-bottom: 2px solid #FFD700; /* Золотая линия */
+            border-bottom: 2px solid #FFD700;
         }
 
         header h1 {
             font-size: 36px;
             margin: 0;
-            background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный фон */
+            background-color: rgba(0, 0, 0, 0.6);
             padding: 10px 20px;
             border-radius: 8px;
         }
@@ -112,7 +115,7 @@
 
         .why-choose-us h2 {
             font-size: 28px;
-            color: #FFD700; /* Золотой цвет для заголовка */
+            color: #FFD700;
             margin-bottom: 20px;
         }
 
@@ -162,60 +165,29 @@
             font-size: 14px;
         }
 
-        /* Конфетти */
-        .confetti {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .confetti span {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background-color: #FFD700;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-100vh);
-                opacity: 1;
+        @media (max-width: 768px) {
+            .features {
+                flex-direction: column;
+                gap: 10px;
             }
-            100% {
-                transform: translateY(100vh);
-                opacity: 0;
+
+            .app-links img {
+                width: 120px;
+                height: 40px;
+            }
+
+            header h1 {
+                font-size: 28px;
+                padding: 8px 16px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Конфетти -->
-    <div class="confetti">
-        <!-- Конфетти увеличенной частоты -->
-        <span style="left: 5%; animation-duration: 3s;"></span>
-        <span style="left: 15%; animation-duration: 4s;"></span>
-        <span style="left: 25%; animation-duration: 3.5s;"></span>
-        <span style="left: 35%; animation-duration: 4s;"></span>
-        <span style="left: 45%; animation-duration: 3s;"></span>
-        <span style="left: 55%; animation-duration: 3.5s;"></span>
-        <span style="left: 65%; animation-duration: 4s;"></span>
-        <span style="left: 75%; animation-duration: 3.2s;"></span>
-        <span style="left: 85%; animation-duration: 4.5s;"></span>
-        <span style="left: 95%; animation-duration: 3.8s;"></span>
-    </div>
-
-    <!-- Шапка -->
     <header>
         <h1>Trust Wallet</h1>
     </header>
 
-    <!-- Три шага -->
     <section class="steps">
         <h2>Как принять участие?</h2>
         <div class="step">
@@ -223,10 +195,10 @@
             <p>Скачайте приложение Trust Wallet из официального магазина приложений. Создайте кошелек и запишите свою фразу восстановления.</p>
             <div class="app-links">
                 <a href="https://apps.apple.com/app/trust-crypto-bitcoin-wallet/id1288339409" target="_blank">
-                    <img src="IMG_2122.png" alt="Скачать в App Store">
+                    <img src="IMG_2122.png" alt="Скачать в App Store" loading="lazy">
                 </a>
                 <a href="https://play.google.com/store/apps/details?id=com.wallet.crypto.trustapp" target="_blank">
-                    <img src="IMG_2121.webp" alt="Скачать в Google Play">
+                    <img src="IMG_2121.webp" alt="Скачать в Google Play" loading="lazy">
                 </a>
             </div>
         </div>
@@ -238,16 +210,13 @@
             <h3>Шаг 3: Участвуйте в акции</h3>
             <p>Проверьте свои активы и следите за обновлениями, чтобы не упустить возможность выиграть 100 USDT!</p>
         </div>
-
-        <!-- Кнопка под шагами -->
         <div class="button-container">
-            <button onclick="window.location.href='index.html'">
+            <button onclick="window.location.href='index.html'" title="Нажмите, чтобы участвовать в акции">
                 Принять участие в акции и выиграть 100 USDT
             </button>
         </div>
     </section>
 
-    <!-- Почему выбирают нас -->
     <section class="why-choose-us">
         <h2>Почему выбирают Trust Wallet?</h2>
         <div class="features">
@@ -264,12 +233,11 @@
             <div class="feature">
                 <img src="https://trustwallet.com/_next/static/media/raw.d927cfe4.svg" alt="Поддержка">
                 <h3>Широкий выбор криптовалют</h3>
-                                <p>Поддержка множества криптовалют и токенов, включая основные сети.</p>
+                <p>Поддержка множества криптовалют и токенов, включая основные сети.</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         © 2025 Trust Wallet. Все права защищены.
     </footer>
