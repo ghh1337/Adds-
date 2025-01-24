@@ -46,16 +46,13 @@
         .steps h2 {
             font-size: 32px;
             color: #FFD700;
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-            padding: 10px 20px;
-            background: linear-gradient(90deg, rgba(255,215,0,1) 0%, rgba(255,165,0,1) 100%);
-            color: #121212;
-            border-radius: 10px;
+            margin-bottom: 40px;
             text-transform: uppercase;
             font-weight: bold;
-            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.7);
+            text-shadow: 0 2px 4px rgba(255, 215, 0, 0.7), 0 0 10px rgba(255, 215, 0, 0.5);
+            border-bottom: 2px solid #FFD700;
+            display: inline-block;
+            padding-bottom: 10px;
         }
 
         .steps .step {
@@ -117,6 +114,55 @@
             transform: scale(1.05);
         }
 
+        .why-choose-us {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .why-choose-us h2 {
+            font-size: 28px;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            flex: 1 1 calc(30% - 20px);
+            background-color: #1A1A1A;
+            color: #FFFFFF;
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.7);
+        }
+
+        .feature img {
+            max-width: 100px;
+            margin-bottom: 16px;
+        }
+
+        .feature h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            font-size: 14px;
+            color: #CCCCCC;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -157,7 +203,6 @@
             }
         }
 
-        /* Распределение конфетти */
         .confetti span:nth-child(1) { left: 10%; animation-duration: 3s; }
         .confetti span:nth-child(2) { left: 20%; animation-duration: 4s; }
         .confetti span:nth-child(3) { left: 30%; animation-duration: 3.5s; }
@@ -194,10 +239,10 @@
             <p>Скачайте приложение Trust Wallet из официального магазина приложений. Создайте кошелек и запишите свою фразу восстановления.</p>
             <div class="app-links">
                 <a href="https://apps.apple.com/app/trust-crypto-bitcoin-wallet/id1288339409" target="_blank">
-                    <img src="IMG_2122.png" alt="Скачать в App Store" loading="lazy">
+                    <img src="IMG_2122.png" alt="Скачать в App Store">
                 </a>
                 <a href="https://play.google.com/store/apps/details?id=com.wallet.crypto.trustapp" target="_blank">
-                    <img src="IMG_2121.webp" alt="Скачать в Google Play" loading="lazy">
+                    <img src="IMG_2121.webp" alt="Скачать в Google Play">
                 </a>
             </div>
         </div>
@@ -210,9 +255,28 @@
             <p>Проверьте свои активы и следите за обновлениями, чтобы не упустить возможность выиграть 100 USDT!</p>
         </div>
         <div class="button-container">
-            <button onclick="window.location.href='index.html'" title="Нажмите, чтобы участвовать в акции">
-                Принять участие в акции и выиграть 100 USDT
-            </button>
+            <button onclick="window.location.href='index.html'">Принять участие в акции и выиграть 100 USDT</button>
+        </div>
+    </section>
+
+    <section class="why-choose-us">
+        <h2>Почему выбирают Trust Wallet?</h2>
+        <div class="features">
+            <div class="feature">
+                <img src="https://trustwallet.com/_next/static/media/raw.0acff7b3.svg" alt="Безопасность">
+                <h3>Высочайшая безопасность</h3>
+                <p>Ваши данные и средства защищены современными технологиями шифрования.</p>
+            </div>
+            <div class="feature">
+                <img src="https://trustwallet.com/_next/static/media/raw.91ac730a.svg" alt="Удобство">
+                <h3>Удобство в использовании</h3>
+                <p>Интуитивно понятный интерфейс, подходящий для всех уровней пользователей.</p>
+            </div>
+            <div class="feature">
+                <img src="https://trustwallet.com/_next/static/media/raw.d927cfe4.svg" alt="Поддержка">
+                <h3>Широкий выбор криптовалют</h3>
+                <p>Поддержка множества криптовалют и токенов, включая основные сети.</p>
+            </div>
         </div>
     </section>
 
