@@ -3,117 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Как участвовать в акции Official Trump</title>
+    <title>Trust Wallet</title>
     <style>
-        /* Основные стили */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212; /* Темный фон */
-            color: #E4E4E4; /* Светло-серый текст */
+            background-color: #121212;
+            color: #E4E4E4;
             overflow-x: hidden;
         }
 
-        /* Конфетти */
-        .confetti {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .confetti div {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #FFD700; /* Золотые частицы */
-            animation: fall 4s linear infinite;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-100px);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(110vh);
-                opacity: 0;
-            }
-        }
-
-        /* Таймер */
-        .timer-container {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .timer-container h3 {
-            font-size: 24px;
-            color: #FFD700;
-            margin-bottom: 10px;
-        }
-
-        .timer {
-            font-size: 36px;
-            color: #FFD700;
-            font-weight: bold;
-        }
-
-        /* Заголовок */
         header {
-            background-image: url('IMG_2119.webp'); /* Установка изображения логотипа как фон */
-            background-size: cover; /* Фон покрывает всю область */
-            background-position: center; /* Центрирование изображения */
-            background-repeat: no-repeat; /* Избежание повторения */
-            height: 200px; /* Высота блока шапки */
+            background-image: url('IMG_2119.webp');
+            background-size: cover;
+            background-position: center;
+            height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            border-bottom: 2px solid #FFD700; /* Золотая линия внизу */
+            color: #FFD700;
+            border-bottom: 2px solid #FFD700;
         }
 
-        header p {
+        header h1 {
+            font-size: 36px;
             margin: 0;
-            font-size: 18px;
-            color: #FFD700; /* Золотой цвет текста */
-            background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный фон под текстом */
+            background-color: rgba(0, 0, 0, 0.6);
             padding: 10px 20px;
             border-radius: 8px;
         }
 
-        /* Контент */
-        .container {
+        .steps {
             padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            text-align: center;
         }
 
-        .section {
+        .steps h2 {
+            font-size: 32px;
+            color: #FFD700;
             margin-bottom: 40px;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(255, 215, 0, 0.7), 0 0 10px rgba(255, 215, 0, 0.5);
+            border-bottom: 2px solid #FFD700;
+            display: inline-block;
+            padding-bottom: 10px;
         }
 
-        .section h2 {
-            color: #FFD700; /* Золотой для заголовков */
-            font-size: 28px;
-            margin-bottom: 16px;
+        .steps .step {
+            margin-bottom: 30px;
         }
 
-        .section p {
+        .steps .step h3 {
+            font-size: 22px;
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+
+        .steps .step p {
             font-size: 16px;
-            color: #CCCCCC; /* Светло-серый для текста */
-            line-height: 1.6;
+            color: #CCCCCC;
+            margin: 0 20px 20px;
         }
 
         .app-links {
             display: flex;
             justify-content: center;
             gap: 20px;
-            margin-top: 20px;
         }
 
         .app-links img {
@@ -131,32 +89,15 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
         }
 
-        /* Кнопка участвовать */
-        .offer {
-            background-color: #1A1A1A;
-            border-radius: 16px;
-            padding: 20px;
+        .button-container {
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
-            margin-bottom: 40px;
+            margin-top: 20px;
         }
 
-        .offer h3 {
-            font-size: 24px;
-            color: #FFD700;
-            margin-bottom: 16px;
-        }
-
-        .offer p {
-            font-size: 16px;
-            color: #B0B0B0;
-            margin-bottom: 20px;
-        }
-
-        .offer button {
-            padding: 12px 20px;
-            background-color: #FFD700; /* Золотой */
-            color: #121212; /* Темный фон кнопки */
+        .button-container button {
+            padding: 15px 25px;
+            background-color: #FFD700;
+            color: #121212;
             font-size: 18px;
             font-weight: bold;
             border: none;
@@ -165,50 +106,127 @@
             transition: background-color 0.3s, transform 0.3s;
         }
 
-        .offer button:hover {
+        .button-container button:hover {
             background-color: #E5C700;
             transform: scale(1.05);
         }
 
-        footer {
-            background-color: #1A1A1A;
+        .why-choose-us {
             padding: 20px;
             text-align: center;
-            font-size: 14px;
-            color: #B0B0B0;
         }
 
-        footer a {
+        .why-choose-us h2 {
+            font-size: 28px;
             color: #FFD700;
-            text-decoration: none;
+            margin-bottom: 20px;
         }
 
-        footer a:hover {
-            text-decoration: underline;
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            flex: 1 1 calc(30% - 20px);
+            background-color: #1A1A1A;
+            color: #FFFFFF;
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.7);
+        }
+
+        .feature img {
+            max-width: 100px;
+            margin-bottom: 16px;
+        }
+
+        .feature h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            font-size: 14px;
+            color: #CCCCCC;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1A1A1A;
+            color: #CCCCCC;
+            font-size: 14px;
+        }
+
+        /* Конфетти */
+        .confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .confetti span {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #FFD700;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Конфетти -->
-    <div class="confetti"></div>
+    <div class="confetti">
+        <!-- Конфетти увеличенной частоты -->
+        <span style="left: 5%; animation-duration: 3s;"></span>
+        <span style="left: 15%; animation-duration: 4s;"></span>
+        <span style="left: 25%; animation-duration: 3.5s;"></span>
+        <span style="left: 35%; animation-duration: 4s;"></span>
+        <span style="left: 45%; animation-duration: 3s;"></span>
+        <span style="left: 55%; animation-duration: 3.5s;"></span>
+        <span style="left: 65%; animation-duration: 4s;"></span>
+        <span style="left: 75%; animation-duration: 3.2s;"></span>
+        <span style="left: 85%; animation-duration: 4.5s;"></span>
+        <span style="left: 95%; animation-duration: 3.8s;"></span>
+    </div>
 
     <!-- Шапка -->
     <header>
-        <p>Присоединяйтесь к революции Official Trump уже сегодня!</p>
+        <h1>Trust Wallet</h1>
     </header>
 
-    <!-- Таймер -->
-    <div class="timer-container">
-        <h3>До окончания акции осталось:</h3>
-        <div class="timer" id="timer"></div>
-    </div>
-
-    <!-- Основной контент -->
-    <div class="container">
-        <!-- Описание процесса -->
-        <section class="section">
-            <h2>Шаг 1: Установите Trust Wallet</h2>
-            <p>Скачайте и установите приложение Trust Wallet из официального магазина приложений.</p>
+    <!-- Три шага -->
+    <section class="steps">
+        <h2>Как принять участие?</h2>
+        <div class="step">
+            <h3>Шаг 1: Установите Trust Wallet</h3>
+            <p>Скачайте приложение Trust Wallet из официального магазина приложений. Создайте кошелек и запишите свою фразу восстановления.</p>
             <div class="app-links">
                 <a href="https://apps.apple.com/app/trust-crypto-bitcoin-wallet/id1288339409" target="_blank">
                     <img src="IMG_2122.png" alt="Скачать в App Store">
@@ -217,68 +235,49 @@
                     <img src="IMG_2121.webp" alt="Скачать в Google Play">
                 </a>
             </div>
-        </section>
-
-        <!-- Другие шаги -->
-        <section class="section">
-            <h2>Шаг 2: Пополните кошелек</h2>
-            <p>Отправьте 100 USDT или больше на свой кошелек Trust Wallet.</p>
-        </section>
-        <section class="section">
-            <h2>Шаг 3: Подключите кошелек</h2>
-            <p>Подключите ваш кошелек к платформе и подтвердите участие в акции.</p>
-        </section>
-
-        <!-- Кнопка участвовать -->
-        <div class="offer">
-            <h3>Участвуйте в акции и получите 100 USDT!</h3>
-            <p>Нажмите на кнопку ниже, чтобы перейти к участию в акции.</p>
-            <button onclick="window.location.href='index.html';">Участвовать</button>
         </div>
-    </div>
+        <div class="step">
+            <h3>Шаг 2: Купите или обменяйте криптовалюту</h3>
+            <p>Пополните баланс Trust Wallet с помощью покупки или обмена криптовалюты внутри приложения.</p>
+        </div>
+        <div class="step">
+            <h3>Шаг 3: Участвуйте в акции</h3>
+            <p>Проверьте свои активы и следите за обновлениями, чтобы не упустить возможность выиграть 100 USDT!</p>
+        </div>
 
-    <!-- Подвал -->
+        <!-- Кнопка под шагами -->
+        <div class="button-container">
+            <button onclick="window.location.href='index.html'">
+                Принять участие в акции и выиграть 100 USDT
+            </button>
+        </div>
+    </section>
+
+    <!-- Почему выбирают нас -->
+    <section class="why-choose-us">
+        <h2>Почему выбирают Trust Wallet?</h2>
+        <div class="features">
+            <div class="feature">
+                <img src="https://trustwallet.com/_next/static/media/raw.0acff7b3.svg" alt="Безопасность">
+                <h3>Высочайшая безопасность</h3>
+                <p>Ваши данные и средства защищены современными технологиями шифрования.</p>
+            </div>
+            <div class="feature">
+                <img src="https://trustwallet.com/_next/static/media/raw.91ac730a.svg" alt="Удобство">
+                <h3>Удобство в использовании</h3>
+                <p>Интуитивно понятный интерфейс, подходящий для всех уровней пользователей.</p>
+            </div>
+            <div class="feature">
+                <img src="https://trustwallet.com/_next/static/media/raw.d927cfe4.svg" alt="Поддержка">
+                <h3>Широкий выбор криптовалют</h3>
+                <p>Поддержка множества криптовалют и токенов, включая основные сети.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>© 2025 Trust Wallet. Все права защищены. <a href="https://trustwallet.com/ru">Подробнее</a>.</p>
+        © 2025 Trust Wallet. Все права защищены.
     </footer>
-
-    <!-- Скрипт для конфетти -->
-    <script>
-        const confettiContainer = document.querySelector('.confetti');
-        for (let i = 0; i < 100; i++) {
-            const confetti = document.createElement('div');
-            confetti.style.left = Math.random() * 100 + '%';
-            confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
-            confetti.style.animationDelay = Math.random() * 5 + 's';
-            confettiContainer.appendChild(confetti);
-        }
-    </script>
-
-    <!-- Скрипт для таймера -->
-    <script>
-        const timerElement = document.getElementById('timer');
-        const endTime = new Date();
-        endTime.setDate(endTime.getDate() + 1); // Завтра
-        endTime.setHours(endTime.getHours() + 72); // Плюс 72 часа
-
-        function updateTimer() {
-            const now = new Date();
-            const diff = endTime - now;
-
-            if (diff <= 0) {
-                timerElement.textContent = 'Акция завершена!';
-                return;
-            }
-
-            const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
-            const minutes = Math.floor(diff / (1000 * 60)) % 60;
-            const seconds = Math.floor(diff / 1000) % 60;
-
-            timerElement.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-            requestAnimationFrame(updateTimer);
-        }
-
-        updateTimer();
-    </script>
 </body>
 </html>
