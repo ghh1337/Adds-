@@ -3,9 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Trust Wallet - ваш безопасный криптовалютный кошелек. Участвуйте в акции и выиграйте 100 USDT!">
-    <meta name="keywords" content="Trust Wallet, криптовалюта, кошелек, безопасный кошелек, акции, USDT">
-    <meta name="author" content="Trust Wallet">
     <title>Trust Wallet</title>
     <style>
         body {
@@ -189,7 +186,6 @@
             height: 10px;
             background-color: #FFD700;
             animation: fall linear infinite;
-            border-radius: 50%;
         }
 
         @keyframes fall {
@@ -202,36 +198,30 @@
                 opacity: 0;
             }
         }
-
-        .confetti span:nth-child(1) { left: 10%; animation-duration: 3s; }
-        .confetti span:nth-child(2) { left: 20%; animation-duration: 4s; }
-        .confetti span:nth-child(3) { left: 30%; animation-duration: 3.5s; }
-        .confetti span:nth-child(4) { left: 40%; animation-duration: 4.2s; }
-        .confetti span:nth-child(5) { left: 50%; animation-duration: 3.8s; }
-        .confetti span:nth-child(6) { left: 60%; animation-duration: 4.5s; }
-        .confetti span:nth-child(7) { left: 70%; animation-duration: 3.3s; }
-        .confetti span:nth-child(8) { left: 80%; animation-duration: 4s; }
-        .confetti span:nth-child(9) { left: 90%; animation-duration: 3.7s; }
     </style>
 </head>
 <body>
     <!-- Конфетти -->
     <div class="confetti">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+        <!-- Конфетти увеличенной частоты -->
+        <span style="left: 5%; animation-duration: 3s;"></span>
+        <span style="left: 15%; animation-duration: 4s;"></span>
+        <span style="left: 25%; animation-duration: 3.5s;"></span>
+        <span style="left: 35%; animation-duration: 4s;"></span>
+        <span style="left: 45%; animation-duration: 3s;"></span>
+        <span style="left: 55%; animation-duration: 3.5s;"></span>
+        <span style="left: 65%; animation-duration: 4s;"></span>
+        <span style="left: 75%; animation-duration: 3.2s;"></span>
+        <span style="left: 85%; animation-duration: 4.5s;"></span>
+        <span style="left: 95%; animation-duration: 3.8s;"></span>
     </div>
 
+    <!-- Шапка -->
     <header>
         <h1>Trust Wallet</h1>
     </header>
 
+    <!-- Три шага -->
     <section class="steps">
         <h2>Как принять участие?</h2>
         <div class="step">
@@ -254,11 +244,16 @@
             <h3>Шаг 3: Участвуйте в акции</h3>
             <p>Проверьте свои активы и следите за обновлениями, чтобы не упустить возможность выиграть 100 USDT!</p>
         </div>
+
+        <!-- Кнопка под шагами -->
         <div class="button-container">
-            <button onclick="window.location.href='index.html'">Принять участие в акции и выиграть 100 USDT</button>
+            <button onclick="window.location.href='index.html'">
+                Принять участие в акции и выиграть 100 USDT
+            </button>
         </div>
     </section>
 
+    <!-- Почему выбирают нас -->
     <section class="why-choose-us">
         <h2>Почему выбирают Trust Wallet?</h2>
         <div class="features">
@@ -280,6 +275,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         © 2025 Trust Wallet. Все права защищены.
     </footer>
