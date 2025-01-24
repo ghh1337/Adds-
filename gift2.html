@@ -103,8 +103,13 @@
         }
 
         .feature img {
-            max-width: 80px;
+            max-width: 120px; /* Увеличенный размер изображения */
             margin-bottom: 16px;
+            transition: transform 0.3s;
+        }
+
+        .feature:hover img {
+            transform: scale(1.1); /* Небольшое увеличение при наведении */
         }
 
         .feature h3 {
