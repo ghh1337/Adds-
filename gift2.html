@@ -69,13 +69,14 @@
         .step {
             background-color: #2A2A2A; /* Темный серый */
             color: #FFFFFF;
-            padding: 20px;
+            padding: 30px; /* Увеличиваем отступы для большего размера */
             border-radius: 16px;
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s, box-shadow 0.3s;
-            flex: 1;
+            flex: 0 0 40%; /* Увеличиваем ширину блока до 40% */
             cursor: pointer;
+            box-sizing: border-box;
         }
 
         .step:hover {
@@ -84,17 +85,17 @@
         }
 
         .step img {
-            max-width: 100px;
-            margin-bottom: 16px;
+            max-width: 120px; /* Увеличиваем изображения */
+            margin-bottom: 20px;
         }
 
         .step h3 {
-            font-size: 22px;
-            margin-bottom: 8px;
+            font-size: 24px; /* Увеличиваем размер шрифта */
+            margin-bottom: 12px;
         }
 
         .step p {
-            font-size: 14px;
+            font-size: 16px; /* Увеличиваем размер текста */
             color: #CCCCCC;
         }
 
