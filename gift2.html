@@ -84,6 +84,7 @@
             gap: 20px;
             justify-content: center;
             margin-top: 40px;
+            transition: transform 0.5s ease;
         }
 
         .step {
@@ -95,6 +96,7 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s, box-shadow 0.3s;
             flex: 1;
+            cursor: pointer;
         }
 
         .step:hover {
@@ -115,6 +117,19 @@
         .step p {
             font-size: 14px;
             color: #CCCCCC;
+        }
+
+        /* Анимация для сдвига блоков */
+        .steps:hover .step:nth-child(1) {
+            transform: translateX(-20px); /* Сдвигаем влево */
+        }
+
+        .steps:hover .step:nth-child(2) {
+            transform: translateX(20px); /* Сдвигаем вправо */
+        }
+
+        .steps:hover .step:nth-child(3) {
+            transform: translateX(-20px); /* Сдвигаем влево */
         }
 
         .offer {
