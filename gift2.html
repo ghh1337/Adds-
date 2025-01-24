@@ -57,18 +57,16 @@
             line-height: 1.6;
         }
 
-        /* Контейнер для блоков, которые будут свайпаться */
         .steps {
             display: flex;
+            flex-wrap: wrap;
             gap: 20px;
-            justify-content: flex-start;
+            justify-content: space-between;
             margin-top: 40px;
-            overflow: hidden; /* Прячем элементы, выходящие за пределы */
-            touch-action: none; /* Отключаем стандартное прокручивание на мобильных устройствах */
-            position: relative;
         }
 
         .step {
+            flex: 1 1 calc(33.333% - 20px); /* Три блока в ряд */
             background-color: #2A2A2A; /* Темный серый */
             color: #FFFFFF;
             padding: 30px;
@@ -76,10 +74,6 @@
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s, box-shadow 0.3s;
-            flex: 0 0 40%; /* Увеличиваем ширину блока до 40% */
-            cursor: pointer;
-            box-sizing: border-box;
-            min-width: 300px; /* Минимальная ширина блока */
         }
 
         .step:hover {
@@ -88,17 +82,17 @@
         }
 
         .step img {
-            max-width: 120px;
+            max-width: 100px;
             margin-bottom: 20px;
         }
 
         .step h3 {
-            font-size: 24px;
+            font-size: 20px;
             margin-bottom: 12px;
         }
 
         .step p {
-            font-size: 16px;
+            font-size: 14px;
             color: #CCCCCC;
         }
 
@@ -172,14 +166,14 @@
         </section>
 
         <!-- Шаги -->
-        <div class="steps" id="steps">
+        <div class="steps">
             <div class="step">
-                <img src="https://example.com/step1-image.jpg" alt="Шаг 1">
+                <img src="IMG_2122.png" alt="Шаг 1">
                 <h3>Шаг 1: Установите Trust Wallet</h3>
                 <p>Скачайте приложение Trust Wallet с официального магазина.</p>
             </div>
             <div class="step">
-                <img src="https://example.com/step2-image.jpg" alt="Шаг 2">
+                <img src="IMG_2121.webp" alt="Шаг 2">
                 <h3>Шаг 2: Пройдите регистрацию</h3>
                 <p>Пройдите регистрацию, используя вашу уникальную фразу восстановления.</p>
             </div>
@@ -202,29 +196,5 @@
     <footer>
         <p>© 2025 Trust Wallet. Все права защищены. <a href="https://trustwallet.com/ru">Подробнее</a>.</p>
     </footer>
-
-    <script>
-        let startX = 0;
-        let currentX = 0;
-        let offset = 0; // Начальный сдвиг
-        const steps = document.getElementById('steps');
-
-        steps.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX; // Начальная позиция касания
-            steps.style.transition = 'none'; // Отключаем анимацию на время свайпа
-        });
-
-        steps.addEventListener('touchmove', (e) => {
-            currentX = e.touches[0].clientX;
-            const diffX = currentX - startX; // Разница между текущим и начальным положением
-            offset = diffX;
-            steps.style.transform = `translateX(${offset}px)`; // Перемещение блоков
-        });
-
-        steps.addEventListener('touchend', () => {
-            steps.style.transition = 'transform 0.3s ease'; // Плавное возвращение
-            steps.style.transform = 'translateX(0)'; // Возвращаем блоки в исходное положение
-        });
-    </script>
 </body>
 </html>
