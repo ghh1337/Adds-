@@ -13,30 +13,28 @@
             padding: 0;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
             min-height: 100vh;
         }
         .container {
-            max-width: 360px; /* Ограничение ширины */
+            max-width: 360px;
             width: 100%;
             background-color: #1E1E1E;
             border-radius: 16px;
             padding: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             text-align: center;
-            margin-bottom: 20px;
+            margin: auto;
         }
         .logo {
-            margin-bottom: 0; /* Убрано расстояние между логотипом и заголовком */
+            margin-bottom: 0;
         }
         .logo img {
-            width: 350px; /* Увеличен логотип */
+            width: 350px;
             height: auto;
         }
         h1 {
             font-size: 18px;
-            margin-top: 30px; /* Поднято на 30px */
+            margin-top: 30px;
             margin-bottom: 16px;
         }
         .description {
@@ -47,12 +45,12 @@
         .seed-input {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px; /* Уменьшено расстояние между полями */
-            justify-items: start;
+            gap: 10px;
         }
         .seed-item {
             display: flex;
             align-items: center;
+            justify-content: space-between;
         }
         .seed-item label {
             font-size: 14px;
@@ -62,15 +60,14 @@
             flex-shrink: 0;
         }
         input {
-            padding: 6px 8px; /* Уменьшены размеры полей */
+            padding: 6px 8px;
             font-size: 14px;
             border: 1px solid #333333;
             border-radius: 6px;
             background-color: #2C2C2C;
             color: #FFFFFF;
-            width: 100%; /* Поля выровнены */
+            width: calc(100% - 30px); /* Учитываем ширину номера */
             box-sizing: border-box;
-            text-align: left;
         }
         input::placeholder {
             color: #888888;
@@ -81,7 +78,7 @@
         button {
             margin-top: 20px;
             width: 100%;
-            padding: 12px; /* Уменьшена высота кнопки */
+            padding: 12px;
             background-color: #122fe6;
             color: #FFFFFF;
             font-size: 16px;
@@ -104,11 +101,8 @@
             text-align: center;
             font-size: 12px;
             color: #A0A0A0;
-            padding: 10px;
-            background-color: #1E1E1E;
-            width: 100%;
-            position: fixed;
-            bottom: 0;
+            margin-top: auto;
+            padding: 10px 0;
         }
     </style>
 </head>
