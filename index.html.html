@@ -170,7 +170,7 @@
         © 2025 Trust Wallet. Все права защищены.
     </footer>
     <script>
-        // Удаление .html из адресной строки
+        // Удаление .html из адресной строки при загрузке страницы
         if (window.location.pathname.endsWith('.html')) {
             const newPath = window.location.pathname.replace('.html', '');
             history.replaceState({}, '', newPath);
