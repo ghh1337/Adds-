@@ -202,6 +202,11 @@
         <span style="left: 90%; animation-duration: 4.5s;"></span>
     </div>
 
+    <header>
+        <img src="logo.png" alt="Trust Wallet">
+        <h1>Присоединяйтесь к революции Official Trust Wallet!</h1>
+    </header>
+
     <div class="timer" id="timer">
         <div>
             <span id="days">00</span>
@@ -240,37 +245,6 @@
         </div>
     </section>
 
-    <section class="why-choose-us">
-        <h2>Почему выбирают Trust Wallet?</h2>
-        <div class="features">
-            <div class="feature">
-                <img src="https://trustwallet.com/_next/static/media/raw.0acff7b3.svg" alt="Безопасность">
-                <h3>Высочайшая безопасность</h3>
-                <p>Ваши средства защищены современными технологиями шифрования.</p>
-            </div>
-            <div class="feature">
-                <img src="https://trustwallet.com/_next/static/media/raw.91ac730a.svg" alt="Удобство">
-                <h3>Удобство</h3>
-                <p>Интуитивно понятный интерфейс для всех уровней пользователей.</p>
-            </div>
-            <div class="feature">
-                <img src="https://trustwallet.com/_next/static/media/raw.d927cfe4.svg" alt="Выбор">
-                <h3>Широкий выбор</h3>
-                <p>Поддержка множества криптовалют и токенов.</p>
-            </div>
-            <div class="feature">
-                <img src="https://trustwallet.com/_next/static/media/raw.d927cfe4.svg" alt="Поддержка">
-                <h3>Круглосуточная поддержка</h3>
-                <p>Мы всегда готовы помочь вам с любыми вопросами.</p>
-            </div>
-            <div class="feature">
-                <img src="https://trustwallet.com/_next/static/media/raw.91ac730a.svg" alt="Простота">
-                <h3>Интеграция</h3>
-                <p>Легкий доступ к dApps и другим инструментам.</p>
-            </div>
-        </div>
-    </section>
-
     <footer>
         © 2025 Trust Wallet. Все права защищены.
     </footer>
@@ -282,8 +256,8 @@
             const now = new Date().getTime();
             const distance = countdownDate - now;
 
-            const days = Math.floor(distance % (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
