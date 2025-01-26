@@ -94,6 +94,62 @@
             object-fit: contain;
         }
 
+        .steps, .why-choose-us, footer {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .steps h2, .why-choose-us h2 {
+            font-size: 28px;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+
+        .steps .step {
+            background-color: #1A1A1A;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .steps .step h3 {
+            color: #FFD700;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .steps .step p {
+            font-size: 16px;
+            color: #CCCCCC;
+        }
+
+        .steps .step p span {
+            color: #FFD700;
+            font-weight: bold;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            padding: 12px 30px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #FFD700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .button-container button:hover {
+            background-color: #e5c200;
+            transform: scale(1.05);
+        }
+
+        /* Почему выбирают нас */
         .features {
             display: flex;
             flex-wrap: wrap;
@@ -106,20 +162,7 @@
             background-color: #FFFFFF;
             padding: 20px;
             border-radius: 16px;
-            text-align: left; /* Выравнивание текста по левому краю */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень */
-        }
-
-        .feature h3 {
-            color: #FFD700; /* Заголовок золотистого цвета */
-            font-weight: bold; /* Жирный шрифт для заголовка */
-            font-size: 24px; /* Увеличенный размер шрифта для заголовка */
-        }
-
-        .feature p {
-            color: #333333; /* Черный цвет для текста */
-            font-size: 16px; /* Стандартный размер шрифта для текста */
-            line-height: 1.5; /* Увеличенная межстрочная высота для лучшей читаемости */
+            text-align: center;
         }
 
         footer {
@@ -227,34 +270,34 @@
     </footer>
 
     <script>
-    const countdownDate = new Date("2025-01-31T23:59:59").getTime();  // Устанавливаем дату для отсчета
+        const countdownDate = new Date("2025-01-31T23:59:59").getTime();  // Устанавливаем дату для отсчета
 
-    function updateTimer() {
-        const now = new Date().getTime();  // Текущее время
-        const distance = countdownDate - now;  // Расстояние между текущим временем и целевой датой
+        function updateTimer() {
+            const now = new Date().getTime();  // Текущее время
+            const distance = countdownDate - now;  // Расстояние между текущим временем и целевой датой
 
-        // Рассчитываем количество дней, часов, минут и секунд
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            // Рассчитываем количество дней, часов, минут и секунд
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Обновляем текстовые значения на странице
-        document.getElementById("days").textContent = days < 10 ? "0" + days : days;
-        document.getElementById("hours").textContent = hours < 10 ? "0" + hours : hours;
-        document.getElementById("minutes").textContent = minutes < 10 ? "0" + minutes : minutes;
-        document.getElementById("seconds").textContent = seconds < 10 ? "0" + seconds : seconds;
+            // Обновляем текстовые значения на странице
+            document.getElementById("days").textContent = days < 10 ? "0" + days : days;
+            document.getElementById("hours").textContent = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").textContent = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").textContent = seconds < 10 ? "0" + seconds : seconds;
 
-        // Когда отсчет заканчивается
-        if (distance < 0) {
-            clearInterval(timerInterval);  // Останавливаем таймер
-            document.querySelector(".timer-section").innerHTML = "<p>Акция завершена!</p>";  // Выводим сообщение
+            // Когда отсчет заканчивается
+            if (distance < 0) {
+                clearInterval(timerInterval);  // Останавливаем таймер
+                document.querySelector(".timer-section").innerHTML = "<p>Акция завершена!</p>";  // Выводим сообщение
+            }
         }
-    }
 
-    // Обновляем таймер каждую секунду
-    const timerInterval = setInterval(updateTimer, 1000);
-    updateTimer();  // Вызываем функцию один раз сразу, чтобы сразу отобразить текущее время
-</script>
+        // Обновляем таймер каждую секунду
+        const timerInterval = setInterval(updateTimer, 1000);
+        updateTimer();  // Вызываем функцию один раз сразу, чтобы сразу отобразить текущее время
+    </script>
 </body>
 </html>
