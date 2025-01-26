@@ -132,18 +132,22 @@
         .button-container {
             margin-top: 20px;
         }
+.button-container button {
+    padding: 12px 30px;
+    font-size: 18px;
+    color: #F0F0F0;  /* Мягкий белый цвет */
+    background-color: #FFD700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-weight: bold;  /* Жирный текст */
+}
 
-        .button-container button {
-            padding: 12px 30px;
-            font-size: 18px;
-            color: #fff;
-            background-color: #FFD700;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
+.button-container button:hover {
+    background-color: #e5c200;
+    transform: scale(1.05);
+}
         .button-container button:hover {
             background-color: #e5c200;
             transform: scale(1.05);
