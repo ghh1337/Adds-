@@ -40,10 +40,6 @@
             text-align: center;
             padding: 20px;
             color: #FFD700;
-            background-color: #1a1a1a;
-            border-radius: 10px;
-            margin-top: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
         }
 
         .timer-section h2 {
@@ -69,7 +65,7 @@
         .time-value {
             font-size: 32px;
             font-weight: bold;
-            color: #FFD700;
+            color: #FFFFFF;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
         }
 
@@ -78,29 +74,27 @@
             color: #CCCCCC;
         }
 
-        .button-container {
-            margin-top: 20px;
+        /* Изменение кнопок для скачивания */
+        .app-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
         }
 
-        .button-container button {
-            padding: 12px 30px;
-            font-size: 18px;
-            color: #F0F0F0;  
-            background-color: #FFD700;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-            font-weight: bold; 
+        .app-links a img {
+            width: 120px; /* уменьшены кнопки */
+            height: auto;
         }
 
-        .button-container button:hover {
-            background-color: #e5c200;
-            transform: scale(1.05);
+        /* Почему выбирают нас */
+        .features img {
+            width: 165px; /* одинаковый размер картинок */
+            height: 165px;
+            object-fit: contain;
         }
 
-        /* Изображения и шаги */
-        .steps, .why-choose-us {
+        .steps, .why-choose-us, footer {
             padding: 20px;
             text-align: center;
         }
@@ -109,7 +103,6 @@
             font-size: 28px;
             color: #FFD700;
             margin-bottom: 20px;
-            text-shadow: 0 2px 4px rgba(255, 215, 0, 0.6);
         }
 
         .steps .step {
@@ -118,11 +111,6 @@
             margin: 10px 0;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-            transition: background-color 0.3s ease;
-        }
-
-        .steps .step:hover {
-            background-color: #333333;
         }
 
         .steps .step h3 {
@@ -141,6 +129,31 @@
             font-weight: bold;
         }
 
+        .button-container {
+            margin-top: 20px;
+        }
+.button-container button {
+    padding: 12px 30px;
+    font-size: 18px;
+    color: #F0F0F0;  /* Мягкий белый цвет */
+    background-color: #FFD700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-weight: bold;  /* Жирный текст */
+}
+
+.button-container button:hover {
+    background-color: #e5c200;
+    transform: scale(1.05);
+}
+        .button-container button:hover {
+            background-color: #e5c200;
+            transform: scale(1.05);
+        }
+
+        /* Почему выбирают нас */
         .features {
             display: flex;
             flex-wrap: wrap;
@@ -150,45 +163,26 @@
 
         .feature {
             flex: 1 1 calc(30% - 20px);
-            background-color: #1A1A1A;
+            background-color: #FFFFFF;
             padding: 20px;
             border-radius: 16px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
             text-align: center;
-            color: #E4E4E4;
-            transition: transform 0.3s ease;
         }
-
-        .feature:hover {
-            transform: scale(1.05);
-        }
-
-        .feature img {
-            width: 165px; 
-            height: 165px;
-            object-fit: contain;
-            margin-bottom: 10px;
-        }
-
-        .feature h3 {
-            font-size: 20px;
-            color: #FFD700;
-            font-weight: bold;
-        }
-
         .feature p {
-            font-size: 16px;
-            color: #CCCCCC;
-        }
+    color: #111212;  /* Устанавливаем светлый цвет для текста */
+    text-align: left;  /* Выравнивание заголовков по левому краю */
+} 
+        .feature h3 {
+    color: #111212;  /* Золотистый цвет */
+    text-align: left;  /* Выравнивание по левому краю */
+    font-size: 24px;  /* Увеличиваем размер шрифта */
+    font-weight: bold;  /* Делаем текст жирным */
+}
 
         footer {
             background-color: #1A1A1A;
             color: #72767a;
-            text-align: center;
-            padding: 15px;
-            font-size: 14px;
         }
-
     </style>
 </head>
 <body>
@@ -308,16 +302,15 @@
             document.getElementById("minutes").textContent = minutes < 10 ? "0" + minutes : minutes;
             document.getElementById("seconds").textContent = seconds < 10 ? "0" + seconds : seconds;
 
-            // Когда отсчет времени закончится, выводим сообщение
+            // Когда отсчет заканчивается
             if (distance < 0) {
-                clearInterval(x);
-                document.querySelector(".timer-section").innerHTML = "<h2>Акция завершена!</h2>";
+                clearInterval(timerInterval);  // Останавливаем таймер
+                document.querySelector(".timer-section").innerHTML = "<p>Акция завершена!</p>";  // Выводим сообщение
             }
         }
 
         // Обновляем таймер каждую секунду
-        const x = setInterval(updateTimer, 1000);
+        const timerInterval = setInterval(updateTimer, 1000);
+        updateTimer();  // Вызываем функцию один раз сразу, чтобы сразу отобразить текущее время
     </script>
-
 </body>
-</html>
