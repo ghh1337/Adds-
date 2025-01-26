@@ -297,12 +297,13 @@
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti"></script>
     <script>
-        // Настройка конфетти
+        // Функция конфетти
         const confetti = canvasConfetti.create(document.getElementById('confetti'), {
             resize: true,
             useWorker: true
         });
 
+        // Запуск конфетти
         function fireConfetti() {
             confetti({
                 particleCount: 100,
