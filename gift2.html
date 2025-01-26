@@ -49,7 +49,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti"></script>
     <script>
-        // Создание конфетти
+        // Убедимся, что конфетти будет работать, создав объект
         const confetti = canvasConfetti.create(document.getElementById('confetti'), {
             resize: true,
             useWorker: true
@@ -65,7 +65,9 @@
         }
 
         // Запуск конфетти через 2 секунды после загрузки
-        setTimeout(fireConfetti, 2000);
+        window.onload = () => {
+            setTimeout(fireConfetti, 2000);  // Ожидаем 2 секунды, затем запускаем конфетти
+        }
 
         // Таймер
         const countdownDate = new Date("2025-02-01T00:00:00").getTime();
