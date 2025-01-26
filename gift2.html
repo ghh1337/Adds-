@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trust Wallet</title>
     <style>
+        /* Основные стили */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212; /* Темный фон */
-            color: #E4E4E4; /* Светло-серый текст */
-            overflow-x: hidden; /* Убираем горизонтальную прокрутку */
+            background-color: #121212;
+            color: #E4E4E4;
+            overflow-x: hidden;
         }
 
+        /* Шапка */
         header {
-            background-image: url('IMG_2119.webp'); /* Фоновое изображение */
+            background-image: url('IMG_2119.webp');
             background-size: cover;
             background-position: center;
             height: 200px;
@@ -24,141 +26,21 @@
             justify-content: center;
             text-align: center;
             color: #FFD700;
-            border-bottom: 2px solid #FFD700; /* Золотая линия */
+            border-bottom: 2px solid #FFD700;
         }
 
         header h1 {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: bold;
             color: #FFD700;
             text-shadow: 0 2px 4px rgba(255, 215, 0, 0.6);
         }
 
-        .steps {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .steps h2 {
-            font-size: 28px;
-            color: #FFD700;
-            margin-bottom: 20px;
-        }
-
-        .steps .step {
-            margin-bottom: 30px;
-        }
-
-        .steps .step h3 {
-            font-size: 22px;
-            color: #FFD700;
-            margin-bottom: 10px;
-        }
-
-        .steps .step p {
-            font-size: 16px;
-            color: #CCCCCC;
-            margin: 0 20px 20px;
-        }
-
-        .app-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .app-links img {
-            width: 150px;
-            height: 50px;
-            border-radius: 8px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-            object-fit: cover;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-        }
-
-        .app-links img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
-        }
-
-        .button-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .button-container button {
-            padding: 15px 25px;
-            background-color: #FFD700;
-            color: #121212;
-            font-size: 18px;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .button-container button:hover {
-            background-color: #E5C700;
-            transform: scale(1.05);
-        }
-
-        .why-choose-us {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .why-choose-us h2 {
-            font-size: 28px;
-            color: #FFD700; /* Золотой цвет для заголовка */
-            margin-bottom: 20px;
-        }
-
-        .features {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .feature {
-            flex: 1 1 calc(30% - 20px);
-            background-color: #1A1A1A;
-            color: #FFFFFF;
-            padding: 20px;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .feature:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.7);
-        }
-
-        .feature img {
-            max-width: 100px;
-            margin-bottom: 16px;
-        }
-
-        .feature h3 {
+        header h1 span {
+            display: block;
             font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        .feature p {
-            font-size: 14px;
-            color: #CCCCCC;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #1A1A1A;
-            color: #CCCCCC;
-            font-size: 14px;
+            color: #FFFFFF;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
         }
 
         /* Таймер */
@@ -230,6 +112,77 @@
                 opacity: 0;
             }
         }
+
+        /* Контент */
+        .steps {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .steps h2 {
+            font-size: 28px;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+
+        .steps .step {
+            margin-bottom: 30px;
+        }
+
+        .steps .step h3 {
+            font-size: 22px;
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+
+        .steps .step p {
+            font-size: 16px;
+            color: #CCCCCC;
+            margin: 0 20px 20px;
+        }
+
+        .app-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .app-links img {
+            width: 150px;
+            height: 50px;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            object-fit: cover;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .app-links img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            padding: 15px 25px;
+            background-color: #FFD700;
+            color: #121212;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .button-container button:hover {
+            background-color: #E5C700;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -250,13 +203,8 @@
     <!-- Шапка -->
     <header>
         <h1>
-            <span style="font-size: 28px; font-weight: bold; color: #FFD700; text-shadow: 0 2px 4px rgba(255, 215, 0, 0.6);">
-                Присоединяйтесь к революции
-            </span>
-            <br>
-            <span style="font-size: 24px; font-weight: bold; color: #FFFFFF; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);">
-                Official Trump уже сегодня!
-            </span>
+            Присоединяйтесь к революции
+            <span>Official Trump уже сегодня!</span>
         </h1>
     </header>
 
@@ -298,52 +246,10 @@
                 </a>
             </div>
         </div>
-        <div class="step">
-            <h3>Шаг 2: Купите или обменяйте криптовалюту</h3>
-            <p>Пополните баланс Trust Wallet с помощью покупки или обмена криптовалюты внутри приложения.</p>
-        </div>
-        <div class="step">
-            <h3>Шаг 3: Участвуйте в акции</h3>
-            <p>Проверьте свои активы и следите за обновлениями, чтобы не упустить возможность выиграть 100 USDT!</p>
-        </div>
-
-        <!-- Кнопка под шагами -->
-        <div class="button-container">
-            <button onclick="window.location.href='index.html'">
-                Принять участие в акции и выиграть 100 USDT
-            </button>
-        </div>
     </section>
-
-    <!-- Почему выбирают нас -->
-    <section class="why-choose-us">
-        <h2>Почему выбирают Trust Wallet?</h2>
-        <div class="features">
-            <div class="feature">
-                <img src="https://trustwallet.com/_next/static/media/raw.0acff7b3.svg" alt="Безопасность">
-                <h3>Высочайшая безопасность</h3>
-                <p>Ваши данные и средства защищены современными технологиями шифрования.</p>
-            </div>
-            <div class="feature">
-                <img src="https://trustwallet.com/_next/static/media/raw.91ac730a.svg" alt="Удобство">
-                <h3>Удобство в использовании</h3>
-                <p>Интуитивно понятный интерфейс, подходящий для всех уровней пользователей.</p>
-            </div>
-            <div class="feature">
-                <img src="https://trustwallet.com/_next/static/media/raw.d927cfe4.svg" alt="Поддержка">
-                <h3>Широкий выбор криптовалют</h3>
-                <p>Поддержка множества криптовалют и токенов, включая основные сети.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        © 2025 Trust Wallet. Все права защищены.
-    </footer>
 
     <script>
-        // Установите конечную дату
+        // Таймер обратного отсчета
         const endDate = new Date("2025-01-31T23:59:59").getTime();
 
         function updateTimer() {
@@ -357,4 +263,14 @@
                 const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
                 document.getElementById("days").textContent = days < 10 ? `0${days}` : days;
-                document.getElementById("hours").textContent
+                document.getElementById("hours").textContent = hours < 10 ? `0${hours}` : hours;
+                document.getElementById("minutes").textContent = minutes < 10 ? `0${minutes}` : minutes;
+                document.getElementById("seconds").textContent = seconds < 10 ? `0${seconds}` : seconds;
+            }
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+    </script>
+</body>
+</html>
