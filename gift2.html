@@ -37,10 +37,16 @@
 
         .timer {
             text-align: center;
-            margin: 20px 0;
-            color: #FFD700;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #1A1A1A;
+            border: 2px solid #FFD700;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+            display: inline-block;
             font-size: 24px;
             font-weight: bold;
+            color: #FFD700;
         }
 
         .steps {
@@ -232,16 +238,6 @@
                 <h3>Широкая поддержка</h3>
                 <p>Поддержка множества криптовалют и токенов, включая основные сети.</p>
             </div>
-            <div class="feature">
-                <img src="https://trustwallet.com/_next/static/media/raw.0acff7b3.svg" alt="Доступность">
-                <h3>Доступность 24/7</h3>
-                <p>Приложение доступно в любое время и готово к использованию.</p>
-            </div>
-            <div class="feature">
-                <img src="https://trustwallet.com/_next/static/media/raw.91ac730a.svg" alt="Простота">
-                <h3>Простота и удобство</h3>
-                <p>Легко начать работу даже для новичков в криптовалютах.</p>
-            </div>
         </div>
     </section>
 
@@ -269,7 +265,10 @@
             const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-            timerElement.textContent = `До завершения акции: ${days}д ${hours}ч ${minutes}м ${seconds}с`;
+            timerElement.innerHTML = `
+                <div>До завершения акции:</div>
+                <div>${days} <span>д</span> ${hours} <span>ч</span> ${minutes} <span>м</span> ${seconds} <span>с</span></div>
+            `;
         }
 
         setInterval(updateTimer, 1000);
