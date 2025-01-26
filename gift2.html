@@ -9,218 +9,152 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212; /* Темный фон */
-            color: #E4E4E4; /* Светло-серый текст */
-            overflow-x: hidden; /* Убираем горизонтальную прокрутку */
+            background-color: #121212;
+            color: #E4E4E4;
+            overflow-x: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
         }
 
+        /* Шапка */
         header {
-            background-color: #FFD700;
-            color: #121212;
+            background-image: url('IMG_2119.webp');
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 20px;
-            width: 100%;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            color: #FFD700;
+            border-bottom: 2px solid #FFD700;
         }
 
         header h1 {
             font-size: 24px;
-            margin: 0;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 0 2px 4px rgba(255, 215, 0, 0.6);
+        }
+
+        header h1 span {
+            display: block;
+            font-size: 20px;
+            color: #FFFFFF;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Таймер */
+        .timer-section {
+            text-align: center;
+            padding: 20px;
+            color: #FFD700;
+        }
+
+        .timer-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(255, 215, 0, 0.6);
         }
 
         .timer {
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        .timer div {
-            display: inline-block;
-            margin: 0 10px;
-            text-align: center;
-        }
-
-        .timer span {
-            display: block;
-            font-size: 28px;
-            font-weight: bold;
-            color: #FFD700;
-        }
-
-        .steps, .why-choose-us {
-            max-width: 800px;
-            padding: 20px;
-            margin: 20px auto;
-            text-align: center;
-        }
-
-        .steps h2, .why-choose-us h2 {
-            font-size: 28px;
-            color: #FFD700;
-            margin-bottom: 20px;
-        }
-
-        .step {
-            margin-bottom: 30px;
-        }
-
-        .step h3 {
-            font-size: 20px;
-            color: #FFD700;
-            margin-bottom: 10px;
-        }
-
-        .step p {
-            font-size: 16px;
-            color: #CCCCCC;
-        }
-
-        .button-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .button-container button {
-            padding: 15px 25px;
-            background-color: #FFD700;
-            color: #121212;
-            font-size: 18px;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .button-container button:hover {
-            background-color: #E5C700;
-            transform: scale(1.05);
-        }
-
-        .features {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             gap: 20px;
-            flex-wrap: wrap;
         }
 
-        .feature {
-            flex: 1 1 calc(30% - 20px);
-            background-color: #1A1A1A;
-            color: #FFFFFF;
-            padding: 20px;
-            border-radius: 16px;
+        .time-block {
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: #1A1A1A;
+            padding: 10px 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
         }
 
-        .feature:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.7);
+        .time-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #FFFFFF;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
         }
 
-        .feature img {
-            max-width: 100px;
-            margin-bottom: 16px;
-        }
-
-        .feature h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        .feature p {
+        .time-label {
             font-size: 14px;
             color: #CCCCCC;
         }
 
-        footer {
+        /* Конфетти */
+        .confetti {
             position: fixed;
-            bottom: 0;
+            top: 0;
             left: 0;
             width: 100%;
-            background-color: #1A1A1A;
-            color: #CCCCCC;
-            text-align: center;
-            padding: 10px;
-            font-size: 12px;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .confetti span {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: #FFD700;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Присоединяйтесь к революции Official Trump уже сегодня!</h1>
+        <h1>Trust Wallet <span>Безопасность и удобство</span></h1>
     </header>
 
-    <!-- Таймер -->
-    <div class="timer" id="timer">
-        <div>
-            <span id="days">00</span>
-            <p>Дней</p>
-        </div>
-        <div>
-            <span id="hours">00</span>
-            <p>Часов</p>
-        </div>
-        <div>
-            <span id="minutes">00</span>
-            <p>Минут</p>
-        </div>
-        <div>
-            <span id="seconds">00</span>
-            <p>Секунд</p>
-        </div>
+    <div class="confetti">
+        <span style="left: 10%; animation-duration: 3s;"></span>
+        <span style="left: 20%; animation-duration: 4s;"></span>
+        <span style="left: 30%; animation-duration: 3.5s;"></span>
+        <span style="left: 40%; animation-duration: 4s;"></span>
+        <span style="left: 50%; animation-duration: 3s;"></span>
+        <span style="left: 60%; animation-duration: 3.5s;"></span>
+        <span style="left: 70%; animation-duration: 4s;"></span>
+        <span style="left: 80%; animation-duration: 3.2s;"></span>
+        <span style="left: 90%; animation-duration: 4.5s;"></span>
     </div>
 
-    <!-- Шаги -->
-    <section class="steps">
-        <h2>Как принять участие?</h2>
-        <div class="step">
-            <h3>Шаг 1: Установите Trust Wallet</h3>
-            <p>Скачайте приложение Trust Wallet из официального магазина приложений. Создайте кошелек и запишите свою фразу восстановления.</p>
-        </div>
-        <div class="step">
-            <h3>Шаг 2: Купите или обменяйте криптовалюту</h3>
-            <p>Пополните баланс Trust Wallet с помощью покупки или обмена криптовалюты внутри приложения.</p>
-        </div>
-        <div class="step">
-            <h3>Шаг 3: Участвуйте в акции</h3>
-            <p>Проверьте свои активы и следите за обновлениями, чтобы не упустить возможность выиграть 100 USDT!</p>
-        </div>
-        <div class="button-container">
-            <button onclick="window.location.href='index.html'">Принять участие</button>
-        </div>
-    </section>
-
-    <!-- Почему выбирают нас -->
-    <section class="why-choose-us">
-        <h2>Почему выбирают Trust Wallet?</h2>
-        <div class="features">
-            <div class="feature">
-                <img src="https://trustwallet.com/_next/static/media/raw.0acff7b3.svg" alt="Безопасность">
-                <h3>Высочайшая безопасность</h3>
-                <p>Ваши данные и средства защищены современными технологиями шифрования.</p>
+    <section class="timer-section">
+        <h2>До завершения акции осталось:</h2>
+        <div class="timer">
+            <div class="time-block">
+                <span class="time-value" id="days">00</span>
+                <span class="time-label">Дней</span>
             </div>
-            <div class="feature">
-                <img src="https://trustwallet.com/_next/static/media/raw.91ac730a.svg" alt="Удобство">
-                <h3>Удобство в использовании</h3>
-                <p>Интуитивно понятный интерфейс, подходящий для всех уровней пользователей.</p>
+            <div class="time-block">
+                <span class="time-value" id="hours">00</span>
+                <span class="time-label">Часов</span>
             </div>
-            <div class="feature">
-                <img src="https://trustwallet.com/_next/static/media/raw.d927cfe4.svg" alt="Поддержка">
-                <h3>Широкий выбор криптовалют</h3>
-                <p>Поддержка множества криптовалют и токенов, включая основные сети.</p>
+            <div class="time-block">
+                <span class="time-value" id="minutes">00</span>
+                <span class="time-label">Минут</span>
+            </div>
+            <div class="time-block">
+                <span class="time-value" id="seconds">00</span>
+                <span class="time-label">Секунд</span>
             </div>
         </div>
     </section>
-
-    <footer>
-        © 2025 Trust Wallet. Все права защищены.
-    </footer>
 
     <script>
         const countdownDate = new Date("2025-12-31T23:59:59").getTime();
@@ -241,7 +175,7 @@
 
             if (distance < 0) {
                 clearInterval(timerInterval);
-                document.getElementById("timer").innerHTML = "Акция завершена!";
+                document.querySelector(".timer-section").innerHTML = "<h2>Акция завершена!</h2>";
             }
         }
 
