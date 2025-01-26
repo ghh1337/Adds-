@@ -12,6 +12,7 @@
             background-color: #121212;
             color: #E4E4E4;
             overflow-x: hidden;
+            position: relative;
         }
 
         header {
@@ -180,9 +181,23 @@
             background-color: #1A1A1A;
             color: #72767a;
         }
+
+        /* Настройка для фона конфетти */
+        #confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Отключаем взаимодействие с конфетти */
+            z-index: 9999;
+        }
     </style>
 </head>
 <body>
+    <!-- Фоновое конфетти -->
+    <canvas id="confetti"></canvas>
+
     <!-- Шапка -->
     <header>
         <h1>Присоединяйтесь к революции Official Trump уже сегодня!</h1>
@@ -280,7 +295,23 @@
         © 2025 Trust Wallet. Все права защищены.
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti"></script>
     <script>
+        const confetti = canvasConfetti.create(document.getElementById('confetti'), {
+            resize: true,
+            useWorker: true
+        });
+
+        function fireConfetti() {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { x: 0.5, y: 0 }
+            });
+        }
+
+        fireConfetti(); // Запуск конфетти сразу при загрузке страницы
+
         const countdownDate = new Date("2025-01-31T23:59:59").getTime();  // Устанавливаем дату для отсчета
 
         function updateTimer() {
