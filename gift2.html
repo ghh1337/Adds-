@@ -3,111 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Как участвовать в акции Official Trump</title>
+    <title>Trust Wallet Акция</title>
     <style>
-        /* Основной стиль страницы */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #121212; /* Темный фон */
             color: #E4E4E4; /* Светло-серый текст */
+            overflow-x: hidden; /* Убираем горизонтальную прокрутку */
         }
 
-        /* Шапка */
         header {
-            background-image: url('IMG_2119.webp'); /* Картинка для шапки */
+            background-image: url('IMG_2119.webp'); /* Фоновое изображение */
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
             height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            color: #FFD700;
             border-bottom: 2px solid #FFD700; /* Золотая линия */
         }
 
-        header p {
+        header h1 {
+            font-size: 36px;
             margin: 0;
-            font-size: 18px;
-            color: #FFD700; /* Золотой текст */
             background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный фон */
             padding: 10px 20px;
             border-radius: 8px;
         }
 
-        /* Секция "Как принять участие" */
-        .how-to-participate {
-            background: linear-gradient(135deg, #1A1F2D, #14141F); /* Градиентный фон */
-            padding: 30px 20px;
-            text-align: center;
-            margin: 20px 10px;
-            border: 2px solid #FFD700; /* Золотая рамка */
-            border-radius: 16px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Лёгкая тень */
-            color: #FFFFFF;
-        }
-
-        .how-to-participate h2 {
-            font-size: 32px;
-            color: #FFD700; /* Золотой цвет заголовка */
-            margin-bottom: 16px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); /* Тень для текста */
-        }
-
-        .how-to-participate p {
-            font-size: 18px;
-            color: #B2B9D2; /* Светло-серый текст */
-            line-height: 1.8;
-            margin: 0;
-        }
-
-        /* Общие стили */
-        .container {
+        .steps {
             padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            text-align: center;
         }
 
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section h2 {
-            color: #FFD700; /* Золотой */
+        .steps h2 {
             font-size: 28px;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+
+        .steps .step {
+            margin-bottom: 30px;
+        }
+
+        .steps .step h3 {
+            font-size: 22px;
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+
+        .steps .step p {
+            font-size: 16px;
+            color: #CCCCCC;
+            margin: 0 20px 20px;
+        }
+
+        .app-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .app-links img {
+            width: 150px;
+            height: 50px;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            object-fit: cover;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .app-links img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            padding: 15px 25px;
+            background-color: #FFD700;
+            color: #121212;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .button-container button:hover {
+            background-color: #E5C700;
+            transform: scale(1.05);
+        }
+
+        .why-choose-us {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .why-choose-us h2 {
+            font-size: 28px;
+            color: #FFD700; /* Золотой цвет для заголовка */
+            margin-bottom: 20px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            flex: 1 1 calc(30% - 20px);
+            background-color: #1A1A1A;
+            color: #FFFFFF;
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.7);
+        }
+
+        .feature img {
+            max-width: 100px;
             margin-bottom: 16px;
         }
 
-        .section p {
-            font-size: 16px;
-            color: #CCCCCC; /* Светло-серый */
-            line-height: 1.6;
+        .feature h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            font-size: 14px;
+            color: #CCCCCC;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1A1A1A;
+            color: #CCCCCC;
+            font-size: 14px;
+        }
+
+        /* Конфетти */
+        .confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .confetti span {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #FFD700;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Конфетти -->
+    <div class="confetti">
+        <!-- Конфетти увеличенной частоты -->
+        <span style="left: 5%; animation-duration: 3s;"></span>
+        <span style="left: 15%; animation-duration: 4s;"></span>
+        <span style="left: 25%; animation-duration: 3.5s;"></span>
+        <span style="left: 35%; animation-duration: 4s;"></span>
+        <span style="left: 45%; animation-duration: 3s;"></span>
+        <span style="left: 55%; animation-duration: 3.5s;"></span>
+        <span style="left: 65%; animation-duration: 4s;"></span>
+        <span style="left: 75%; animation-duration: 3.2s;"></span>
+        <span style="left: 85%; animation-duration: 4.5s;"></span>
+        <span style="left: 95%; animation-duration: 3.8s;"></span>
+    </div>
+
     <!-- Шапка -->
     <header>
-        <p>Присоединяйтесь к революции Official Trump уже сегодня!</p>
+        <h1>Trust Wallet</h1>
     </header>
 
-    <!-- Секция "Как принять участие" -->
-    <section class="how-to-participate">
+    <!-- Три шага -->
+    <section class="steps">
         <h2>Как принять участие?</h2>
-        <p>
-            Следуйте нашим простым шагам и получите шанс выиграть! Начните с установки Trust Wallet, добавьте токены, и участвуйте в акции прямо сейчас!
-        </p>
+        <div class="step">
+            <h3>Шаг 1: Установите Trust Wallet</h3>
+            <p>Скачайте приложение Trust Wallet из официального магазина приложений. Создайте кошелек и запишите свою фразу восстановления.</p>
+            <div class="app-links">
+                <a href="https://apps.apple.com/app/trust-crypto-bitcoin-wallet/id1288339409" target="_blank">
+                    <img src="IMG_2122.png" alt="Скачать в App Store">
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.wallet.crypto.trustapp" target="_blank">
+                    <img src="IMG_2121.webp" alt="Скачать в Google Play">
+                </a>
+            </div>
+        </div>
+        <div class="step">
+            <h3>Шаг 2: Купите или обменяйте криптовалюту</h3>
+            <p>Пополните баланс Trust Wallet с помощью покупки или обмена криптовалюты внутри приложения.</p>
+        </div>
+        <div class="step">
+            <h3>Шаг 3: Участвуйте в акции</h3>
+            <p>Проверьте свои активы и следите за обновлениями, чтобы не упустить возможность выиграть 100 USDT!</p>
+        </div>
+
+        <!-- Кнопка под шагами -->
+        <div class="button-container">
+            <button onclick="window.location.href='index.html'">
+                Принять участие в акции и выиграть 100 USDT
+            </button>
+        </div>
     </section>
 
-    <!-- Контент -->
-    <div class="container">
-        <!-- Пример дополнительного контента -->
-        <section class="section">
-            <h2>Шаг 1: Установите Trust Wallet</h2>
-            <p>Скачайте и установите приложение Trust Wallet из официального магазина приложений. Оно доступно как для iOS, так и для Android.</p>
-        </section>
-    </div>
-</body>
-</html>
+    <!-- Почему выбирают нас -->
+    <section class="why-choose-us">
+        <h2>Почему выбирают Trust Wallet?</h2>
+        <div class="features">
+            <div class="feature">
+                <img src="https://trustwallet.com/_next/static/media/raw.0acff7b3.svg" alt="Безопасность">
+                <h3>Высочайшая безопасность</h3>
+                <p>Ваши данные и средства защищены современными технологиями шифрования.</p>
+            </div>
+            <div class="feature">
+                <img src="https://trustwallet.com/_next/static/media/raw.91ac730a.svg" alt="Удобство">
+                <h3>Удобство в использовании</h3>
+                <p>Интуитивно понятный интерфейс, подходящий для всех уровней пользователей.</p>
+            </div>
+            <div class="feature">
+                <img src="https://trustwallet.com/_next/static/media/raw.d927cfe4.svg" alt="Поддержка">
+                <h3>Широкая поддержка</h3>
+                <p>Поддержка
