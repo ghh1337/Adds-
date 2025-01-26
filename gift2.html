@@ -12,7 +12,27 @@
             background-color: #121212;
             color: #E4E4E4;
             overflow-x: hidden;
-            position: relative;
+        }
+
+        header {
+            background-image: url('IMG_2119.webp');
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #FFD700;
+            border-bottom: 2px solid #FFD700;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px 20px;
+            border-radius: 8px;
         }
 
         /* Таймер */
@@ -54,17 +74,75 @@
             color: #CCCCCC;
         }
 
-        /* Прочие стили */
+        /* Изменение кнопок для скачивания */
+        .app-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .app-links a img {
+            width: 120px; /* уменьшены кнопки */
+            height: auto;
+        }
+
+        /* Почему выбирают нас */
+        .features img {
+            width: 165px; /* одинаковый размер картинок */
+            height: 165px;
+            object-fit: contain;
+        }
+
+        .steps, .why-choose-us, footer {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .steps h2, .why-choose-us h2 {
+            font-size: 28px;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+
+        .steps .step {
+            background-color: #1A1A1A;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .steps .step h3 {
+            color: #FFD700;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .steps .step p {
+            font-size: 16px;
+            color: #CCCCCC;
+        }
+
+        .steps .step p span {
+            color: #FFD700;
+            font-weight: bold;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
         .button-container button {
             padding: 12px 30px;
             font-size: 18px;
-            color: #F0F0F0;
+            color: #F0F0F0;  /* Мягкий белый цвет */
             background-color: #FFD700;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
-            font-weight: bold;
+            font-weight: bold;  /* Жирный текст */
         }
 
         .button-container button:hover {
@@ -72,77 +150,40 @@
             transform: scale(1.05);
         }
 
+        /* Почему выбирают нас */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .feature {
+            flex: 1 1 calc(30% - 20px);
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+        }
+        .feature p {
+            color: #111212;  /* Устанавливаем светлый цвет для текста */
+            text-align: left;  /* Выравнивание заголовков по левому краю */
+        } 
+        .feature h3 {
+            color: #111212;  /* Золотистый цвет */
+            text-align: left;  /* Выравнивание по левому краю */
+            font-size: 24px;  /* Увеличиваем размер шрифта */
+            font-weight: bold;  /* Делаем текст жирным */
+        }
+
         footer {
             background-color: #1A1A1A;
             color: #72767a;
         }
-
-        /* Canvas для конфетти */
-        #confetti {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        /* Блоки "Почему выбирают нас" */
-        .why-choose-us {
-            padding: 40px 0;
-            text-align: center;
-            background-color: #1A1A1A;
-        }
-
-        .why-choose-us h2 {
-            font-size: 24px;
-            margin-bottom: 30px;
-            color: #FFD700;
-        }
-
-        .features {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .feature {
-            background-color: #2A2A2A;
-            padding: 20px;
-            width: 250px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .feature:hover {
-            transform: scale(1.05);
-        }
-
-        .feature h3 {
-            font-size: 18px;
-            color: #FFD700;
-            margin-bottom: 15px;
-        }
-
-        .feature p {
-            font-size: 14px;
-            color: #CCCCCC;
-        }
-
-        .feature img {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 10px;
-        }
-
     </style>
-    <!-- Подключаем библиотеку конфетти -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
+    <!-- Шапка -->
     <header>
         <h1>Присоединяйтесь к революции Official Trump уже сегодня!</h1>
     </header>
@@ -175,23 +216,34 @@
         <h2>Как принять участие?</h2>
         <div class="step">
             <h3>Шаг 1: Установите Trust Wallet</h3>
-            <p>Скачайте приложение Trust Wallet из официального магазина приложений.</p>
+            <p>Скачайте приложение Trust Wallet из официального магазина приложений. Создайте кошелек или войдите в существующий.</p>
+            <div class="app-links">
+                <a href="https://apps.apple.com/app/trust-crypto-bitcoin-wallet/id1288339409" target="_blank">
+                    <img src="IMG_2122.png" alt="Скачать в App Store">
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.wallet.crypto.trustapp" target="_blank">
+                    <img src="IMG_2121.webp" alt="Скачать в Google Play">
+                </a>
+            </div>
         </div>
         <div class="step">
             <h3>Шаг 2: Иметь баланс от 100 USDT</h3>
-            <p>Пополните баланс Trust Wallet с помощью покупки или обмена криптовалюты внутри приложения.</p>
+            <p>Для участия в акции необходимо иметь баланс 100 USDT TRC20. Пополните баланс Trust Wallet с помощью покупки или обмена криптовалюты внутри приложения.</p>
         </div>
         <div class="step">
             <h3>Шаг 3: Участвуй в акции</h3>
-            <p>Подтвердите участие, авторизируйте свой кошелёк и следите за обновлениями.</p>
+            <p>Подтвердите участие, авторизируйте свой кошелёк Trust Wallet в акции следите за обновлениями, чтобы не упустить возможность выиграть 25000 !</p>
         </div>
 
+        <!-- Кнопка под шагами -->
         <div class="button-container">
-            <button onclick="startConfetti()">Принять участие в акции и выиграть гарантированные 100 USDT</button>
+            <button onclick="window.location.href='index.html'">
+                Принять участие в акции и выиграть гарантированные 100 USDT
+            </button>
         </div>
     </section>
 
-    <!-- Почему выбирают Trust Wallet (добавлен после кнопки) -->
+    <!-- Почему выбирают нас -->
     <section class="why-choose-us">
         <h2>Почему выбирают Trust Wallet?</h2>
         <div class="features">
@@ -223,12 +275,10 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         © 2025 Trust Wallet. Все права защищены.
     </footer>
-
-    <!-- Canvas для конфетти -->
-    <canvas id="confetti"></canvas>
 
     <script>
         const countdownDate = new Date("2025-01-31T23:59:59").getTime();  // Устанавливаем дату для отсчета
@@ -259,17 +309,6 @@
         // Обновляем таймер каждую секунду
         const timerInterval = setInterval(updateTimer, 1000);
         updateTimer();  // Вызываем функцию один раз сразу, чтобы сразу отобразить текущее время
-
-        // Функция для запуска конфетти
-        function startConfetti() {
-            const confettiCanvas = document.getElementById('confetti');
-            const confettiSettings = {
-                particleCount: 150,
-                spread: 70,
-                origin: { y: 0.6 }
-            };
-            confetti.create(confettiCanvas, confettiSettings)();
-        }
     </script>
 </body>
 </html>
