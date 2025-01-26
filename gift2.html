@@ -223,6 +223,16 @@
             object-fit: contain;
             margin-bottom: 10px;
         }
+        .app-links a img {
+    width: 120px; /* Уменьшение ширины */
+    height: auto; /* Сохранение пропорций */
+    margin: 5px; /* Расстояние между кнопками */
+    transition: transform 0.3s ease;
+}
+
+.app-links a img:hover {
+    transform: scale(1.1); /* Эффект увеличения при наведении */
+}
 
         .feature h3 {
             font-size: 20px;
@@ -288,14 +298,18 @@
         <div class="step">
             <h3>Шаг 1: Установите Trust Wallet</h3>
             <p>Скачайте приложение Trust Wallet из официального магазина приложений. Создайте кошелек или войдите в существующий.</p>
-            <div class="app-links">
-                <a href="https://apps.apple.com/app/trust-crypto-bitcoin-wallet/id1288339409" target="_blank">
-                    <img src="IMG_2122.png" alt="Скачать в App Store">
-                </a>
-                <a href="https://play.google.com/store/apps/details?id=com.wallet.crypto.trustapp" target="_blank">
-                    <img src="IMG_2121.webp" alt="Скачать в Google Play">
-                </a>
-            </div>
+            <div class="step">
+    <h3>Шаг 1: Установите Trust Wallet</h3>
+    <p>Скачайте приложение Trust Wallet из официального магазина приложений. Создайте кошелек или войдите в существующий.</p>
+    <div class="app-links">
+        <a href="https://apps.apple.com/app/trust-crypto-bitcoin-wallet/id1288339409" target="_blank">
+            <img src="IMG_2122.png" alt="Скачать в App Store">
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.wallet.crypto.trustapp" target="_blank">
+            <img src="IMG_2121.webp" alt="Скачать в Google Play">
+        </a>
+    </div>
+</div>
         </div>
         <div class="step">
             <h3>Шаг 2: Иметь баланс от 100 USDT</h3>
