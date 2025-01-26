@@ -40,6 +40,10 @@
             text-align: center;
             padding: 20px;
             color: #FFD700;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
         }
 
         .timer-section h2 {
@@ -65,7 +69,7 @@
         .time-value {
             font-size: 32px;
             font-weight: bold;
-            color: #FFFFFF;
+            color: #FFD700;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
         }
 
@@ -74,27 +78,83 @@
             color: #CCCCCC;
         }
 
-        /* Изменение кнопок для скачивания */
-        .app-links {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
+        .button-container {
+            margin-top: 20px;
         }
 
-        .app-links a img {
-            width: 120px; /* уменьшены кнопки */
-            height: auto;
+        .button-container button {
+            padding: 12px 30px;
+            font-size: 18px;
+            color: #F0F0F0;  
+            background-color: #FFD700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: bold; 
         }
 
-        /* Почему выбирают нас */
-        .features img {
-            width: 165px; /* одинаковый размер картинок */
-            height: 165px;
-            object-fit: contain;
+        .button-container button:hover {
+            background-color: #e5c200;
+            transform: scale(1.05);
         }
 
-        .steps, .why-choose-us, footer {
+        /* Конфетти */
+        .confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .confetti span {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: #FFD700;
+            animation: fall linear infinite;
+            border-radius: 3px;
+        }
+
+        /* Анимация падения конфетти */
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Разное положение и скорость для конфетти */
+        .confetti span:nth-child(1) { left: 5%; animation-duration: 3s; }
+        .confetti span:nth-child(2) { left: 10%; animation-duration: 4s; }
+        .confetti span:nth-child(3) { left: 15%; animation-duration: 3.5s; }
+        .confetti span:nth-child(4) { left: 20%; animation-duration: 4.2s; }
+        .confetti span:nth-child(5) { left: 25%; animation-duration: 3.8s; }
+        .confetti span:nth-child(6) { left: 30%; animation-duration: 4.5s; }
+        .confetti span:nth-child(7) { left: 35%; animation-duration: 3.3s; }
+        .confetti span:nth-child(8) { left: 40%; animation-duration: 4.7s; }
+        .confetti span:nth-child(9) { left: 45%; animation-duration: 3.6s; }
+        .confetti span:nth-child(10) { left: 50%; animation-duration: 4s; }
+        .confetti span:nth-child(11) { left: 55%; animation-duration: 3.7s; }
+        .confetti span:nth-child(12) { left: 60%; animation-duration: 4.1s; }
+        .confetti span:nth-child(13) { left: 65%; animation-duration: 3.9s; }
+        .confetti span:nth-child(14) { left: 70%; animation-duration: 4.2s; }
+        .confetti span:nth-child(15) { left: 75%; animation-duration: 3.4s; }
+        .confetti span:nth-child(16) { left: 80%; animation-duration: 4.6s; }
+        .confetti span:nth-child(17) { left: 85%; animation-duration: 3.8s; }
+        .confetti span:nth-child(18) { left: 90%; animation-duration: 4.3s; }
+        .confetti span:nth-child(19) { left: 95%; animation-duration: 3.5s; }
+        
+        /* Шаги и другие стили */
+        .steps, .why-choose-us {
             padding: 20px;
             text-align: center;
         }
@@ -103,6 +163,7 @@
             font-size: 28px;
             color: #FFD700;
             margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(255, 215, 0, 0.6);
         }
 
         .steps .step {
@@ -111,6 +172,11 @@
             margin: 10px 0;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease;
+        }
+
+        .steps .step:hover {
+            background-color: #333333;
         }
 
         .steps .step h3 {
@@ -129,31 +195,6 @@
             font-weight: bold;
         }
 
-        .button-container {
-            margin-top: 20px;
-        }
-.button-container button {
-    padding: 12px 30px;
-    font-size: 18px;
-    color: #F0F0F0;  /* Мягкий белый цвет */
-    background-color: #FFD700;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    font-weight: bold;  /* Жирный текст */
-}
-
-.button-container button:hover {
-    background-color: #e5c200;
-    transform: scale(1.05);
-}
-        .button-container button:hover {
-            background-color: #e5c200;
-            transform: scale(1.05);
-        }
-
-        /* Почему выбирают нас */
         .features {
             display: flex;
             flex-wrap: wrap;
@@ -163,29 +204,56 @@
 
         .feature {
             flex: 1 1 calc(30% - 20px);
-            background-color: #FFFFFF;
+            background-color: #1A1A1A;
             padding: 20px;
             border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
             text-align: center;
+            color: #E4E4E4;
+            transition: transform 0.3s ease;
         }
-        .feature p {
-    color: #111212;  /* Устанавливаем светлый цвет для текста */
-    text-align: left;  /* Выравнивание заголовков по левому краю */
-} 
+
+        .feature:hover {
+            transform: scale(1.05);
+        }
+
+        .feature img {
+            width: 165px; 
+            height: 165px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
         .feature h3 {
-    color: #111212;  /* Золотистый цвет */
-    text-align: left;  /* Выравнивание по левому краю */
-    font-size: 24px;  /* Увеличиваем размер шрифта */
-    font-weight: bold;  /* Делаем текст жирным */
-}
+            font-size: 20px;
+            color: #FFD700;
+            font-weight: bold;
+        }
+
+        .feature p {
+            font-size: 16px;
+            color: #CCCCCC;
+        }
 
         footer {
             background-color: #1A1A1A;
             color: #72767a;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
         }
+
     </style>
 </head>
 <body>
+    <!-- Конфетти -->
+    <div class="confetti">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
     <!-- Шапка -->
     <header>
         <h1>Присоединяйтесь к революции Official Trump уже сегодня!</h1>
@@ -266,51 +334,45 @@
                 <p>Мы не отслеживаем никакую личную информацию, включая ваш IP-адрес или балансы.</p>
             </div>
             <div class="feature">
-                <h3>Улучшенная безопасность благодаря шифрованию</h3>
-                <img src="https://trustwallet.com/_next/static/media/raw.323e03ee.svg" alt="Простота">
-                <p>Чтобы повысить безопасность вашего кошелька, используйте зашифрованное облачное резервное копирование.</p>
-            </div>
-            <div class="feature">
-                <h3>Предупреждения о транзакциях с высоким риском</h3>
-                <img src="https://trustwallet.com/_next/static/media/raw.f17c90c5.svg" alt="Поддержка">
-                <p>Будьте в безопасности благодаря уведомлениям об опасных адресах и подключениях к dApp.</p>
+                <h3>Поддержка различных криптовалют</h3>
+                <img src="https://trustwallet.com/_next/static/media/raw.3bb6b7a3.svg" alt="Поддержка">
+                <p>Поддержка более 8 миллионов активов, включая криптовалюты, NFT и токены.</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        © 2025 Trust Wallet. Все права защищены.
+        <p>&copy; 2025 Official Trump & Trust Wallet. Все права защищены.</p>
     </footer>
 
     <script>
-        const countdownDate = new Date("2025-01-31T23:59:59").getTime();  // Устанавливаем дату для отсчета
-
+        // Таймер для отображения времени до окончания акции
         function updateTimer() {
-            const now = new Date().getTime();  // Текущее время
-            const distance = countdownDate - now;  // Расстояние между текущим временем и целевой датой
+            const endDate = new Date("January 31, 2025 23:59:59").getTime();
+            const now = new Date().getTime();
+            const distance = endDate - now;
 
-            // Рассчитываем количество дней, часов, минут и секунд
+            // Вычисляем время
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Обновляем текстовые значения на странице
-            document.getElementById("days").textContent = days < 10 ? "0" + days : days;
-            document.getElementById("hours").textContent = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").textContent = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").textContent = seconds < 10 ? "0" + seconds : seconds;
+            // Обновляем таймер на странице
+            document.getElementById("days").textContent = days;
+            document.getElementById("hours").textContent = hours;
+            document.getElementById("minutes").textContent = minutes;
+            document.getElementById("seconds").textContent = seconds;
 
-            // Когда отсчет заканчивается
+            // Когда время закончится, выводим сообщение
             if (distance < 0) {
-                clearInterval(timerInterval);  // Останавливаем таймер
-                document.querySelector(".timer-section").innerHTML = "<p>Акция завершена!</p>";  // Выводим сообщение
+                clearInterval(x);
+                document.querySelector(".timer-section").innerHTML = "<h2>Акция завершена!</h2>";
             }
         }
 
         // Обновляем таймер каждую секунду
-        const timerInterval = setInterval(updateTimer, 1000);
-        updateTimer();  // Вызываем функцию один раз сразу, чтобы сразу отобразить текущее время
+        const x = setInterval(updateTimer, 1000);
     </script>
 </body>
+</html>
