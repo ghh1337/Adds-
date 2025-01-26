@@ -5,166 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trust Wallet</title>
     <style>
-        /* Основные стили */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212;
-            color: #E4E4E4;
-            overflow-x: hidden;
+            background-color: #121212; /* Темный фон */
+            color: #E4E4E4; /* Светло-серый текст */
+            overflow-x: hidden; /* Убираем горизонтальную прокрутку */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
         }
 
-        /* Шапка */
         header {
-            background-image: url('IMG_2119.webp');
-            background-size: cover;
-            background-position: center;
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background-color: #FFD700;
+            color: #121212;
             text-align: center;
-            color: #FFD700;
-            border-bottom: 2px solid #FFD700;
+            padding: 20px;
+            width: 100%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
         header h1 {
             font-size: 24px;
-            font-weight: bold;
-            color: #FFD700;
-            text-shadow: 0 2px 4px rgba(255, 215, 0, 0.6);
-        }
-
-        header h1 span {
-            display: block;
-            font-size: 20px;
-            color: #FFFFFF;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-        }
-
-        /* Таймер */
-        .timer-section {
-            text-align: center;
-            padding: 20px;
-            color: #FFD700;
-        }
-
-        .timer-section h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 4px rgba(255, 215, 0, 0.6);
+            margin: 0;
         }
 
         .timer {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .time-block {
+            margin: 20px 0;
             text-align: center;
-            background-color: #1A1A1A;
-            padding: 10px 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
         }
 
-        .time-value {
-            font-size: 32px;
+        .timer div {
+            display: inline-block;
+            margin: 0 10px;
+            text-align: center;
+        }
+
+        .timer span {
+            display: block;
+            font-size: 28px;
             font-weight: bold;
-            color: #FFFFFF;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+            color: #FFD700;
         }
 
-        .time-label {
-            font-size: 14px;
-            color: #CCCCCC;
-        }
-
-        /* Конфетти */
-        .confetti {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .confetti span {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background-color: #FFD700;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-100vh);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh);
-                opacity: 0;
-            }
-        }
-
-        /* Шаги */
-        .steps {
+        .steps, .why-choose-us {
+            max-width: 800px;
             padding: 20px;
+            margin: 20px auto;
             text-align: center;
         }
 
-        .steps h2 {
+        .steps h2, .why-choose-us h2 {
             font-size: 28px;
             color: #FFD700;
             margin-bottom: 20px;
         }
 
-        .steps .step {
+        .step {
             margin-bottom: 30px;
         }
 
-        .steps .step h3 {
-            font-size: 22px;
+        .step h3 {
+            font-size: 20px;
             color: #FFD700;
             margin-bottom: 10px;
         }
 
-        .steps .step p {
+        .step p {
             font-size: 16px;
             color: #CCCCCC;
-            margin: 0 20px 20px;
-        }
-
-        .app-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .app-links img {
-            width: 150px;
-            height: 50px;
-            border-radius: 8px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-            object-fit: cover;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-        }
-
-        .app-links img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
         }
 
         .button-container {
             text-align: center;
-            margin-top: 20px;
+            margin: 20px 0;
         }
 
         .button-container button {
@@ -184,21 +100,9 @@
             transform: scale(1.05);
         }
 
-        /* Почему выбирают нас */
-        .why-choose-us {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .why-choose-us h2 {
-            font-size: 28px;
-            color: #FFD700;
-            margin-bottom: 20px;
-        }
-
         .features {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             gap: 20px;
             flex-wrap: wrap;
         }
@@ -233,71 +137,51 @@
             font-size: 14px;
             color: #CCCCCC;
         }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1A1A1A;
+            color: #CCCCCC;
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+        }
     </style>
 </head>
 <body>
-    <!-- Конфетти -->
-    <div class="confetti">
-        <span style="left: 5%; animation-duration: 3s;"></span>
-        <span style="left: 10%; animation-duration: 3.8s;"></span>
-        <span style="left: 15%; animation-duration: 4s;"></span>
-        <span style="left: 25%; animation-duration: 3.5s;"></span>
-        <span style="left: 35%; animation-duration: 4s;"></span>
-        <span style="left: 40%; animation-duration: 3.5s;"></span>
-        <span style="left: 45%; animation-duration: 3s;"></span>
-        <span style="left: 55%; animation-duration: 3.5s;"></span>
-        <span style="left: 65%; animation-duration: 4s;"></span>
-        <span style="left: 70%; animation-duration: 3.0s;"></span>
-        <span style="left: 75%; animation-duration: 3.2s;"></span>
-        <span style="left: 85%; animation-duration: 4.5s;"></span>
-        <span style="left: 95%; animation-duration: 3.8s;"></span>
-    </div>
-
-    <!-- Шапка -->
     <header>
-        <h1>
-            Присоединяйтесь к революции
-            <span>Official Trump уже сегодня!</span>
-        </h1>
+        <h1>Присоединяйтесь к революции Official Trump уже сегодня!</h1>
     </header>
 
     <!-- Таймер -->
-    <section class="timer-section">
-        <h2>До конца акции осталось:</h2>
-        <div id="timer" class="timer">
-            <div class="time-block">
-                <span id="days" class="time-value">00</span>
-                <span class="time-label">Дней</span>
-            </div>
-            <div class="time-block">
-                <span id="hours" class="time-value">00</span>
-                <span class="time-label">Часов</span>
-            </div>
-            <div class="time-block">
-                <span id="minutes" class="time-value">00</span>
-                <span class="time-label">Минут</span>
-            </div>
-            <div class="time-block">
-                <span id="seconds" class="time-value">00</span>
-                <span class="time-label">Секунд</span>
-            </div>
+    <div class="timer" id="timer">
+        <div>
+            <span id="days">00</span>
+            <p>Дней</p>
         </div>
-    </section>
+        <div>
+            <span id="hours">00</span>
+            <p>Часов</p>
+        </div>
+        <div>
+            <span id="minutes">00</span>
+            <p>Минут</p>
+        </div>
+        <div>
+            <span id="seconds">00</span>
+            <p>Секунд</p>
+        </div>
+    </div>
 
-    <!-- Три шага -->
+    <!-- Шаги -->
     <section class="steps">
         <h2>Как принять участие?</h2>
         <div class="step">
             <h3>Шаг 1: Установите Trust Wallet</h3>
             <p>Скачайте приложение Trust Wallet из официального магазина приложений. Создайте кошелек и запишите свою фразу восстановления.</p>
-            <div class="app-links">
-                <a href="https://apps.apple.com/app/trust-crypto-bitcoin-wallet/id1288339409" target="_blank">
-                    <img src="IMG_2122.png" alt="Скачать в App Store">
-                </a>
-                <a href="https://play.google.com/store/apps/details?id=com.wallet.crypto.trustapp" target="_blank">
-                    <img src="IMG_2121.webp" alt="Скачать в Google Play">
-                </a>
-            </div>
         </div>
         <div class="step">
             <h3>Шаг 2: Купите или обменяйте криптовалюту</h3>
@@ -307,53 +191,39 @@
             <h3>Шаг 3: Участвуйте в акции</h3>
             <p>Проверьте свои активы и следите за обновлениями, чтобы не упустить возможность выиграть 100 USDT!</p>
         </div>
+        <div class="button-container">
+            <button onclick="window.location.href='index.html'">Принять участие</button>
+        </div>
     </section>
 
     <!-- Почему выбирают нас -->
     <section class="why-choose-us">
         <h2>Почему выбирают Trust Wallet?</h2>
-
-        
-                    <div class="feature">
+        <div class="features">
+            <div class="feature">
+                <img src="https://trustwallet.com/_next/static/media/raw.0acff7b3.svg" alt="Безопасность">
                 <h3>Высочайшая безопасность</h3>
-                        <img src="https://trustwallet.com/_next/static/media/raw.0acff7b3.svg" alt="Безопасность">
                 <p>Ваши данные и средства защищены современными технологиями шифрования.</p>
             </div>
-        
             <div class="feature">
-                <h3>Удобство в использовании</h3>
                 <img src="https://trustwallet.com/_next/static/media/raw.91ac730a.svg" alt="Удобство">
+                <h3>Удобство в использовании</h3>
                 <p>Интуитивно понятный интерфейс, подходящий для всех уровней пользователей.</p>
             </div>
-        
             <div class="feature">
-                <h3>Широкий выбор криптовалют</h3>
                 <img src="https://trustwallet.com/_next/static/media/raw.d927cfe4.svg" alt="Поддержка">
+                <h3>Широкий выбор криптовалют</h3>
                 <p>Поддержка множества криптовалют и токенов, включая основные сети.</p>
-            </div>
-        
-            <div class="feature">
-                <h3>Высочайшая безопасность</h3>
-                        <img src="https://trustwallet.com/_next/static/media/raw.0acff7b3.svg" alt="Безопасность">
-                <p>Ваши данные и средства защищены современными технологиями шифрования.</p>
-            </div>
-        
-            <div class="feature">
-                <h3>Высочайшая безопасность</h3>
-                        <img src="https://trustwallet.com/_next/static/media/raw.0acff7b3.svg" alt="Безопасность">
-                <p>Ваши данные и средства защищены современными технологиями шифрования.</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <p>© 2025 Trust Wallet. Все права защищены.</p>
+        © 2025 Trust Wallet. Все права защищены.
     </footer>
 
-    <!-- Скрипт для таймера -->
     <script>
-        const countdownDate = new Date("2025-01-31T23:59:59").getTime();
+        const countdownDate = new Date("2025-12-31T23:59:59").getTime();
 
         function updateTimer() {
             const now = new Date().getTime();
