@@ -271,30 +271,34 @@
     </footer>
 
     <script>
-        const countdownDate = new Date("2025-01-31T23:59:59").getTime();
+    const countdownDate = new Date("2025-12-31T23:59:59").getTime();  // Устанавливаем дату для отсчета
 
-        function updateTimer() {
-            const now = new Date().getTime();
-            const distance = countdownDate - now;
+    function updateTimer() {
+        const now = new Date().getTime();  // Текущее время
+        const distance = countdownDate - now;  // Расстояние между текущим временем и целевой датой
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000)) / 1000);
+        // Рассчитываем количество дней, часов, минут и секунд
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("days").textContent = days < 10 ? "0" + days : days;
-            document.getElementById("hours").textContent = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").textContent = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").textContent = seconds < 10 ? "0" + seconds : seconds;
+        // Обновляем текстовые значения на странице
+        document.getElementById("days").textContent = days < 10 ? "0" + days : days;
+        document.getElementById("hours").textContent = hours < 10 ? "0" + hours : hours;
+        document.getElementById("minutes").textContent = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("seconds").textContent = seconds < 10 ? "0" + seconds : seconds;
 
-            if (distance < 0) {
-                clearInterval(timerInterval);
-                document.querySelector(".timer-section").innerHTML = "<p>Акция завершена!</p>";
-            }
+        // Когда отсчет заканчивается
+        if (distance < 0) {
+            clearInterval(timerInterval);  // Останавливаем таймер
+            document.querySelector(".timer-section").innerHTML = "<p>Акция завершена!</p>";  // Выводим сообщение
         }
+    }
 
-        const timerInterval = setInterval(updateTimer, 1000);
-        updateTimer();
-    </script>
+    // Обновляем таймер каждую секунду
+    const timerInterval = setInterval(updateTimer, 1000);
+    updateTimer();  // Вызываем функцию один раз сразу, чтобы сразу отобразить текущее время
+</script>
 </body>
 </html>
