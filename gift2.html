@@ -190,11 +190,6 @@
     </style>
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="Логотип">
-        <h1>Присоединяйтесь к революции Official Trump уже сегодня!</h1>
-    </header>
-
     <div class="confetti">
         <span style="left: 10%; animation-duration: 3s;"></span>
         <span style="left: 20%; animation-duration: 4s;"></span>
@@ -287,7 +282,7 @@
             const now = new Date().getTime();
             const distance = countdownDate - now;
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const days = Math.floor(distance % (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
