@@ -9,13 +9,13 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212; /* Темный фон */
-            color: #E4E4E4; /* Светло-серый текст */
-            overflow-x: hidden; /* Убираем горизонтальную прокрутку */
+            background-color: #121212;
+            color: #E4E4E4;
+            overflow-x: hidden;
         }
 
         header {
-            background-image: url('IMG_2119.webp'); /* Фоновое изображение */
+            background-image: url('IMG_2119.webp');
             background-size: cover;
             background-position: center;
             height: 200px;
@@ -24,15 +24,23 @@
             justify-content: center;
             text-align: center;
             color: #FFD700;
-            border-bottom: 2px solid #FFD700; /* Золотая линия */
+            border-bottom: 2px solid #FFD700;
         }
 
         header h1 {
             font-size: 36px;
             margin: 0;
-            background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный фон */
+            background-color: rgba(0, 0, 0, 0.6);
             padding: 10px 20px;
             border-radius: 8px;
+        }
+
+        .timer {
+            text-align: center;
+            margin: 20px 0;
+            color: #FFD700;
+            font-size: 24px;
+            font-weight: bold;
         }
 
         .steps {
@@ -112,15 +120,15 @@
 
         .why-choose-us h2 {
             font-size: 28px;
-            color: #FFD700; /* Золотой цвет для заголовка */
+            color: #FFD700;
             margin-bottom: 20px;
         }
 
         .features {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
-            flex-wrap: wrap;
         }
 
         .feature {
@@ -132,6 +140,7 @@
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s, box-shadow 0.3s;
+            max-width: 300px;
         }
 
         .feature:hover {
@@ -161,54 +170,11 @@
             color: #CCCCCC;
             font-size: 14px;
         }
-
-        /* Конфетти */
-        .confetti {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .confetti span {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #FFD700;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-100vh);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh);
-                opacity: 0;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- Конфетти -->
-    <div class="confetti">
-        <!-- Конфетти увеличенной частоты -->
-        <span style="left: 5%; animation-duration: 3s;"></span>
-        <span style="left: 15%; animation-duration: 4s;"></span>
-        <span style="left: 25%; animation-duration: 3.5s;"></span>
-        <span style="left: 35%; animation-duration: 4s;"></span>
-        <span style="left: 45%; animation-duration: 3s;"></span>
-        <span style="left: 55%; animation-duration: 3.5s;"></span>
-        <span style="left: 65%; animation-duration: 4s;"></span>
-        <span style="left: 75%; animation-duration: 3.2s;"></span>
-        <span style="left: 85%; animation-duration: 4.5s;"></span>
-        <span style="left: 95%; animation-duration: 3.8s;"></span>
-    </div>
+    <!-- Таймер -->
+    <div class="timer" id="timer"></div>
 
     <!-- Шапка -->
     <header>
@@ -264,7 +230,17 @@
             <div class="feature">
                 <img src="https://trustwallet.com/_next/static/media/raw.d927cfe4.svg" alt="Поддержка">
                 <h3>Широкая поддержка</h3>
-                                <p>Поддержка множества криптовалют и токенов, включая основные сети.</p>
+                <p>Поддержка множества криптовалют и токенов, включая основные сети.</p>
+            </div>
+            <div class="feature">
+                <img src="https://trustwallet.com/_next/static/media/raw.0acff7b3.svg" alt="Доступность">
+                <h3>Доступность 24/7</h3>
+                <p>Приложение доступно в любое время и готово к использованию.</p>
+            </div>
+            <div class="feature">
+                <img src="https://trustwallet.com/_next/static/media/raw.91ac730a.svg" alt="Простота">
+                <h3>Простота и удобство</h3>
+                <p>Легко начать работу даже для новичков в криптовалютах.</p>
             </div>
         </div>
     </section>
@@ -273,5 +249,30 @@
     <footer>
         © 2025 Trust Wallet. Все права защищены.
     </footer>
+
+    <script>
+        // Таймер обратного отсчёта
+        const timerElement = document.getElementById("timer");
+        const targetDate = new Date("2025-01-31T23:59:59");
+
+        function updateTimer() {
+            const now = new Date();
+            const difference = targetDate - now;
+
+            if (difference <= 0) {
+                timerElement.textContent = "Акция завершена!";
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            timerElement.textContent = `До завершения акции: ${days}д ${hours}ч ${minutes}м ${seconds}с`;
+        }
+
+        setInterval(updateTimer, 1000);
+    </script>
 </body>
 </html>
