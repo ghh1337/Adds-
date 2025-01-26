@@ -16,7 +16,7 @@
             align-items: center;
             min-height: 100vh;
             flex-direction: column;
-            overflow: hidden; /* Чтобы предотвратить увеличение страницы */
+            overflow: hidden; /* Отключаем прокрутку для body */
         }
         .container {
             max-width: 450px;
@@ -27,8 +27,9 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             text-align: center;
             margin-bottom: 50px;
-            overflow-y: auto; /* Для прокрутки контейнера, если контент больше */
-            height: calc(100vh - 100px); /* Устанавливаем высоту контейнера с учетом футера */
+            height: 100%; /* Занимает всю доступную высоту */
+            overflow-y: auto; /* Прокрутка внутри контейнера */
+            padding-bottom: 60px; /* Добавляем пространство для футера */
         }
         .logo {
             margin-bottom: 16px;
@@ -116,6 +117,7 @@
             font-size: 12px;
             color: #A0A0A0;
             padding: 10px 0;
+            z-index: 100;
         }
     </style>
 </head>
