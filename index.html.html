@@ -13,10 +13,10 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             min-height: 100vh;
             flex-direction: column;
-            overflow: hidden; /* Отключаем прокрутку для body */
+            overflow-x: hidden; /* Отключаем прокрутку по горизонтали */
         }
         .container {
             max-width: 450px;
@@ -27,7 +27,6 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             text-align: center;
             margin-bottom: 50px;
-            height: 100%; /* Занимает всю доступную высоту */
             overflow-y: auto; /* Прокрутка внутри контейнера */
             padding-bottom: 60px; /* Добавляем пространство для футера */
         }
