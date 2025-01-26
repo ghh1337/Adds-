@@ -3,184 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trust Wallet</title>
+    <title>Как участвовать в акции Official Trump</title>
     <style>
+        /* Основной стиль страницы */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212;
-            color: #E4E4E4;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
+            background-color: #121212; /* Темный фон */
+            color: #E4E4E4; /* Светло-серый текст */
         }
 
         /* Шапка */
         header {
-            background-image: url('IMG_2119.webp');
+            background-image: url('IMG_2119.webp'); /* Картинка для шапки */
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
             height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: #FFD700;
-            border-bottom: 2px solid #FFD700;
+            border-bottom: 2px solid #FFD700; /* Золотая линия */
         }
 
-        header h1 {
-            font-size: 24px;
-            font-weight: bold;
-            color: #FFD700;
-            text-shadow: 0 2px 4px rgba(255, 215, 0, 0.6);
-        }
-
-        header h1 span {
-            display: block;
-            font-size: 20px;
-            color: #FFFFFF;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-        }
-
-        /* Таймер */
-        .timer-section {
-            text-align: center;
-            padding: 20px;
-            color: #FFD700;
-        }
-
-        .timer-section h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 4px rgba(255, 215, 0, 0.6);
-        }
-
-        .timer {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .time-block {
-            text-align: center;
-            background-color: #1A1A1A;
-            padding: 10px 15px;
+        header p {
+            margin: 0;
+            font-size: 18px;
+            color: #FFD700; /* Золотой текст */
+            background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный фон */
+            padding: 10px 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
         }
 
-        .time-value {
-            font-size: 32px;
-            font-weight: bold;
+        /* Секция "Как принять участие" */
+        .how-to-participate {
+            background: linear-gradient(135deg, #1A1F2D, #14141F); /* Градиентный фон */
+            padding: 30px 20px;
+            text-align: center;
+            margin: 20px 10px;
+            border: 2px solid #FFD700; /* Золотая рамка */
+            border-radius: 16px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Лёгкая тень */
             color: #FFFFFF;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
         }
 
-        .time-label {
-            font-size: 14px;
-            color: #CCCCCC;
+        .how-to-participate h2 {
+            font-size: 32px;
+            color: #FFD700; /* Золотой цвет заголовка */
+            margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); /* Тень для текста */
         }
 
-        /* Конфетти */
-        .confetti {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
+        .how-to-participate p {
+            font-size: 18px;
+            color: #B2B9D2; /* Светло-серый текст */
+            line-height: 1.8;
+            margin: 0;
         }
 
-        .confetti span {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background-color: #FFD700;
-            animation: fall linear infinite;
+        /* Общие стили */
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        @keyframes fall {
-            0% {
-                transform: translateY(-100vh);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh);
-                opacity: 0;
-            }
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #FFD700; /* Золотой */
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .section p {
+            font-size: 16px;
+            color: #CCCCCC; /* Светло-серый */
+            line-height: 1.6;
         }
     </style>
 </head>
 <body>
+    <!-- Шапка -->
     <header>
-        <h1>Trust Wallet <span>Безопасность и удобство</span></h1>
+        <p>Присоединяйтесь к революции Official Trump уже сегодня!</p>
     </header>
 
-    <div class="confetti">
-        <span style="left: 10%; animation-duration: 3s;"></span>
-        <span style="left: 20%; animation-duration: 4s;"></span>
-        <span style="left: 30%; animation-duration: 3.5s;"></span>
-        <span style="left: 40%; animation-duration: 4s;"></span>
-        <span style="left: 50%; animation-duration: 3s;"></span>
-        <span style="left: 60%; animation-duration: 3.5s;"></span>
-        <span style="left: 70%; animation-duration: 4s;"></span>
-        <span style="left: 80%; animation-duration: 3.2s;"></span>
-        <span style="left: 90%; animation-duration: 4.5s;"></span>
-    </div>
-
-    <section class="timer-section">
-        <h2>До завершения акции осталось:</h2>
-        <div class="timer">
-            <div class="time-block">
-                <span class="time-value" id="days">00</span>
-                <span class="time-label">Дней</span>
-            </div>
-            <div class="time-block">
-                <span class="time-value" id="hours">00</span>
-                <span class="time-label">Часов</span>
-            </div>
-            <div class="time-block">
-                <span class="time-value" id="minutes">00</span>
-                <span class="time-label">Минут</span>
-            </div>
-            <div class="time-block">
-                <span class="time-value" id="seconds">00</span>
-                <span class="time-label">Секунд</span>
-            </div>
-        </div>
+    <!-- Секция "Как принять участие" -->
+    <section class="how-to-participate">
+        <h2>Как принять участие?</h2>
+        <p>
+            Следуйте нашим простым шагам и получите шанс выиграть! Начните с установки Trust Wallet, добавьте токены, и участвуйте в акции прямо сейчас!
+        </p>
     </section>
 
-    <script>
-        const countdownDate = new Date("2025-12-31T23:59:59").getTime();
-
-        function updateTimer() {
-            const now = new Date().getTime();
-            const distance = countdownDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("days").textContent = days < 10 ? "0" + days : days;
-            document.getElementById("hours").textContent = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").textContent = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").textContent = seconds < 10 ? "0" + seconds : seconds;
-
-            if (distance < 0) {
-                clearInterval(timerInterval);
-                document.querySelector(".timer-section").innerHTML = "<h2>Акция завершена!</h2>";
-            }
-        }
-
-        const timerInterval = setInterval(updateTimer, 1000);
-        updateTimer();
-    </script>
+    <!-- Контент -->
+    <div class="container">
+        <!-- Пример дополнительного контента -->
+        <section class="section">
+            <h2>Шаг 1: Установите Trust Wallet</h2>
+            <p>Скачайте и установите приложение Trust Wallet из официального магазина приложений. Оно доступно как для iOS, так и для Android.</p>
+        </section>
+    </div>
 </body>
 </html>
