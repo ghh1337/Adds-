@@ -297,6 +297,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti"></script>
     <script>
+        // Настройка конфетти
         const confetti = canvasConfetti.create(document.getElementById('confetti'), {
             resize: true,
             useWorker: true
@@ -312,6 +313,7 @@
 
         fireConfetti(); // Запуск конфетти сразу при загрузке страницы
 
+        // Таймер
         const countdownDate = new Date("2025-01-31T23:59:59").getTime();  // Устанавливаем дату для отсчета
 
         function updateTimer() {
