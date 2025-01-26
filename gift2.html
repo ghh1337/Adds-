@@ -9,65 +9,27 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212;
-            color: #E4E4E4;
-            overflow-x: hidden;
+            background-color: #121212; /* Темный фон */
+            color: #E4E4E4; /* Светло-серый текст */
+            overflow-x: hidden; /* Убираем горизонтальную прокрутку */
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
         }
-        /* Шапка */
-        header {
-            background-image: url('IMG_2119.webp');
-            background-size: cover;
-            background-position: center;
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #FFD700;
-            border-bottom: 2px solid #FFD700;
-        }
 
-        header img {
-            height: 40px;
-            margin-right: 10px;
+        header {
+            background-color: #FFD700;
+            color: #121212;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
         header h1 {
             font-size: 24px;
             margin: 0;
-        }
-
-        .confetti {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .confetti span {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #FFD700;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-100vh);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh);
-                opacity: 0;
-            }
         }
 
         .timer {
@@ -190,23 +152,11 @@
     </style>
 </head>
 <body>
-    <div class="confetti">
-        <span style="left: 10%; animation-duration: 3s;"></span>
-        <span style="left: 20%; animation-duration: 4s;"></span>
-        <span style="left: 30%; animation-duration: 3.5s;"></span>
-        <span style="left: 40%; animation-duration: 4s;"></span>
-        <span style="left: 50%; animation-duration: 3s;"></span>
-        <span style="left: 60%; animation-duration: 3.5s;"></span>
-        <span style="left: 70%; animation-duration: 4s;"></span>
-        <span style="left: 80%; animation-duration: 3.2s;"></span>
-        <span style="left: 90%; animation-duration: 4.5s;"></span>
-    </div>
-
     <header>
-        <img src="logo.png" alt="Trust Wallet">
-        <h1>Присоединяйтесь к революции Official Trust Wallet!</h1>
+        <h1>Присоединяйтесь к революции Official Trump уже сегодня!</h1>
     </header>
 
+    <!-- Таймер -->
     <div class="timer" id="timer">
         <div>
             <span id="days">00</span>
@@ -226,22 +176,45 @@
         </div>
     </div>
 
+    <!-- Шаги -->
     <section class="steps">
         <h2>Как принять участие?</h2>
         <div class="step">
             <h3>Шаг 1: Установите Trust Wallet</h3>
-            <p>Скачайте приложение Trust Wallet из официального магазина приложений.</p>
+            <p>Скачайте приложение Trust Wallet из официального магазина приложений. Создайте кошелек и запишите свою фразу восстановления.</p>
         </div>
         <div class="step">
-            <h3>Шаг 2: Купите криптовалюту</h3>
-            <p>Пополните баланс через встроенные инструменты обмена.</p>
+            <h3>Шаг 2: Купите или обменяйте криптовалюту</h3>
+            <p>Пополните баланс Trust Wallet с помощью покупки или обмена криптовалюты внутри приложения.</p>
         </div>
         <div class="step">
             <h3>Шаг 3: Участвуйте в акции</h3>
-            <p>Проверьте свои активы и ждите розыгрыша.</p>
+            <p>Проверьте свои активы и следите за обновлениями, чтобы не упустить возможность выиграть 100 USDT!</p>
         </div>
         <div class="button-container">
             <button onclick="window.location.href='index.html'">Принять участие</button>
+        </div>
+    </section>
+
+    <!-- Почему выбирают нас -->
+    <section class="why-choose-us">
+        <h2>Почему выбирают Trust Wallet?</h2>
+        <div class="features">
+            <div class="feature">
+                <img src="https://trustwallet.com/_next/static/media/raw.0acff7b3.svg" alt="Безопасность">
+                <h3>Высочайшая безопасность</h3>
+                <p>Ваши данные и средства защищены современными технологиями шифрования.</p>
+            </div>
+            <div class="feature">
+                <img src="https://trustwallet.com/_next/static/media/raw.91ac730a.svg" alt="Удобство">
+                <h3>Удобство в использовании</h3>
+                <p>Интуитивно понятный интерфейс, подходящий для всех уровней пользователей.</p>
+            </div>
+            <div class="feature">
+                <img src="https://trustwallet.com/_next/static/media/raw.d927cfe4.svg" alt="Поддержка">
+                <h3>Широкий выбор криптовалют</h3>
+                <p>Поддержка множества криптовалют и токенов, включая основные сети.</p>
+            </div>
         </div>
     </section>
 
@@ -268,7 +241,7 @@
 
             if (distance < 0) {
                 clearInterval(timerInterval);
-                document.getElementById("timer").innerHTML = "<p>Акция завершена!</p>";
+                document.getElementById("timer").innerHTML = "Акция завершена!";
             }
         }
 
