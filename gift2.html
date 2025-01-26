@@ -74,6 +74,26 @@
             color: #CCCCCC;
         }
 
+        /* Изменение кнопок для скачивания */
+        .app-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .app-links a img {
+            width: 120px; /* уменьшены кнопки */
+            height: auto;
+        }
+
+        /* Почему выбирают нас */
+        .features img {
+            width: 100px; /* одинаковый размер картинок */
+            height: 100px;
+            object-fit: contain;
+        }
+
         /* Остальной стиль сохранен из предыдущего кода */
         .steps, .why-choose-us, footer {
             padding: 20px;
@@ -108,6 +128,11 @@
     </style>
 </head>
 <body>
+    <!-- Шапка -->
+    <header>
+        <h1>Trust Wallet</h1>
+    </header>
+
     <!-- Таймер -->
     <div class="timer-section">
         <h2>Время до конца акции:</h2>
@@ -130,11 +155,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Шапка -->
-    <header>
-        <h1>Trust Wallet</h1>
-    </header>
 
     <!-- Три шага -->
     <section class="steps">
