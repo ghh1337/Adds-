@@ -35,96 +35,52 @@
             border-radius: 8px;
         }
 
-        .timer {
+        /* Таймер */
+        .timer-section {
             text-align: center;
-            margin: 30px 0;
             padding: 20px;
-            background-color: #1A1A1A;
-            border: 2px solid #FFD700;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
-            display: inline-block;
+            color: #FFD700;
+        }
+
+        .timer-section h2 {
             font-size: 24px;
-            font-weight: bold;
-            color: #FFD700;
-        }
-
-        .steps {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .steps h2 {
-            font-size: 28px;
-            color: #FFD700;
             margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(255, 215, 0, 0.6);
         }
 
-        .steps .step {
-            margin-bottom: 30px;
-        }
-
-        .steps .step h3 {
-            font-size: 22px;
-            color: #FFD700;
-            margin-bottom: 10px;
-        }
-
-        .steps .step p {
-            font-size: 16px;
-            color: #CCCCCC;
-            margin: 0 20px 20px;
-        }
-
-        .app-links {
+        .timer {
             display: flex;
             justify-content: center;
             gap: 20px;
         }
 
-        .app-links img {
-            width: 150px;
-            height: 50px;
+        .time-block {
+            text-align: center;
+            background-color: #1A1A1A;
+            padding: 10px 15px;
             border-radius: 8px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-            object-fit: cover;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
         }
 
-        .app-links img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
-        }
-
-        .button-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .button-container button {
-            padding: 15px 25px;
-            background-color: #FFD700;
-            color: #121212;
-            font-size: 18px;
+        .time-value {
+            font-size: 32px;
             font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
+            color: #FFFFFF;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
         }
 
-        .button-container button:hover {
-            background-color: #E5C700;
-            transform: scale(1.05);
+        .time-label {
+            font-size: 14px;
+            color: #CCCCCC;
         }
 
-        .why-choose-us {
+        /* Остальной стиль сохранен из предыдущего кода */
+        .steps, .why-choose-us, footer {
             padding: 20px;
             text-align: center;
         }
 
-        .why-choose-us h2 {
+        .steps h2, .why-choose-us h2 {
             font-size: 28px;
             color: #FFD700;
             margin-bottom: 20px;
@@ -140,47 +96,40 @@
         .feature {
             flex: 1 1 calc(30% - 20px);
             background-color: #1A1A1A;
-            color: #FFFFFF;
             padding: 20px;
             border-radius: 16px;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s, box-shadow 0.3s;
-            max-width: 300px;
-        }
-
-        .feature:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.7);
-        }
-
-        .feature img {
-            max-width: 100px;
-            margin-bottom: 16px;
-        }
-
-        .feature h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        .feature p {
-            font-size: 14px;
-            color: #CCCCCC;
         }
 
         footer {
-            text-align: center;
-            padding: 20px;
             background-color: #1A1A1A;
             color: #CCCCCC;
-            font-size: 14px;
         }
     </style>
 </head>
 <body>
     <!-- Таймер -->
-    <div class="timer" id="timer"></div>
+    <div class="timer-section">
+        <h2>Время до конца акции:</h2>
+        <div class="timer">
+            <div class="time-block">
+                <div class="time-value" id="days">00</div>
+                <div class="time-label">Дней</div>
+            </div>
+            <div class="time-block">
+                <div class="time-value" id="hours">00</div>
+                <div class="time-label">Часов</div>
+            </div>
+            <div class="time-block">
+                <div class="time-value" id="minutes">00</div>
+                <div class="time-label">Минут</div>
+            </div>
+            <div class="time-block">
+                <div class="time-value" id="seconds">00</div>
+                <div class="time-label">Секунд</div>
+            </div>
+        </div>
+    </div>
 
     <!-- Шапка -->
     <header>
@@ -257,31 +206,30 @@
     </footer>
 
     <script>
-        // Таймер обратного отсчёта
-        const timerElement = document.getElementById("timer");
-        const targetDate = new Date("2025-01-31T23:59:59");
+        const countdownDate = new Date("2025-12-31T23:59:59").getTime();
 
         function updateTimer() {
-            const now = new Date();
-            const difference = targetDate - now;
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
 
-            if (difference <= 0) {
-                timerElement.textContent = "Акция завершена!";
-                return;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000)) / 1000);
+
+            document.getElementById("days").textContent = days < 10 ? "0" + days : days;
+            document.getElementById("hours").textContent = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").textContent = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").textContent = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                document.querySelector(".timer-section").innerHTML = "<p>Акция завершена!</p>";
             }
-
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-            timerElement.innerHTML = `
-                <div>До завершения акции:</div>
-                <div>${days} <span>д</span> ${hours} <span>ч</span> ${minutes} <span>м</span> ${seconds} <span>с</span></div>
-            `;
         }
 
-        setInterval(updateTimer, 1000);
+        const timerInterval = setInterval(updateTimer, 1000);
+        updateTimer();
     </script>
 </body>
 </html>
