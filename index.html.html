@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Верификация кошелька</title>
     <style>
         body {
@@ -17,6 +17,7 @@
             min-height: 100vh;
             flex-direction: column;
             overflow-x: hidden; /* Отключаем прокрутку по горизонтали */
+            height: 100%; /* Устанавливаем высоту для предотвращения приближения */
         }
         .container {
             max-width: 450px;
@@ -29,6 +30,7 @@
             margin-bottom: 50px;
             overflow-y: auto; /* Прокрутка внутри контейнера */
             padding-bottom: 60px; /* Добавляем пространство для футера */
+            box-sizing: border-box;
         }
         .logo {
             margin-bottom: 16px;
@@ -75,6 +77,7 @@
             color: #FFFFFF;
             width: 100%;
             box-sizing: border-box;
+            transition: none; /* Отключаем анимацию при фокусе */
         }
         input::placeholder {
             color: #888888;
