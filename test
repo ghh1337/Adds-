@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Test Telegram send</title>
+</head>
+<body>
+  <h3>Тест отправки в Telegram (без секретов)</h3>
+  <input id="name" placeholder="Имя" value="Dan"><br><br>
+  <textarea id="text" placeholder="Текст" rows="4" cols="40">Привет — тест!</textarea><br><br>
+  <button id="send">Отправить тест</button>
+
+  <script>
+    document.getElementById('send').addEventListener('click', async () => {
+      const name = document.getElementById('name').value;
+      const text = document.getElementById('text').value;
+
+      try {
+        const resp = await fetch('http://localhost:3000/send', { // или https://your-server.com/send
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({ name, text })
+        });
+
+        const json = await resp.json();
+        console.log('server response', json);
+        if (json.ok) alert('Отправлено в Telegram!');
+        else alert('Ошибка: ' + (json.data?.description || json.error || JSON.stringify(json)));
+      } catch (err) {
+        console.error('fetch error', err);
+        alert('Network/CORS error — см. консоль (DevTools).');
+      }
+    });
+  </script>
+</body>
+</html>
